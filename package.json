@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "React Component Libray",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "rollup": "rollup -c"
   },
   "repository": {
     "type": "git",
@@ -22,16 +25,24 @@
   "devDependencies": {
     "@babel/core": "^7.18.6",
     "@mdx-js/react": "^1.6.22",
-    "@rollup/plugin-commonjs": "^22.0.0",
+    "@rollup/plugin-commonjs": "^22.0.1",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@rollup/plugin-typescript": "^8.3.3",
+    "@storybook/addon-actions": "^6.5.9",
+    "@storybook/addon-essentials": "^6.5.9",
+    "@storybook/addon-interactions": "^6.5.9",
+    "@storybook/addon-links": "^6.5.9",
+    "@storybook/builder-webpack5": "^6.5.9",
+    "@storybook/manager-webpack5": "^6.5.9",
+    "@storybook/react": "^6.5.9",
+    "@storybook/testing-library": "^0.0.13",
     "@types/react": "^18.0.15",
     "babel-loader": "^8.2.5",
     "html-webpack-plugin": "^5.5.0",
     "postcss": "^8.1.9",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "rollup": "^2.75.6",
+    "rollup": "^2.77.0",
     "rollup-plugin-dts": "^4.2.2",
     "sass": "^1.53.0",
     "sass-loader": "^12.6.0",
