@@ -1,0 +1,60 @@
+{
+  "name": "lilypad",
+  "version": "1.0.0",
+  "description": "React Component Libray",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mozilla/lilypad.git"
+  },
+  "keywords": [
+    "React",
+    "JavaScript",
+    "Component"
+  ],
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/mozilla/lilypad/issues"
+  },
+  "homepage": "https://github.com/mozilla/lilypad#readme",
+  "devDependencies": {
+    "@babel/core": "^7.18.6",
+    "@mdx-js/react": "^1.6.22",
+    "@rollup/plugin-commonjs": "^22.0.0",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@rollup/plugin-typescript": "^8.3.3",
+    "@types/react": "^18.0.15",
+    "babel-loader": "^8.2.5",
+    "html-webpack-plugin": "^5.5.0",
+    "postcss": "^8.1.9",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rollup": "^2.75.6",
+    "rollup-plugin-dts": "^4.2.2",
+    "sass": "^1.53.0",
+    "sass-loader": "^12.6.0",
+    "tslib": "^2.4.0",
+    "typescript": "^4.7.4"
+  },
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "files": [
+    "dist"
+  ],
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/nickgrato"
+  },
+  "resolutions": {
+    "postcss": "8"
+  },
+  "dependencies": {
+    "feather-icons": "^4.29.0",
+    "node-sass": "^7.0.1",
+    "postcss-loader": "^4.1.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "webpack": "^5.73.0"
+  }
+}

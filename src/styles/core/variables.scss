@@ -1,0 +1,110 @@
+// -----------------
+//   Font Setup
+// -----------------
+$font-size-base: 16; // base size in px
+$primary-font: 'Inter';
+$secondary-font: 'Space Grotesk';
+$backup-font:'Arial';
+
+// ---------------------------------
+//  Colors
+// ---------------------------------
+$color-interaction-primary: var(--color-interaction-primary);
+$color-interaction-primary-hover: var(--color-interaction-primary-hover);
+$color-interaction-primary-active: var(--color-interaction-primary-active);
+$color-interaction-primary-disabled: var(--color-interaction-primary-disabled);
+$color-interaction-primary-alt: var(--color-interaction-primary-alt);
+$color-interaction-primary-alt-hover: var(--color-interaction-primary-alt-hover);
+$color-interaction-primary-alt-active: var(--color-interaction-primary-alt-active);
+$color-interaction-primary-alt-disabled: var(--color-interaction-primary-alt-disabled);
+$color-interaction-secondary: var(--color-interaction-secondary);
+$color-interaction-secondary-hover: var(--color-interaction-secondary-hover);
+$color-interaction-secondary-active: var(--color-interaction-secondary-active);
+$color-interaction-secondary-disabled: var(--color-interaction-secondary-disabled);
+$color-interaction-secondary-alt: var(--color-interaction-secondary-alt);
+$color-interaction-secondary-alt-hover: var(--color-interaction-secondary-alt-hover);
+$color-interaction-secondary-alt-active: var(--color-interaction-secondary-alt-active);
+$color-interaction-secondary-alt-disabled: var(--color-interaction-secondary-alt-disabled);
+$color-semantic-info: var(--color-semantic-info);
+$color-semantic-info-hover: var(--color-semantic-info-hover);
+$color-semantic-info-active: var(--color-semantic-info-active);
+$color-semantic-disabled: var(--color-semantic-disabled);
+$color-semantic-success: var(--color-semantic-success);
+$color-semantic-success-hover: var(--color-semantic-success-hover);
+$color-semantic-success-active: var(--color-semantic-success-active);
+$color-semantic-success-disabled: var(--color-semantic-success-disabled);
+$color-semantic-warning: var(--color-semantic-warning);
+$color-semantic-warning-hover: var(--color-semantic-warning-hover);
+$color-semantic-warning-active: var(--color-semantic-warning-active);
+$color-semantic-warning-disabled: var(--color-semantic-warning-disabled);
+$color-semantic-critical: var(--color-semantic-critical);
+$color-semantic-critical-hover: var(--color-semantic-critical-hover);
+$color-semantic-critical-active: var(--color-semantic-critical-active);
+$color-semantic-critical-disabled: var(--color-semantic-critical-disabled);
+$color-text-main: var(--color-text-main);
+$color-text-subtitle: var(--color-text-subtitle);
+$color-text-reverse: var(--color-text-reverse);
+$color-text-reverse-subtle: var(--color-text-reverse-subtle);
+$color-text-disabled: var(--color-text-disabled);
+$color-text-info: var(--color-text-info);
+$color-text-success: var(--color-text-success);
+$color-text-warning: var(--color-text-warning);
+$color-text-critical: var(--color-text-critical);
+$color-border-1: var(--color-border-1);
+$color-border-2: var(--color-border-2);
+$color-neutral-0: var(--color-neutral-0);
+$color-neutral-1: var(--color-neutral-1);
+$color-neutral-2: var(--color-neutral-2);
+$color-neutral-3: var(--color-neutral-3);
+$color-background-info: var(--color-background-info);
+$color-background-success: var(--color-background-success);
+$color-background-warning: var(--color-background-warning);
+$color-background-critical: var(--color-background-critical);
+$color-background-success-subtle: var(--color-background-success-subtle);
+$color-background-warning-subtle: var(--color-background-warning-subtle);
+$color-background-critical-subtle: var(--color-background-critical-subtle);
+
+// ---- Primary Brand Colors ---------------------
+$black: #231f20;
+$dark-teal: #1c7f8d;
+$blue: #0D73A6;
+$light-blue:#e0f5ff;
+$link-blue:#007AB8;
+$purple: #663DF5;
+
+
+// ---- Accent Colors ---------------------
+$teal: #23a2b3;
+$light-teal: rgba($teal, 0.1);
+$pink: #d83a94;
+$blue-neon: #4d4dff;
+$yellow-neon: #f1ea57;
+$peach: #d96868;
+$tan: #e5dfd8;
+
+// ---- Utility Colors  ---------------------
+$white: #ffffff;
+$off-white: #ddd;
+$grey: #868686;
+$accent-grey:#e0e0e0;
+$form-gray:#c9c9c9;
+$semi-dark-grey: #767474;
+$dark-grey: #393536;
+$red: #d42828;
+$green: #3dc278;
+$loading-grey: #f8f8f8;
+$light-grey: #f5f5f5;
+
+// ---- Break Points ---------------------
+$breakpoint-mobile: 580px;
+$breakpoint-tablet: 768px;
+$breakpoint-tablet-large: 992px;
+$breakpoint-desktop: 1024px;
+$breakpoint-desktop-large: 1220px;
+$breakpoint-hd: 1312px;
+$container-max-width: 1440px;
+
+// ---- Misc ---------------------
+$drop-shadow: 0 3px 8px rgba($black, 0.3);
+$drop-shadow-right: 3px 3px 8px rgba($black, 0.3);
+$drop-shadow-light: 0 3px 8px rgba($black, 0.05);
