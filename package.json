@@ -1,9 +1,8 @@
 {
-  "name": "lilypad",
+  "name": "@mozilla/lilypad",
   "version": "1.0.0",
   "description": "React Component Libray",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "rollup": "rollup -c"
