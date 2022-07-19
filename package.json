@@ -55,7 +55,7 @@
   ],
   "types": "dist/index.d.ts",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/nickgrato"
+    "registry": "https://npm.pkg.github.com/mozilla"
   },
   "resolutions": {
     "postcss": "8"
