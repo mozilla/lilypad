@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "React Component Libray",
   "scripts": {
-    "storybook": "start-storybook -p 6006",
+    "sb": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "rollup": "rollup -c"
   },

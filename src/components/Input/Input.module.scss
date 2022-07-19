@@ -1,0 +1,68 @@
+@use '../../styles/boilerplate.scss'as *;
+
+.input {
+  &_wrapper {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    width: 300px;
+    padding-bottom: 10px;
+
+    label {
+      @include font-size(14);
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    input {
+      @include font-size(14);
+      border: $form-gray solid 1px;
+      border-radius: 4px;
+      padding: 12px;
+
+      &.has_icon {
+        padding-right: 40px;
+      }
+    }
+  }
+
+  &_error {
+    input {
+      border: $red solid 1px;
+    }
+  }
+}
+
+.error_message {
+  @include font-size(12);
+  color: $red;
+  margin-top: 5px; 
+}
+
+.info {
+  @include font-size(12);
+  margin-bottom: 5px;
+  color: $grey;
+}
+
+
+@mixin icon() {
+  position: absolute;
+  top: 35px;
+  right: 12px;
+}
+
+.icon_success {
+  @include icon();
+  stroke: $color-semantic-success;
+}
+
+.icon_error {
+  @include icon();
+  stroke: $color-semantic-critical;
+}
+
+.icon_default {
+  @include icon();
+  stroke: $color-text-info;
+}

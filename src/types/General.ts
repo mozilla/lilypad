@@ -27,6 +27,11 @@ export type UpdateHubT = {
   status: StatusT;
 };
 
+export enum BadgeCategoriesE {
+  PRIMARY = 'primary',
+  SECONDARY = 'secondary'
+};
+
 export type AccountT = {
   displayName: string;
   email: string;

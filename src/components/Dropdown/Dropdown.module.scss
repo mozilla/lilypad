@@ -1,0 +1,16 @@
+@use '../../styles/boilerplate.scss'as *;
+
+.dropdown_wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.content_wrapper {
+  max-width: 275px;
+  width: 100%;
+  min-width: 275px;
+  border-radius: 4px;
+  z-index: 1;
+  background-color: $white;
+  box-shadow: $drop-shadow;
+}
