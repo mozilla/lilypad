@@ -375,63 +375,96 @@ const Icon = ({
         </>
       ) : null}
 
-      {/*  
-        
-     
-       
-        
-        // Todo finish breaking this up..
-  
-        <symbol id="check" viewBox="0 0 24 24">
+      {name === 'check' ? (
+        <>
           <polyline points="20 6 9 17 4 12"></polyline>
-        </symbol>
-        <symbol id="chevron-down" viewBox="0 0 24 24">
+        </>
+      ) : null}
+
+      {name === 'chevron-down' ? (
+        <>
           <polyline points="6 9 12 15 18 9"></polyline>
-        </symbol>
-        <symbol id="chevron-left" viewBox="0 0 24 24">
+        </>
+      ) : null}
+
+      {name === 'chevron-left' ? (
+        <>
           <polyline points="15 18 9 12 15 6"></polyline>
-        </symbol>
-        <symbol id="chevron-right" viewBox="0 0 24 24">
+        </>
+      ) : null}
+
+      {name === 'chevron-right' ? (
+        <>
           <polyline points="9 18 15 12 9 6"></polyline>
-        </symbol>
-        <symbol id="chevron-up" viewBox="0 0 24 24">
+        </>
+      ) : null}
+
+      {name === 'chevron-up' ? (
+        <>
           <polyline points="18 15 12 9 6 15"></polyline>
-        </symbol>
-        <symbol id="chevrons-down" viewBox="0 0 24 24">
+        </>
+      ) : null}
+
+      {name === 'chevrons-down' ? (
+        <>
           <polyline points="7 13 12 18 17 13"></polyline>
           <polyline points="7 6 12 11 17 6"></polyline>
-        </symbol>
-        <symbol id="chevrons-left" viewBox="0 0 24 24">
+        </>
+      ) : null}
+
+      {name === 'chevrons-left' ? (
+        <>
           <polyline points="11 17 6 12 11 7"></polyline>
           <polyline points="18 17 13 12 18 7"></polyline>
-        </symbol>
-        <symbol id="chevrons-right" viewBox="0 0 24 24">
+        </>
+      ) : null}
+
+      {name === 'chevrons-right' ? (
+        <>
           <polyline points="13 17 18 12 13 7"></polyline>
           <polyline points="6 17 11 12 6 7"></polyline>
-        </symbol>
-        <symbol id="chevrons-up" viewBox="0 0 24 24">
+        </>
+      ) : null}
+
+      {name === 'chevrons-up' ? (
+        <>
           <polyline points="17 11 12 6 7 11"></polyline>
           <polyline points="17 18 12 13 7 18"></polyline>
-        </symbol>
-        <symbol id="chrome" viewBox="0 0 24 24">
+        </>
+      ) : null}
+
+      {name === 'chrome' ? (
+        <>
           <circle cx="12" cy="12" r="10"></circle>
           <circle cx="12" cy="12" r="4"></circle>
           <line x1="21.17" y1="8" x2="12" y2="8"></line>
           <line x1="3.95" y1="6.06" x2="8.54" y2="14"></line>
           <line x1="10.88" y1="21.94" x2="15.46" y2="14"></line>
-        </symbol>
-        <symbol id="circle" viewBox="0 0 24 24">
+        </>
+      ) : null}
+
+      {name === 'circle' ? (
+        <>
           <circle cx="12" cy="12" r="10"></circle>
-        </symbol>
-        <symbol id="clipboard" viewBox="0 0 24 24">
+        </>
+      ) : null}
+
+      {name === 'clipboard' ? (
+        <>
           <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
           <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
-        </symbol>
-        <symbol id="clock" viewBox="0 0 24 24">
+        </>
+      ) : null}
+
+      {name === 'clock' ? (
+        <>
           <circle cx="12" cy="12" r="10"></circle>
           <polyline points="12 6 12 12 16 14"></polyline>
-        </symbol>
-        <symbol id="cloud-drizzle" viewBox="0 0 24 24">
+        </>
+      ) : null}
+
+      {name === 'cloud-drizzle' ? (
+        <>
           <line x1="8" y1="19" x2="8" y2="21"></line>
           <line x1="8" y1="13" x2="8" y2="15"></line>
           <line x1="16" y1="19" x2="16" y2="21"></line>
@@ -439,22 +472,34 @@ const Icon = ({
           <line x1="12" y1="21" x2="12" y2="23"></line>
           <line x1="12" y1="15" x2="12" y2="17"></line>
           <path d="M20 16.58A5 5 0 0 0 18 7h-1.26A8 8 0 1 0 4 15.25"></path>
-        </symbol>
-        <symbol id="cloud-lightning" viewBox="0 0 24 24">
+        </>
+      ) : null}
+
+      {name === 'cloud-lightning' ? (
+        <>
           <path d="M19 16.9A5 5 0 0 0 18 7h-1.26a8 8 0 1 0-11.62 9"></path>
           <polyline points="13 11 9 17 15 17 11 23"></polyline>
-        </symbol>
-        <symbol id="cloud-off" viewBox="0 0 24 24">
+        </>
+      ) : null}
+
+      {name === 'cloud-off' ? (
+        <>
           <path d="M22.61 16.95A5 5 0 0 0 18 10h-1.26a8 8 0 0 0-7.05-6M5 5a8 8 0 0 0 4 15h9a5 5 0 0 0 1.7-.3"></path>
           <line x1="1" y1="1" x2="23" y2="23"></line>
-        </symbol>
-        <symbol id="cloud-rain" viewBox="0 0 24 24">
+        </>
+      ) : null}
+
+      {name === 'cloud-rain' ? (
+        <>
           <line x1="16" y1="13" x2="16" y2="21"></line>
           <line x1="8" y1="13" x2="8" y2="21"></line>
           <line x1="12" y1="15" x2="12" y2="23"></line>
           <path d="M20 16.58A5 5 0 0 0 18 7h-1.26A8 8 0 1 0 4 15.25"></path>
-        </symbol>
-        <symbol id="cloud-snow" viewBox="0 0 24 24">
+        </>
+      ) : null}
+
+      {name === 'cloud-snow' ? (
+        <>
           <path d="M20 17.58A5 5 0 0 0 18 8h-1.26A8 8 0 1 0 4 16.25"></path>
           <line x1="8" y1="16" x2="8.01" y2="16"></line>
           <line x1="8" y1="20" x2="8.01" y2="20"></line>
@@ -462,10 +507,58 @@ const Icon = ({
           <line x1="12" y1="22" x2="12.01" y2="22"></line>
           <line x1="16" y1="16" x2="16.01" y2="16"></line>
           <line x1="16" y1="20" x2="16.01" y2="20"></line>
-        </symbol>
-        <symbol id="cloud" viewBox="0 0 24 24">
+        </>
+      ) : null}
+
+      {name === 'cloud' ? (
+        <>
           <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
-        </symbol>
+        </>
+      ) : null}
+
+      {name === 'settings' ? (
+        <>
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+        </>
+      ) : null}
+
+      {name === 'copy' ? (
+        <>
+          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+        </>
+      ) : null}
+
+      {name === 'plus-circle' ? (
+        <>
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="16"></line>
+          <line x1="8" y1="12" x2="16" y2="12"></line>
+        </>
+      ) : null}
+
+      {name === 'plus-square' ? (
+        <>
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="12" y1="8" x2="12" y2="16"></line>
+          <line x1="8" y1="12" x2="16" y2="12"></line>
+        </>
+      ) : null}
+
+      {name === 'plus' ? (
+        <>
+          <line x1="12" y1="5" x2="12" y2="19"></line>
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+        </>
+      ) : null}
+
+      {/*  
+
+        
+        // Todo finish breaking this up..
+  
+        
         <symbol id="code" viewBox="0 0 24 24">
           <polyline points="16 18 22 12 16 6"></polyline>
           <polyline points="8 6 2 12 8 18"></polyline>
@@ -502,10 +595,7 @@ const Icon = ({
           <circle cx="12" cy="12" r="10"></circle>
           <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
         </symbol>
-        <symbol id="copy" viewBox="0 0 24 24">
-          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-        </symbol>
+        
         <symbol id="corner-down-left" viewBox="0 0 24 24">
           <polyline points="9 10 4 15 9 20"></polyline>
           <path d="M20 4v7a4 4 0 0 1-4 4H4"></path>
@@ -550,10 +640,7 @@ const Icon = ({
           <line x1="1" y1="9" x2="4" y2="9"></line>
           <line x1="1" y1="14" x2="4" y2="14"></line>
         </symbol>
-        <symbol id="credit-card" viewBox="0 0 24 24">
-          <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
-          <line x1="1" y1="10" x2="23" y2="10"></line>
-        </symbol>
+        
         <symbol id="crop" viewBox="0 0 24 24">
           <path d="M6.13 1L6 16a2 2 0 0 0 2 2h15"></path>
           <path d="M1 6.13L16 6a2 2 0 0 1 2 2v15"></path>
@@ -1074,20 +1161,7 @@ const Icon = ({
         <symbol id="play" viewBox="0 0 24 24">
           <polygon points="5 3 19 12 5 21 5 3"></polygon>
         </symbol>
-        <symbol id="plus-circle" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="10"></circle>
-          <line x1="12" y1="8" x2="12" y2="16"></line>
-          <line x1="8" y1="12" x2="16" y2="12"></line>
-        </symbol>
-        <symbol id="plus-square" viewBox="0 0 24 24">
-          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-          <line x1="12" y1="8" x2="12" y2="16"></line>
-          <line x1="8" y1="12" x2="16" y2="12"></line>
-        </symbol>
-        <symbol id="plus" viewBox="0 0 24 24">
-          <line x1="12" y1="5" x2="12" y2="19"></line>
-          <line x1="5" y1="12" x2="19" y2="12"></line>
-        </symbol>
+       
         <symbol id="pocket" viewBox="0 0 24 24">
           <path d="M4 3h16a2 2 0 0 1 2 2v6a10 10 0 0 1-10 10A10 10 0 0 1 2 11V5a2 2 0 0 1 2-2z"></path>
           <polyline points="8 10 12 14 16 10"></polyline>
@@ -1164,10 +1238,7 @@ const Icon = ({
           <line x1="6" y1="6" x2="6.01" y2="6"></line>
           <line x1="6" y1="18" x2="6.01" y2="18"></line>
         </symbol>
-        <symbol id="settings" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="3"></circle>
-          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-        </symbol>
+        
         <symbol id="share-2" viewBox="0 0 24 24">
           <circle cx="18" cy="5" r="3"></circle>
           <circle cx="6" cy="12" r="3"></circle>
