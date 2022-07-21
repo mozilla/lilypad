@@ -9,9 +9,7 @@ import {
   useImperativeHandle,
 } from 'react';
 import styles from './Input.module.scss';
-import Icon from '../Icon/Icon';
-import { InputT } from '../../types/Form';
-import { IconT } from '../../types/General';
+import Icon, { IconT } from '../Icon/Icon';
 
 /**
  * Methods available to access the component in the parent component. These would most likley
@@ -21,6 +19,8 @@ export type InputInterfaceT = {
   focusInput: Function;
   isDirty: Function;
 };
+
+export type InputT = 'text' | 'password' | 'email' | 'number' | 'tel';
 
 export enum InputIconColorE {
   SUCCESS = 'success',

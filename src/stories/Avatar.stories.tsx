@@ -23,5 +23,6 @@ const Template: ComponentStory<typeof Avatar> = (args) => (
 export const Main = Template.bind({})
 Main.args = {
   src: 'https://ui-avatars.com/api/?background=0D8ABC&color=fff',
-  alt: 'JD'
+  alt: 'JD',
+  size: 50
 }

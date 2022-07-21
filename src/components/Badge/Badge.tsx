@@ -1,7 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { BadgeCategoriesE } from '../../types/General';
 import styles from './Badge.module.scss';
+
+export enum BadgeCategoriesE {
+  PRIMARY = 'primary',
+  SECONDARY = 'secondary'
+};
 
 const propTypes = {
   name: PropTypes.string.isRequired,
