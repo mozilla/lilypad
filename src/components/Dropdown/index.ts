@@ -1,1 +1,1 @@
-export { default } from './Dropdown';
+export { default, AlignmentT, dropdownT } from './Dropdown';

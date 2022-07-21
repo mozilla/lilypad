@@ -1,6 +1,6 @@
 {
   "name": "@mozilla/lilypad",
-  "version": "1.0.1",
+  "version": "1.0.9",
   "description": "React Component Libray",
   "scripts": {
     "sb": "start-storybook -p 6006",
@@ -39,14 +39,21 @@
     "babel-loader": "^8.2.5",
     "html-webpack-plugin": "^5.5.0",
     "postcss": "^8.1.9",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react-dom": "18.1.0",
     "rollup": "^2.77.0",
     "rollup-plugin-dts": "^4.2.2",
     "sass": "^1.53.0",
     "sass-loader": "^12.6.0",
     "tslib": "^2.4.0",
-    "typescript": "^4.7.4"
+    "typescript": "^4.7.4",
+    "node-sass": "^7.0.1",
+    "postcss-loader": "^4.1.0",
+    "rollup-plugin-postcss": "^4.0.2",
+    "webpack": "^5.73.0",
+    "react": "18.1.0"
+  },
+  "peerDependencies": {
+    "react": "18.1.0"
   },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -59,12 +66,5 @@
   },
   "resolutions": {
     "postcss": "8"
-  },
-  "dependencies": {
-    "feather-icons": "^4.29.0",
-    "node-sass": "^7.0.1",
-    "postcss-loader": "^4.1.0",
-    "rollup-plugin-postcss": "^4.0.2",
-    "webpack": "^5.73.0"
   }
 }

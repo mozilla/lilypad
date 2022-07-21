@@ -15,7 +15,7 @@ export type dropdownT = {
   closeDropdown: Function;
 };
 
-type AlignmentT = 'left' | 'right';
+export type AlignmentT = 'left' | 'right';
 type DropdownProps = {
   cta: ReactNode;
   content: ReactNode;

@@ -156,7 +156,7 @@
   @include rect_button_base();
   background-color: transparent;
   border: solid 2px $color-interaction-secondary;
-  color: $color-text-subtitle;
+  color: $color-interaction-secondary;
 
   &:hover:enabled {
     background-color: $color-interaction-secondary-alt-hover;
@@ -183,7 +183,7 @@
   @include rect_button_base();
   background-color: transparent;
   border: 0;
-  color: $color-text-subtitle;
+  color: $color-interaction-secondary;
 
   &:hover:enabled {
     background-color: $color-interaction-secondary-alt-hover;
