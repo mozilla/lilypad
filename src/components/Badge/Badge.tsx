@@ -4,8 +4,8 @@ import styles from './Badge.module.scss';
 
 export enum BadgeCategoriesE {
   PRIMARY = 'primary',
-  SECONDARY = 'secondary'
-};
+  SECONDARY = 'secondary',
+}
 
 const propTypes = {
   name: PropTypes.string.isRequired,

@@ -1,11 +1,11 @@
 {
   "name": "@mozilla/lilypad",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "React Component Libray",
   "scripts": {
     "sb": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "rollup": "rollup -c"
+    "ru": "rollup -c"
   },
   "repository": {
     "type": "git",

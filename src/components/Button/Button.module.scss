@@ -1,6 +1,6 @@
 @use '../../styles/boilerplate.scss'as *;
 
-@mixin rect_button_base() { 
+@mixin rect_button_base() {
   @include primary-font(600);
   @include font-size(14);
 

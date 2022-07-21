@@ -289,7 +289,6 @@ export type IconT =
   | 'zoom-in'
   | 'zoom-out';
 
-
 type IconProps = {
   name: IconT;
   color?: string;
