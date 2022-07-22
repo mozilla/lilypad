@@ -1,0 +1,11 @@
+@use '../../styles/boilerplate.scss'as *;
+
+.button {
+  &_wrapper {
+    padding: 10px;
+
+    label {
+      color: $color-text-main;
+    }
+  }
+};

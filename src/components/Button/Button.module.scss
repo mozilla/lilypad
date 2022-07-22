@@ -1,6 +1,6 @@
 @use '../../styles/boilerplate.scss'as *;
 
-@mixin rect_button_base() { 
+@mixin rect_button_base() {
   @include primary-font(600);
   @include font-size(14);
 
@@ -92,7 +92,7 @@
 .button_primary_clear {
   @include rect_button_base();
   background-color: transparent;
-  border: 0;
+  border: solid 2px transparent;
   color: $color-interaction-primary;
 
   &:hover:enabled {
@@ -156,7 +156,7 @@
   @include rect_button_base();
   background-color: transparent;
   border: solid 2px $color-interaction-secondary;
-  color: $color-text-subtitle;
+  color: $color-interaction-secondary;
 
   &:hover:enabled {
     background-color: $color-interaction-secondary-alt-hover;
@@ -182,8 +182,8 @@
 .button_secondary_clear {
   @include rect_button_base();
   background-color: transparent;
-  border: 0;
-  color: $color-text-subtitle;
+  border: solid 2px transparent;
+  color: $color-interaction-secondary;
 
   &:hover:enabled {
     background-color: $color-interaction-secondary-alt-hover;

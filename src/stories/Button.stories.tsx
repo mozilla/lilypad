@@ -1,7 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ButtonCategoriesE, ButtonSizesE } from '../types/Form';
-import Button from '../components/Button/Button';
+import Button, { ButtonCategoriesE, ButtonSizesE } from '../components/Button/Button';
 import '../styles/theme.scss'
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
