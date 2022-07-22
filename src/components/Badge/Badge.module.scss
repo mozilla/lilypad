@@ -4,9 +4,10 @@
 
   &_primary,
   &_secondary {
+    @include primary-font(500);
     @include font-size(14);
     font-weight: 600;
-    line-height: 18px;
+    line-height: 24px;
     text-transform: capitalize;
     letter-spacing: .5px;
     padding: 5px 12px;
@@ -15,7 +16,7 @@
   }
 
   &_primary {
-    background-color: $color-interaction-primary;
+    background-color: $color-text-main;
     color: $color-text-reverse;
   }
 

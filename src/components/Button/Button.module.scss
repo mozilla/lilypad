@@ -92,7 +92,7 @@
 .button_primary_clear {
   @include rect_button_base();
   background-color: transparent;
-  border: 0;
+  border: solid 2px transparent;
   color: $color-interaction-primary;
 
   &:hover:enabled {
@@ -182,7 +182,7 @@
 .button_secondary_clear {
   @include rect_button_base();
   background-color: transparent;
-  border: 0;
+  border: solid 2px transparent;
   color: $color-interaction-secondary;
 
   &:hover:enabled {
