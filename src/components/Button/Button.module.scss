@@ -94,6 +94,7 @@
   background-color: transparent;
   border: solid 2px transparent;
   color: $color-interaction-primary;
+  box-shadow: none;
 
   &:hover:enabled {
     background-color: $color-interaction-primary-alt-hover;
@@ -184,6 +185,7 @@
   background-color: transparent;
   border: solid 2px transparent;
   color: $color-interaction-secondary;
+  box-shadow: none;
 
   &:hover:enabled {
     background-color: $color-interaction-secondary-alt-hover;
