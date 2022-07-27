@@ -804,6 +804,13 @@ const Icon = ({
         </>
       ) : null}
 
+      {name === 'credit-card' ? (
+        <>
+          <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+          <line x1="1" y1="10" x2="23" y2="10"></line>
+        </>
+      ) : null}
+
       {name === 'settings' ? (
         <>
           <circle cx="12" cy="12" r="3"></circle>

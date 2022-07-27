@@ -10,7 +10,7 @@ const ProgressBar = ({ value = 40, classProp = '' }: ProgressBarPropsT) => {
   return (
     <div className={`${styles.wrapper} ${classProp}`}>
       <div className={styles.container}></div>
-      <div className={styles.value} style={{ width: value + '%' }}></div>
+      <div className={`${styles.value} progress_value`} style={{ width: value + '%' }}></div>
     </div>
   );
 };

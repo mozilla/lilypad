@@ -6,8 +6,7 @@
   &_secondary {
     @include primary-font(500);
     @include font-size(14);
-    font-weight: 600;
-    line-height: 24px;
+    line-height: 18px;
     text-transform: capitalize;
     letter-spacing: .5px;
     padding: 5px 12px;
@@ -22,6 +21,6 @@
 
   &_secondary {
     background-color: $color-interaction-secondary;
-    color: $color-text-subtitle;
+    color: $color-text-subtle;
   }
 }

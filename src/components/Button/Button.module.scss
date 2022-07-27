@@ -82,7 +82,7 @@
   &[disabled] {
     background-color: transparent;
     border: solid 2px $color-interaction-primary-alt-disabled;
-    color: $color-text-subtitle;
+    color: $color-text-subtle;
   }
 }
 
@@ -112,7 +112,7 @@
   &[disabled] {
     background-color: transparent;
     border: solid 2px $color-interaction-primary-alt-disabled;
-    color: $color-text-subtitle;
+    color: $color-text-subtle;
   }
 }
 
@@ -129,7 +129,7 @@
   @include rect_button_base();
   background-color: $color-interaction-secondary;
   border: solid 2px $color-interaction-secondary;
-  color: $color-text-subtitle;
+  color: $color-text-subtle;
 
   &:hover:enabled {
     background-color: $color-interaction-secondary-hover;
