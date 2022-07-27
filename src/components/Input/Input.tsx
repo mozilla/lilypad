@@ -148,7 +148,7 @@ const Input = forwardRef(
           maxLength={maxLength}
           minLength={minLength}
           pattern={pattern}
-          className={icon && styles.has_icon}
+          className={`${icon && styles.has_icon} ${showError && styles.has_error}`}
         />
 
         {icon ? (
