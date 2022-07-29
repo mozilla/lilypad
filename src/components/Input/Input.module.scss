@@ -1,0 +1,82 @@
+@use '../../styles/boilerplate.scss'as *;
+
+.input {
+  &_wrapper {
+    @include primary-font();
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    width: 100%;
+    padding-bottom: 10px;
+
+    label {
+      @include font-size(16);
+      color: $color-text-main;
+      line-height: 24px;
+      margin-bottom: 6px;
+      font-weight: 600;
+
+      span {
+        color: $color-semantic-critical;
+      }
+    }
+
+    input {
+      @include font-size(16);
+      color: $color-text-main;
+      border: $color-interaction-secondary solid 2px;
+      border-radius: 12px;
+      padding: 12px;
+
+      &.has_error {
+        border: $color-semantic-critical solid 2px;
+      }
+
+      &.has_icon {
+        padding-right: 40px;
+      }
+    }
+  }
+
+  &_error {
+    input {
+      border: $color-semantic-critical solid 1px;
+    }
+  }
+}
+
+.error_message {
+  @include font-size(16);
+  color: $color-semantic-critical;
+  margin-top: 6px; 
+  line-height: 24px;
+}
+
+.info {
+  @include font-size(16);
+  margin-top: 6px;
+  color: $color-text-subtle;
+  line-height: 24px;
+}
+
+
+@mixin icon() {
+  position: absolute;
+  top: 42px;
+  right: 12px;
+}
+
+.icon_success {
+  @include icon();
+  stroke: $color-semantic-success;
+}
+
+.icon_error {
+  @include icon();
+  stroke: $color-semantic-critical;
+}
+
+.icon_default {
+  @include icon();
+  stroke: $color-text-info;
+}

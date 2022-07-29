@@ -1,0 +1,9 @@
+@use '../../styles/boilerplate.scss'as *;
+
+.success {
+  @include primary-font(500);
+  @include font-size(16);
+  line-height: 24px;
+  color: $color-text-subtle;
+  padding: 8px;
+}

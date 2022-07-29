@@ -24,14 +24,18 @@ export default [
     plugins: [
       resolve(),
       commonjs(),
-      typescript({ tsconfig: "./tsconfig.json" , exclude: ["**/stories"]}),
+      typescript({ tsconfig: "./tsconfig.json", exclude: ["**/stories"] }),
       postcss({
         extract: false,
         modules: true,
         use: ['sass'],
       }),
     ],
-    external: ['storybook']
+    external: [
+      'storybook', 
+      'react',
+      'react-dom',
+    ]
   },
   {
     input: "dist/esm/types/index.d.ts",
