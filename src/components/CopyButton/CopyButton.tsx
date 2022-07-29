@@ -23,7 +23,7 @@ const CopyButton = ({
     navigator.clipboard.writeText(value.toString()).then(() => {
       startSuccessTimer();
     });
-  }, []);
+  }, [onClick,value]);
 
   const startSuccessTimer = () => {
     setSuccess(true);

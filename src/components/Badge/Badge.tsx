@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styles from './Badge.module.scss';
 
 export enum BadgeCategoriesE {
@@ -7,16 +6,11 @@ export enum BadgeCategoriesE {
   SECONDARY = 'secondary',
 }
 
-const propTypes = {
-  name: PropTypes.string.isRequired,
-  category: PropTypes.oneOf([
-    BadgeCategoriesE.PRIMARY,
-    BadgeCategoriesE.SECONDARY,
-  ]),
-  classProp: PropTypes.string,
+export type BadgePropsT = {
+  name: string;
+  category: BadgeCategoriesE;
+  classProp?: string;
 };
-
-type BadgePropsT = PropTypes.InferProps<typeof propTypes>;
 
 const Badge = ({
   name,
@@ -33,7 +27,5 @@ const Badge = ({
     </span>
   );
 };
-
-Badge.propTypes = propTypes;
 
 export default Badge;
