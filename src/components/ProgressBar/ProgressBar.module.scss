@@ -7,8 +7,8 @@
 }
 
 .container {
-  background-color: #F0F0F0;
-  border: 1px solid #000000;
+  background-color: $color-neutral-1;
+  border: 1px solid $color-text-main;
   width: 100%;
   height: 100%;
   position: absolute;
@@ -16,7 +16,7 @@
 }
 
 .value {
-  background-color: #262626;
+  background-color: $color-text-main;
   height: 4px;
   position: absolute;
   top: 1px;
