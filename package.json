@@ -6,7 +6,7 @@
     "sb": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "ru": "rollup -c",
-    "dsb": "storybook-to-ghpages --source-branch=main --ci"
+    "deploy-storybook": "storybook-to-ghpages --source-branch=main --ci"
   },
   "repository": {
     "type": "git",
