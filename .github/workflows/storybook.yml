@@ -1,0 +1,26 @@
+name: Storybook
+on:
+  push:
+    branches:
+      - HUBSTRKY-486
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: 'npm'
+          cache-dependency-path: assets/package-lock.json
+        
+      - name: Deploy storybook to Github Pages
+        run: |
+          npm install --legacy-peer-deps
+          # Forcing legacy peer dep behavior, since we want to use a version of React 
+          # that is newer than the one Storybook expects.
+          npm run deploy-storybook -- --ci
+        env:
+          GH_TOKEN: Dashboard:${{ secrets.GITHUB_TOKEN }}
