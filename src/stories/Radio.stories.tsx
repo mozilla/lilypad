@@ -39,7 +39,7 @@ const Template: ComponentStory<typeof RadioButton> = (args) => {
 
   return (
     <>
-      <main data-theme="light" style={{ padding: '20px' }}>
+      <main data-theme="light" style={{ padding: '20px', fontSize: '16px' }}>
         <form>
           <h3>Light Theme - {value}</h3>
           <fieldset
@@ -64,7 +64,7 @@ const Template: ComponentStory<typeof RadioButton> = (args) => {
 
       <main
         data-theme="dark"
-        style={{ background: '#000000', padding: '20px' }}
+        style={{ background: '#000000', padding: '20px', fontSize: '16px' }}
       >
         <form>
           <h3 style={{ color: '#ffffff' }}>Dark Theme - {darkValue}</h3>

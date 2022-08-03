@@ -24,7 +24,6 @@ const RadioButton = ({
 
   return (
     <div className={`${styles.button_wrapper} ${classProp}`}>
-      <label htmlFor={id}>{label}</label>
       <input
         id={id}
         type="radio"
@@ -33,6 +32,8 @@ const RadioButton = ({
         disabled={isDisabled}
         checked={groupValue === value}
       />
+      <label htmlFor={id}>{label}</label>
+
     </div>
   )
 }

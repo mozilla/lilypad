@@ -17,3 +17,4 @@ export {
 export { default as ProgressBar } from './ProgressBar';
 export { default as RadioButton } from './RadioButton';
 export { default as CopyButton } from './CopyButton';
+export { default as Checkbox } from './Checkbox';
