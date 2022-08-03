@@ -2,7 +2,7 @@ name: Storybook
 on:
   push:
     branches:
-      - HUBSTRKY-486
+      - main
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
