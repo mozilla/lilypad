@@ -35,6 +35,8 @@ type InputProps = {
   type?: InputT;
   info?: string;
   classProp?: string;
+  onBlur?: Function;
+  onFocus?: Function;
   onChange?: Function;
   validator?: Function;
   required?: boolean;
@@ -57,6 +59,8 @@ const Input = forwardRef(
       info = '',
       classProp = '',
       onChange,
+      onBlur,
+      onFocus,
       validator = () => true,
       required = false,
       customErrorMessage,
@@ -97,6 +101,14 @@ const Input = forwardRef(
       // If initial value was empty any change makes form dirty
       const isDirty = initialValue === '' ? true : initialValue !== newValue;
       setIsDirty(isDirty);
+    };
+
+    const handleOnBlur = () => {
+      onBlur && onBlur();
+    };
+
+    const handleOnFocus = () => {
+      onFocus && onFocus();
     };
 
     /**
@@ -145,10 +157,14 @@ const Input = forwardRef(
           required={required}
           placeholder={placeholder ? placeholder : label}
           onChange={handleOnChange}
+          onBlur={handleOnBlur}
+          onFocus={handleOnFocus}
           maxLength={maxLength}
           minLength={minLength}
           pattern={pattern}
-          className={`${icon && styles.has_icon} ${showError && styles.has_error}`}
+          className={`${icon && styles.has_icon} ${
+            showError && styles.has_error
+          }`}
         />
 
         {icon ? (

@@ -1,6 +1,6 @@
 {
   "name": "@mozilla/lilypad",
-  "version": "1.0.17",
+  "version": "1.0.19",
   "description": "React Component Libray",
   "scripts": {
     "sb": "start-storybook -p 6006",

@@ -33,7 +33,9 @@ export type ButtonPropsT = {
   disabled?: boolean;
   icon?: IconT;
   iconPlacedRight?: boolean;
-  onClick?: MouseEventHandler<HTMLButtonElement>;
+  href?: string;
+  target?: string;
+  onClick?: MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
   classProp?: string;
 };
 
@@ -48,23 +50,12 @@ const Button = ({
   icon,
   onClick,
   iconPlacedRight = false,
+  href,
+  target = '_blank',
   classProp = '',
 }: ButtonPropsT) => {
-  return (
-    <button
-      className={`
-        ${styles['button_' + category]} 
-        ${styles[size]} 
-        ${!text && styles[size + '_round']} 
-        ${classProp} 
-        ${active && styles['button_' + category + '_active']}
-      `}
-      id={id}
-      aria-label={text}
-      type={type}
-      disabled={disabled}
-      onClick={onClick}
-    >
+  const content = (
+    <>
       {/* Left Icon  */}
       {icon && !iconPlacedRight ? (
         <Icon
@@ -89,6 +80,37 @@ const Button = ({
       ) : (
         ''
       )}
+    </>
+  );
+
+  const getClass = `
+  ${styles['button_' + category]} 
+  ${styles[size]} 
+  ${!text && styles[size + '_round']} 
+  ${classProp} 
+  ${active && styles['button_' + category + '_active']}
+`;
+
+  return href ? (
+    <a
+      className={getClass}
+      id={id}
+      target={target}
+      href={href}
+      onClick={onClick}
+    >
+      {content}
+    </a>
+  ) : (
+    <button
+      className={getClass}
+      id={id}
+      aria-label={text}
+      type={type}
+      disabled={disabled}
+      onClick={onClick}
+    >
+      {content}
     </button>
   );
 };
