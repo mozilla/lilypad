@@ -24,9 +24,7 @@ const Checkbox = forwardRef(
      * Exposed Component API
      */
     useImperativeHandle(ref, () => {
-      return {
-        // focusInput: (value : boolean) => { inputRef.current?.ch = value}
-      };
+      return {};
     });
 
     /**
