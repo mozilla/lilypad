@@ -51,7 +51,7 @@ const Button = ({
   onClick,
   iconPlacedRight = false,
   href,
-  target = '_blank',
+  target = '_self',
   classProp = '',
 }: ButtonPropsT) => {
   const content = (
@@ -83,17 +83,21 @@ const Button = ({
     </>
   );
 
-  const getClass = `
-  ${styles['button_' + category]} 
-  ${styles[size]} 
-  ${!text && styles[size + '_round']} 
-  ${classProp} 
-  ${active && styles['button_' + category + '_active']}
-`;
+  /**
+   * Configure CSS Class
+   */
+  const className = `
+    ${styles['button_' + category]} 
+    ${styles[size]} 
+    ${!text && styles[size + '_round']} 
+    ${classProp} 
+    ${active && styles['button_' + category + '_active']}
+  `;
 
   return href ? (
+    // ANCHOR LINK 
     <a
-      className={getClass}
+      className={className}
       id={id}
       target={target}
       href={href}
@@ -102,8 +106,9 @@ const Button = ({
       {content}
     </a>
   ) : (
+    // BUTTON 
     <button
-      className={getClass}
+      className={className}
       id={id}
       aria-label={text}
       type={type}

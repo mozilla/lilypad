@@ -25,6 +25,7 @@ const RadioButton = ({
   return (
     <div className={`${styles.button_wrapper} ${classProp}`}>
       <input
+        readOnly={true}
         id={id}
         type="radio"
         name={groupName}

@@ -21,6 +21,6 @@ jobs:
           npm install --legacy-peer-deps
           # Forcing legacy peer dep behavior, since we want to use a version of React 
           # that is newer than the one Storybook expects.
-          npm run deploy-storybook -- --ci
+          npm run deploy-storybook
         env:
           GH_TOKEN: Dashboard:${{ secrets.GITHUB_TOKEN }}

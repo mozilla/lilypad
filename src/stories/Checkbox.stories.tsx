@@ -9,19 +9,20 @@ export default {
 
 const Template: ComponentStory<typeof Checkbox> = (args) => {
 
-  const [value, setValue] = useState(args.checked);
+  const [value, setValue] = useState(false);
   const onChange = (value: boolean) => {
     setValue(value);
   };
 
-  const [darkValue, setDarkValue] = useState(args.checked);
+  const [darkValue, setDarkValue] = useState(false);
   const onDarkChange = (value: boolean) => {
     setDarkValue(value);
   };
 
   useEffect(() => {
-    setValue(args.checked);
-    setDarkValue(args.checked);
+    const checked = args.checked ? args.checked : false;
+    setValue(checked);
+    setDarkValue(checked);
   }, [args.checked]);
 
   return (

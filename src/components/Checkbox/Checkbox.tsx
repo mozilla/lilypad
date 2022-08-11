@@ -1,7 +1,6 @@
 import React, {
   forwardRef,
   useRef,
-  useImperativeHandle,
   ChangeEventHandler,
   ChangeEvent,
 } from 'react';
@@ -13,19 +12,22 @@ type CheckboxPropsT = {
   disabled?: boolean;
   classProp?: string;
   labelClassProp?: string;
-  onChange: Function;
+  onChange: (value: boolean) => void;
 };
 
 const Checkbox = forwardRef(
-  ({ classProp, label, disabled, checked, onChange }: CheckboxPropsT, ref) => {
+  (
+    {
+      classProp,
+      label,
+      disabled,
+      checked,
+      labelClassProp,
+      onChange,
+    }: CheckboxPropsT,
+    ref
+  ) => {
     const inputRef = useRef<HTMLInputElement>(null);
-
-    /**
-     * Exposed Component API
-     */
-    useImperativeHandle(ref, () => {
-      return {};
-    });
 
     /**
      * Handle Input Change
@@ -49,9 +51,15 @@ const Checkbox = forwardRef(
         />
 
         {/* Styled Checkmark  */}
-        <div className={`${styles.checkmark} ${disabled && styles.checkmark_disabled}`} />
+        <div
+          className={`${styles.checkmark} ${
+            disabled && styles.checkmark_disabled
+          }`}
+        />
 
-        {label ? <div className={styles.label}>{label}</div> : null}
+        {label ? (
+          <div className={`${styles.label} ${labelClassProp}`}>{label}</div>
+        ) : null}
       </label>
     );
   }
