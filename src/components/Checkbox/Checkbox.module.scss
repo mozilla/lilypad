@@ -61,7 +61,7 @@
   }
 
   &:after {
-    @include prefix(transform, rotate(45deg), webkit ms moz);
+    transform: rotate(45deg);
     content: "";
     position: absolute;
     display: none;
