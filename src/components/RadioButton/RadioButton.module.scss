@@ -1,11 +1,57 @@
 @use '../../styles/boilerplate.scss'as *;
+@use '../../styles/tools/functions.scss'as *;
 
 .button {
   &_wrapper {
     padding: 10px;
+    display: flex;
+    align-items: center;
+
+    input[type="radio"] {
+      @include prefix(appearance, none, webkit ms moz);
+      background-color: $color-interaction-primary-alt;
+      margin: 0;
+      color: $color-interaction-primary;
+      width: rem(24);
+      min-width: rem(24);
+      height: rem(24);
+      border: rem(2) solid $color-interaction-primary;
+      border-radius: 50%;
+      transform: translateY(-0.075em);
+      display: grid;
+      place-content: center;
+    }
+
+
+    input[type="radio"]:hover {
+      background-color: $color-interaction-primary-alt-hover;
+    }
+
+    input[type="radio"]::before {
+      content: "";
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      transform: scale(0);
+      transition: 120ms transform ease-in-out;
+      box-shadow: inset 1em 1em $color-interaction-primary;
+      /* Windows High Contrast Mode */
+      background-color: $color-interaction-primary-alt;
+    }
+
+    input[type="radio"]:checked::before {
+      transform: scale(1);
+    }
+
+    input[type="radio"]:focus::before {
+      box-shadow: inset 1em 1em $color-interaction-primary-hover;
+    }
 
     label {
+      @include primary-font(500);
+      @include font-size(16);
       color: $color-text-main;
+      margin-left: 16px;
     }
   }
-};
+}

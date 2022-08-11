@@ -1,6 +1,6 @@
-@use '../core/variables.scss' as *;
-@use '../tools/media-queries.scss' as *;
-@use '../tools/functions.scss' as *;
+@use '../core/variables.scss'as *;
+@use '../tools/media-queries.scss'as *;
+@use '../tools/functions.scss'as *;
 
 /*-------------------------------
   TYPOGRAPHY STYLES
@@ -135,4 +135,17 @@
   -o-transition: $attr $time $type;
   -ms-transition: $attr $time $type;
   transition: $attr $time $type;
+}
+
+/// Mixin to prefix a property
+/// @param {String} $property - Property name
+/// @param {*} $value - Property value
+/// @param {List} $prefixes (()) - List of prefixes to print
+@mixin prefix($property, $value, $prefixes: ()) {
+  @each $prefix in $prefixes {
+    #{'-' + $prefix + '-' + $property}: $value;
+  }
+
+  // Output standard non-prefixed declaration
+  #{$property}: $value;
 }

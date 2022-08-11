@@ -40,17 +40,11 @@ const Dropdown = forwardRef(
       };
     });
 
-    const closeDropdown = () => {
-      setIsOpen(false);
-    };
+    const closeDropdown = () => setIsOpen(false);
 
-    const openDropdown = () => {
-      setIsOpen(true);
-    };
+    const openDropdown = () => setIsOpen(true);
 
-    const toggleDropdown = () => {
-      setIsOpen((state) => !state);
-    };
+    const toggleDropdown = () => setIsOpen((state) => !state);
 
     /**
      * Setup Click Listener

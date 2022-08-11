@@ -1,0 +1,77 @@
+@use '../../styles/boilerplate.scss'as *;
+
+.container {
+  @include prefix(user-select, none, webkit ms moz);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+
+  /* Hide the browser's default checkbox */
+  input {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+  }
+
+  /* Hover */
+  &:hover input:enabled~.checkmark {
+    background-color: $color-interaction-primary-alt-hover;
+  }
+
+  /* Checked */
+  input:checked:enabled~.checkmark {
+    background-color: $color-interaction-primary;
+  }
+
+  /* Checkbox & Hover */
+  input:checked:hover:enabled~.checkmark {
+    background-color: $color-interaction-primary-hover;
+  }
+
+  /* Show Check */
+  input:checked~.checkmark:after {
+    display: block;
+  }
+
+}
+
+.label {
+  @include font-size(16);
+  @include primary-font();
+  color: $color-text-main;
+  padding-left: 16px;
+}
+
+/* Custom Checkbox */
+.checkmark {
+  position: relative;
+  height: 22px;
+  width: 22px;
+  background-color: $color-interaction-primary-alt;
+  border: $color-interaction-primary solid 2px;
+  border-radius: 4px;
+
+  /* Disabled Checkbox */
+  &_disabled {
+    background-color: $color-interaction-primary-alt-disabled;
+    border: $color-interaction-primary-disabled solid 2px;
+  }
+
+  &:after {
+    transform: rotate(45deg);
+    content: "";
+    position: absolute;
+    display: none;
+    left: 8px;
+    top: 3px;
+    width: 5px;
+    height: 11px;
+    border: solid $color-text-reverse;
+    border-radius: 1.5px;
+    border-width: 0 2px 2px 0;
+  }
+}
+
