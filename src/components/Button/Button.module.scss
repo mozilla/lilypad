@@ -102,13 +102,11 @@
 
   &_active,
   &:focus {
-    border: solid 2px $color-interaction-primary-alt-active;
     color: $color-interaction-primary-active;
   }
 
   &:disabled,
   &[disabled] {
-    background-color: transparent;
     color: $color-text-disabled;
   }
 }
