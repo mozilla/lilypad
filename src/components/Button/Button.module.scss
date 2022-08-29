@@ -54,6 +54,7 @@
   &[disabled] {
     background-color: $color-interaction-primary-disabled;
     border: solid 2px $color-interaction-primary-disabled;
+    color: $color-text-disabled;
   }
 }
 
@@ -67,14 +68,12 @@
   color: $color-interaction-primary;
 
   &:hover:enabled {
-    background-color: $color-interaction-primary-alt-hover;
     border: solid 2px $color-interaction-primary-hover;
     color: $color-interaction-primary-hover;
   }
 
   &_active,
   &:focus {
-    background-color: $color-interaction-primary-alt-active;
     border: solid 2px $color-interaction-primary-active;
     color: $color-interaction-primary-active;
   }
@@ -83,7 +82,7 @@
   &[disabled] {
     background-color: transparent;
     border: solid 2px $color-interaction-primary-alt-disabled;
-    color: $color-text-subtle;
+    color: $color-text-disabled;
   }
 }
 
@@ -98,23 +97,19 @@
   box-shadow: none;
 
   &:hover:enabled {
-    background-color: $color-interaction-primary-alt-hover;
-    border: solid 2px $color-interaction-primary-alt-hover;
     color: $color-interaction-primary-hover;
   }
 
   &_active,
   &:focus {
-    background-color: $color-interaction-primary-alt-active;
-    border: solid 2px$color-interaction-primary-alt-active;
+    border: solid 2px $color-interaction-primary-alt-active;
     color: $color-interaction-primary-active;
   }
 
   &:disabled,
   &[disabled] {
     background-color: transparent;
-    border: solid 2px $color-interaction-primary-alt-disabled;
-    color: $color-text-subtle;
+    color: $color-text-disabled;
   }
 }
 
@@ -131,7 +126,7 @@
   @include rect_button_base();
   background-color: $color-interaction-secondary;
   border: solid 2px $color-interaction-secondary;
-  color: $color-text-subtle;
+  color: $color-interaction-primary;
 
   &:hover:enabled {
     background-color: $color-interaction-secondary-hover;
@@ -148,6 +143,7 @@
   &[disabled] {
     background-color: $color-interaction-secondary-disabled;
     border: solid 2px $color-interaction-secondary-disabled;
+    color: $color-text-disabled;
   }
 }
 
@@ -161,20 +157,21 @@
   color: $color-interaction-secondary;
 
   &:hover:enabled {
-    background-color: $color-interaction-secondary-alt-hover;
     border: solid 2px $color-interaction-secondary-hover;
+    color: $color-interaction-secondary-hover;
   }
 
   &_active,
   &:focus {
-    background-color: $color-interaction-secondary-alt-active;
     border: solid 2px $color-interaction-secondary-active;
+    color: $color-interaction-secondary-hover;
   }
 
   &:disabled,
   &[disabled] {
     background-color: transparent;
-    border: solid 2px $color-interaction-secondary-alt-disabled;
+    border: solid 2px $color-interaction-secondary-disabled;
+    color: $color-text-disabled;
   }
 }
 
@@ -189,20 +186,17 @@
   box-shadow: none;
 
   &:hover:enabled {
-    background-color: $color-interaction-secondary-alt-hover;
-    border: solid 2px $color-interaction-secondary-alt-hover;
+    color: $color-interaction-secondary-hover;
   }
 
   &_active,
   &:focus {
-    background-color: $color-interaction-secondary-alt-active;
-    border: solid 2px$color-interaction-secondary-alt-active;
+    color: $color-interaction-secondary-hover;
   }
 
   &:disabled,
   &[disabled] {
-    background-color: transparent;
-    border: solid 2px $color-interaction-secondary-alt-disabled;
+    color: $color-text-disabled;
   }
 }
 
