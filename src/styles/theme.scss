@@ -44,10 +44,10 @@ main[data-theme="light"],
   --color-semantic-critical-active: #e84d68;
   --color-semantic-critical-disabled: #6e6e6e;
   --color-semantic-critical-bg-alt: #f9e1e5;
-	--color-semantic-neutral: #222222;
-	--color-semantic-neutral-hover: #3a3a3a;
-	--color-semantic-neutral-active: #535353;
-	--color-semantic-neutral-inactive: #6e6e6e;
+  --color-semantic-neutral: #222222;
+  --color-semantic-neutral-hover: #3a3a3a;
+  --color-semantic-neutral-active: #535353;
+  --color-semantic-neutral-inactive: #6e6e6e;
 
   /**
   TEXT
@@ -88,7 +88,7 @@ main[data-theme="light"],
   BACKGROUNDS
   **/
   --color-background-overlay: rgba(23, 10, 122, 0.4);
-	--color-background-subtle-callout: #e8effd;
+  --color-background-subtle-callout: #e8effd;
   --color-background-modal-overlay: rgba(0, 0, 0, 0.3);
 
 
@@ -96,14 +96,14 @@ main[data-theme="light"],
   MENU
   **/
   --color-interactions-menu: #000000;
-	--color-interactions-menu-hover: #2f2f2f;
-	--color-interactions-menu-inactive: #757575;
+  --color-interactions-menu-hover: #2f2f2f;
+  --color-interactions-menu-inactive: #757575;
 }
 
 
 // PLACE HOLDER FOR DARK VALUES 
 main[data-theme="dark"] {
-   /**
+  /**
   PRIMARY INTERACTION
   **/
   --color-interaction-primary: #5282ff;
@@ -147,10 +147,10 @@ main[data-theme="dark"] {
   --color-semantic-critical-active: #e84d68;
   --color-semantic-critical-disabled: #6e6e6e;
   --color-semantic-critical-bg-alt: #f9e1e5;
-	--color-semantic-neutral: #222222;
-	--color-semantic-neutral-hover: #3a3a3a;
-	--color-semantic-neutral-active: #535353;
-	--color-semantic-neutral-disabled: #6e6e6e;
+  --color-semantic-neutral: #222222;
+  --color-semantic-neutral-hover: #3a3a3a;
+  --color-semantic-neutral-active: #535353;
+  --color-semantic-neutral-disabled: #6e6e6e;
 
   /**
   TEXT
@@ -191,7 +191,7 @@ main[data-theme="dark"] {
   BACKGROUNDS
   **/
   --color-background-overlay: rgba(23, 10, 122, 0.4);
-	--color-background-subtle-callout: #e8effd;
+  --color-background-subtle-callout: #e8effd;
   --color-background-modal-overlay: rgba(0, 0, 0, 0.3);
 
 
@@ -199,6 +199,6 @@ main[data-theme="dark"] {
   MENU
   **/
   --color-interactions-menu: #000000;
-	--color-interactions-menu-hover: #2f2f2f;
-	--color-interactions-menu-inactive: #757575;
+  --color-interactions-menu-hover: #2f2f2f;
+  --color-interactions-menu-inactive: #757575;
 }
