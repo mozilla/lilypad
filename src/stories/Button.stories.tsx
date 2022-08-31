@@ -31,7 +31,7 @@ export default {
     icon: {
       control: {
         type: 'select',
-        options: ['', 'star', 'arrow-left', 'arrow-right'],
+        options: ['', 'star', 'arrow-left', 'arrow-right', 'critical-solid', 'fx-account'],
       },
     },
     iconPlacedRight: {

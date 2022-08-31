@@ -1,6 +1,7 @@
 import React from 'react';
 
 export type IconT =
+  | 'address'
   | 'activity'
   | 'airplay'
   | 'alert-circle'
@@ -72,6 +73,7 @@ export type IconT =
   | 'columns'
   | 'command'
   | 'compass'
+  | 'capacity'
   | 'copy'
   | 'corner-down-left'
   | 'corner-down-right'
@@ -83,6 +85,8 @@ export type IconT =
   | 'corner-up-right'
   | 'cpu'
   | 'credit-card'
+  | 'critical-solid'
+  | 'critical'
   | 'crop'
   | 'crosshair'
   | 'database'
@@ -118,6 +122,7 @@ export type IconT =
   | 'folder'
   | 'framer'
   | 'frown'
+  | 'fx-account'
   | 'gift'
   | 'git-branch'
   | 'git-commit'
@@ -137,6 +142,7 @@ export type IconT =
   | 'image'
   | 'inbox'
   | 'info'
+  | 'info-solid'
   | 'instagram'
   | 'italic'
   | 'key'
@@ -232,6 +238,10 @@ export type IconT =
   | 'square'
   | 'star'
   | 'stop-circle'
+  | 'storage'
+  | 'spaces'
+  | 'space'
+  | 'shield'
   | 'sun'
   | 'sunrise'
   | 'sunset'
@@ -314,94 +324,106 @@ const Icon = ({
       strokeLinejoin="round"
       viewBox="0 0 24 24"
     >
-      {name === 'activity' ? (
+      {name === 'address' && (
+        <>
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M6.48529 12.625C6.64084 15.1305 7.72503 17.3829 9.39524 19.0353C6.72357 18.0458 4.76928 15.5779 4.52567 12.625H6.48529ZM7.73808 12.625C7.93685 15.4213 9.45869 17.8467 11.6742 19.2684C14.2208 17.9572 15.9974 15.4909 16.2524 12.625H7.73808ZM16.2662 11.375H7.73807C7.94136 8.51444 9.52924 6.04197 11.8279 4.63512C14.3443 5.9936 16.0742 8.49191 16.2662 11.375ZM17.5068 12.625C17.304 15.273 15.9823 17.6149 14.0027 19.2296C16.979 18.407 19.2128 15.7956 19.4743 12.625H17.5068ZM19.4743 11.375H17.5187C17.3711 8.80167 16.1675 6.50538 14.3252 4.86742C17.1393 5.7842 19.2223 8.32002 19.4743 11.375ZM6.48528 11.375H4.52567C4.76928 8.42215 6.72346 5.95433 9.39503 4.96475C7.7249 6.61724 6.64079 8.86953 6.48528 11.375ZM21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+            fill={color}
+            stroke="none"
+          />
+        </>
+      )}
+
+      {name === 'activity' && (
         <>
           <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
         </>
-      ) : null}
+      )}
 
-      {name === 'airplay' ? (
+      {name === 'airplay' && (
         <>
           <path d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1"></path>
           <polygon points="12 15 17 21 7 21 12 15"></polygon>
         </>
-      ) : null}
+      )}
 
-      {name === 'alert-circle' ? (
+      {name === 'alert-circle' && (
         <>
           <circle cx="12" cy="12" r="10"></circle>
           <line x1="12" y1="8" x2="12" y2="12"></line>
           <line x1="12" y1="16" x2="12.01" y2="16"></line>
         </>
-      ) : null}
+      )}
 
-      {name === 'alert-octagon' ? (
+      {name === 'alert-octagon' && (
         <>
           <polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon>
           <line x1="12" y1="8" x2="12" y2="12"></line>
           <line x1="12" y1="16" x2="12.01" y2="16"></line>
         </>
-      ) : null}
+      )}
 
-      {name === 'alert-triangle' ? (
+      {name === 'alert-triangle' && (
         <>
           <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
           <line x1="12" y1="9" x2="12" y2="13"></line>
           <line x1="12" y1="17" x2="12.01" y2="17"></line>
         </>
-      ) : null}
+      )}
 
-      {name === 'star' ? (
+      {name === 'star' && (
         <>
           <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
         </>
-      ) : null}
+      )}
 
-      {name === 'align-center' ? (
+      {name === 'align-center' && (
         <>
           <line x1="18" y1="10" x2="6" y2="10"></line>
           <line x1="21" y1="6" x2="3" y2="6"></line>
           <line x1="21" y1="14" x2="3" y2="14"></line>
           <line x1="18" y1="18" x2="6" y2="18"></line>
         </>
-      ) : null}
+      )}
 
-      {name === 'align-justify' ? (
+      {name === 'align-justify' && (
         <>
           <line x1="21" y1="10" x2="3" y2="10"></line>
           <line x1="21" y1="6" x2="3" y2="6"></line>
           <line x1="21" y1="14" x2="3" y2="14"></line>
           <line x1="21" y1="18" x2="3" y2="18"></line>
         </>
-      ) : null}
+      )}
 
-      {name === 'align-left' ? (
+      {name === 'align-left' && (
         <>
           <line x1="17" y1="10" x2="3" y2="10"></line>
           <line x1="21" y1="6" x2="3" y2="6"></line>
           <line x1="21" y1="14" x2="3" y2="14"></line>
           <line x1="17" y1="18" x2="3" y2="18"></line>
         </>
-      ) : null}
+      )}
 
-      {name === 'align-right' ? (
+      {name === 'align-right' && (
         <>
           <line x1="21" y1="10" x2="7" y2="10"></line>
           <line x1="21" y1="6" x2="3" y2="6"></line>
           <line x1="21" y1="14" x2="3" y2="14"></line>
           <line x1="21" y1="18" x2="7" y2="18"></line>
         </>
-      ) : null}
+      )}
 
-      {name === 'anchor' ? (
+      {name === 'anchor' && (
         <>
           <circle cx="12" cy="5" r="3"></circle>
           <line x1="12" y1="22" x2="12" y2="8"></line>
           <path d="M5 12H2a10 10 0 0 0 20 0h-3"></path>
         </>
-      ) : null}
+      )}
 
-      {name === 'aperture' ? (
+      {name === 'aperture' && (
         <>
           <circle cx="12" cy="12" r="10"></circle>
           <line x1="14.31" y1="8" x2="20.05" y2="17.94"></line>
@@ -411,150 +433,150 @@ const Icon = ({
           <line x1="14.31" y1="16" x2="2.83" y2="16"></line>
           <line x1="16.62" y1="12" x2="10.88" y2="21.94"></line>
         </>
-      ) : null}
+      )}
 
-      {name === 'archive' ? (
+      {name === 'archive' && (
         <>
           <polyline points="21 8 21 21 3 21 3 8"></polyline>
           <rect x="1" y="3" width="22" height="5"></rect>
           <line x1="10" y1="12" x2="14" y2="12"></line>
         </>
-      ) : null}
+      )}
 
-      {name === 'arrow-down-circle' ? (
+      {name === 'arrow-down-circle' && (
         <>
           <circle cx="12" cy="12" r="10"></circle>
           <polyline points="8 12 12 16 16 12"></polyline>
           <line x1="12" y1="8" x2="12" y2="16"></line>
         </>
-      ) : null}
+      )}
 
-      {name === 'arrow-down-left' ? (
+      {name === 'arrow-down-left' && (
         <>
           <line x1="17" y1="7" x2="7" y2="17"></line>
           <polyline points="17 17 7 17 7 7"></polyline>
         </>
-      ) : null}
+      )}
 
-      {name === 'arrow-down-right' ? (
+      {name === 'arrow-down-right' && (
         <>
           <line x1="7" y1="7" x2="17" y2="17"></line>
           <polyline points="17 7 17 17 7 17"></polyline>
         </>
-      ) : null}
+      )}
 
-      {name === 'arrow-down' ? (
+      {name === 'arrow-down' && (
         <>
           <line x1="12" y1="5" x2="12" y2="19"></line>
           <polyline points="19 12 12 19 5 12"></polyline>
         </>
-      ) : null}
+      )}
 
-      {name === 'arrow-left-circle' ? (
+      {name === 'arrow-left-circle' && (
         <>
           <circle cx="12" cy="12" r="10"></circle>
           <polyline points="12 8 8 12 12 16"></polyline>
           <line x1="16" y1="12" x2="8" y2="12"></line>
         </>
-      ) : null}
+      )}
 
-      {name === 'arrow-left' ? (
+      {name === 'arrow-left' && (
         <>
           <line x1="19" y1="12" x2="5" y2="12"></line>
           <polyline points="12 19 5 12 12 5"></polyline>
         </>
-      ) : null}
+      )}
 
-      {name === 'arrow-right-circle' ? (
+      {name === 'arrow-right-circle' && (
         <>
           <circle cx="12" cy="12" r="10"></circle>
           <polyline points="12 16 16 12 12 8"></polyline>
           <line x1="8" y1="12" x2="16" y2="12"></line>
         </>
-      ) : null}
+      )}
 
-      {name === 'arrow-right' ? (
+      {name === 'arrow-right' && (
         <>
           <line x1="5" y1="12" x2="19" y2="12"></line>
           <polyline points="12 5 19 12 12 19"></polyline>
         </>
-      ) : null}
+      )}
 
-      {name === 'arrow-up-circle' ? (
+      {name === 'arrow-up-circle' && (
         <>
           <circle cx="12" cy="12" r="10"></circle>
           <polyline points="16 12 12 8 8 12"></polyline>
           <line x1="12" y1="16" x2="12" y2="8"></line>
         </>
-      ) : null}
+      )}
 
-      {name === 'arrow-up-left' ? (
+      {name === 'arrow-up-left' && (
         <>
           <line x1="17" y1="17" x2="7" y2="7"></line>
           <polyline points="7 17 7 7 17 7"></polyline>
         </>
-      ) : null}
+      )}
 
-      {name === 'arrow-up-right' ? (
+      {name === 'arrow-up-right' && (
         <>
           <line x1="7" y1="17" x2="17" y2="7"></line>
           <polyline points="7 7 17 7 17 17"></polyline>
         </>
-      ) : null}
+      )}
 
-      {name === 'arrow-up' ? (
+      {name === 'arrow-up' && (
         <>
           <line x1="12" y1="19" x2="12" y2="5"></line>
           <polyline points="5 12 12 5 19 12"></polyline>
         </>
-      ) : null}
+      )}
 
-      {name === 'at-sign' ? (
+      {name === 'at-sign' && (
         <>
           <circle cx="12" cy="12" r="4"></circle>
           <path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-3.92 7.94"></path>
         </>
-      ) : null}
+      )}
 
-      {name === 'award' ? (
+      {name === 'award' && (
         <>
           <circle cx="12" cy="8" r="7"></circle>
           <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline>
         </>
-      ) : null}
+      )}
 
-      {name === 'bar-chart-2' ? (
+      {name === 'bar-chart-2' && (
         <>
           <line x1="18" y1="20" x2="18" y2="10"></line>
           <line x1="12" y1="20" x2="12" y2="4"></line>
           <line x1="6" y1="20" x2="6" y2="14"></line>
         </>
-      ) : null}
+      )}
 
-      {name === 'bar-chart' ? (
+      {name === 'bar-chart' && (
         <>
           <line x1="12" y1="20" x2="12" y2="10"></line>
           <line x1="18" y1="20" x2="18" y2="4"></line>
           <line x1="6" y1="20" x2="6" y2="16"></line>
         </>
-      ) : null}
+      )}
 
-      {name === 'battery-charging' ? (
+      {name === 'battery-charging' && (
         <>
           <path d="M5 18H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h3.19M15 6h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-3.19"></path>
           <line x1="23" y1="13" x2="23" y2="11"></line>
           <polyline points="11 6 7 12 13 12 9 18"></polyline>
         </>
-      ) : null}
+      )}
 
-      {name === 'battery' ? (
+      {name === 'battery' && (
         <>
           <rect x="1" y="6" width="18" height="12" rx="2" ry="2"></rect>
           <line x1="23" y1="13" x2="23" y2="11"></line>
         </>
-      ) : null}
+      )}
 
-      {name === 'bell-off' ? (
+      {name === 'bell-off' && (
         <>
           <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
           <path d="M18.63 13A17.89 17.89 0 0 1 18 8"></path>
@@ -562,166 +584,166 @@ const Icon = ({
           <path d="M18 8a6 6 0 0 0-9.33-5"></path>
           <line x1="1" y1="1" x2="23" y2="23"></line>
         </>
-      ) : null}
+      )}
 
-      {name === 'bell' ? (
+      {name === 'bell' && (
         <>
           <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
           <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
         </>
-      ) : null}
+      )}
 
-      {name === 'bluetooth' ? (
+      {name === 'bluetooth' && (
         <>
           <polyline points="6.5 6.5 17.5 17.5 12 23 12 1 17.5 6.5 6.5 17.5"></polyline>
         </>
-      ) : null}
+      )}
 
-      {name === 'bold' ? (
+      {name === 'bold' && (
         <>
           <path d="M6 4h8a4 4 0 0 1 4 4 4 4 0 0 1-4 4H6z"></path>
           <path d="M6 12h9a4 4 0 0 1 4 4 4 4 0 0 1-4 4H6z"></path>
         </>
-      ) : null}
+      )}
 
-      {name === 'book-open' ? (
+      {name === 'book-open' && (
         <>
           <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
           <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
         </>
-      ) : null}
+      )}
 
-      {name === 'book' ? (
+      {name === 'book' && (
         <>
           <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
           <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
         </>
-      ) : null}
+      )}
 
-      {name === 'bookmark' ? (
+      {name === 'bookmark' && (
         <>
           <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
         </>
-      ) : null}
+      )}
 
-      {name === 'box' ? (
+      {name === 'box' && (
         <>
           <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
           <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
           <line x1="12" y1="22.08" x2="12" y2="12"></line>
         </>
-      ) : null}
+      )}
 
-      {name === 'briefcase' ? (
+      {name === 'briefcase' && (
         <>
           <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
           <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
         </>
-      ) : null}
+      )}
 
-      {name === 'calendar' ? (
+      {name === 'calendar' && (
         <>
           <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
           <line x1="16" y1="2" x2="16" y2="6"></line>
           <line x1="8" y1="2" x2="8" y2="6"></line>
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </>
-      ) : null}
+      )}
 
-      {name === 'camera-off' ? (
+      {name === 'camera-off' && (
         <>
           <line x1="1" y1="1" x2="23" y2="23"></line>
           <path d="M21 21H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h3m3-3h6l2 3h4a2 2 0 0 1 2 2v9.34m-7.72-2.06a4 4 0 1 1-5.56-5.56"></path>
         </>
-      ) : null}
+      )}
 
-      {name === 'camera' ? (
+      {name === 'camera' && (
         <>
           <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
           <circle cx="12" cy="13" r="4"></circle>
         </>
-      ) : null}
+      )}
 
-      {name === 'cast' ? (
+      {name === 'cast' && (
         <>
           <path d="M2 16.1A5 5 0 0 1 5.9 20M2 12.05A9 9 0 0 1 9.95 20M2 8V6a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2h-6"></path>
           <line x1="2" y1="20" x2="2.01" y2="20"></line>
         </>
-      ) : null}
+      )}
 
-      {name === 'check-circle' ? (
+      {name === 'check-circle' && (
         <>
           <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
           <polyline points="22 4 12 14.01 9 11.01"></polyline>
         </>
-      ) : null}
+      )}
 
-      {name === 'check-square' ? (
+      {name === 'check-square' && (
         <>
           <polyline points="9 11 12 14 22 4"></polyline>
           <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
         </>
-      ) : null}
+      )}
 
-      {name === 'check' ? (
+      {name === 'check' && (
         <>
           <polyline points="20 6 9 17 4 12"></polyline>
         </>
-      ) : null}
+      )}
 
-      {name === 'chevron-down' ? (
+      {name === 'chevron-down' && (
         <>
           <polyline points="6 9 12 15 18 9"></polyline>
         </>
-      ) : null}
+      )}
 
-      {name === 'chevron-left' ? (
+      {name === 'chevron-left' && (
         <>
           <polyline points="15 18 9 12 15 6"></polyline>
         </>
-      ) : null}
+      )}
 
-      {name === 'chevron-right' ? (
+      {name === 'chevron-right' && (
         <>
           <polyline points="9 18 15 12 9 6"></polyline>
         </>
-      ) : null}
+      )}
 
-      {name === 'chevron-up' ? (
+      {name === 'chevron-up' && (
         <>
           <polyline points="18 15 12 9 6 15"></polyline>
         </>
-      ) : null}
+      )}
 
-      {name === 'chevrons-down' ? (
+      {name === 'chevrons-down' && (
         <>
           <polyline points="7 13 12 18 17 13"></polyline>
           <polyline points="7 6 12 11 17 6"></polyline>
         </>
-      ) : null}
+      )}
 
-      {name === 'chevrons-left' ? (
+      {name === 'chevrons-left' && (
         <>
           <polyline points="11 17 6 12 11 7"></polyline>
           <polyline points="18 17 13 12 18 7"></polyline>
         </>
-      ) : null}
+      )}
 
-      {name === 'chevrons-right' ? (
+      {name === 'chevrons-right' && (
         <>
           <polyline points="13 17 18 12 13 7"></polyline>
           <polyline points="6 17 11 12 6 7"></polyline>
         </>
-      ) : null}
+      )}
 
-      {name === 'chevrons-up' ? (
+      {name === 'chevrons-up' && (
         <>
           <polyline points="17 11 12 6 7 11"></polyline>
           <polyline points="17 18 12 13 7 18"></polyline>
         </>
-      ) : null}
+      )}
 
-      {name === 'chrome' ? (
+      {name === 'chrome' && (
         <>
           <circle cx="12" cy="12" r="10"></circle>
           <circle cx="12" cy="12" r="4"></circle>
@@ -729,29 +751,29 @@ const Icon = ({
           <line x1="3.95" y1="6.06" x2="8.54" y2="14"></line>
           <line x1="10.88" y1="21.94" x2="15.46" y2="14"></line>
         </>
-      ) : null}
+      )}
 
-      {name === 'circle' ? (
+      {name === 'circle' && (
         <>
           <circle cx="12" cy="12" r="10"></circle>
         </>
-      ) : null}
+      )}
 
-      {name === 'clipboard' ? (
+      {name === 'clipboard' && (
         <>
           <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
           <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
         </>
-      ) : null}
+      )}
 
-      {name === 'clock' ? (
+      {name === 'clock' && (
         <>
           <circle cx="12" cy="12" r="10"></circle>
           <polyline points="12 6 12 12 16 14"></polyline>
         </>
-      ) : null}
+      )}
 
-      {name === 'cloud-drizzle' ? (
+      {name === 'cloud-drizzle' && (
         <>
           <line x1="8" y1="19" x2="8" y2="21"></line>
           <line x1="8" y1="13" x2="8" y2="15"></line>
@@ -761,32 +783,32 @@ const Icon = ({
           <line x1="12" y1="15" x2="12" y2="17"></line>
           <path d="M20 16.58A5 5 0 0 0 18 7h-1.26A8 8 0 1 0 4 15.25"></path>
         </>
-      ) : null}
+      )}
 
-      {name === 'cloud-lightning' ? (
+      {name === 'cloud-lightning' && (
         <>
           <path d="M19 16.9A5 5 0 0 0 18 7h-1.26a8 8 0 1 0-11.62 9"></path>
           <polyline points="13 11 9 17 15 17 11 23"></polyline>
         </>
-      ) : null}
+      )}
 
-      {name === 'cloud-off' ? (
+      {name === 'cloud-off' && (
         <>
           <path d="M22.61 16.95A5 5 0 0 0 18 10h-1.26a8 8 0 0 0-7.05-6M5 5a8 8 0 0 0 4 15h9a5 5 0 0 0 1.7-.3"></path>
           <line x1="1" y1="1" x2="23" y2="23"></line>
         </>
-      ) : null}
+      )}
 
-      {name === 'cloud-rain' ? (
+      {name === 'cloud-rain' && (
         <>
           <line x1="16" y1="13" x2="16" y2="21"></line>
           <line x1="8" y1="13" x2="8" y2="21"></line>
           <line x1="12" y1="15" x2="12" y2="23"></line>
           <path d="M20 16.58A5 5 0 0 0 18 7h-1.26A8 8 0 1 0 4 15.25"></path>
         </>
-      ) : null}
+      )}
 
-      {name === 'cloud-snow' ? (
+      {name === 'cloud-snow' && (
         <>
           <path d="M20 17.58A5 5 0 0 0 18 8h-1.26A8 8 0 1 0 4 16.25"></path>
           <line x1="8" y1="16" x2="8.01" y2="16"></line>
@@ -796,88 +818,247 @@ const Icon = ({
           <line x1="16" y1="16" x2="16.01" y2="16"></line>
           <line x1="16" y1="20" x2="16.01" y2="20"></line>
         </>
-      ) : null}
+      )}
 
-      {name === 'cloud' ? (
+      {name === 'cloud' && (
         <>
           <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
         </>
-      ) : null}
+      )}
 
-      {name === 'credit-card' ? (
+      {name === 'credit-card' && (
         <>
           <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
           <line x1="1" y1="10" x2="23" y2="10"></line>
         </>
-      ) : null}
+      )}
 
-      {name === 'settings' ? (
+      {name === 'settings' && (
         <>
           <circle cx="12" cy="12" r="3"></circle>
           <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
         </>
-      ) : null}
+      )}
 
-      {name === 'copy' ? (
+      {name === 'copy' && (
         <>
           <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
           <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
         </>
-      ) : null}
+      )}
 
-      {name === 'plus-circle' ? (
+      {name === 'plus-circle' && (
         <>
           <circle cx="12" cy="12" r="10"></circle>
           <line x1="12" y1="8" x2="12" y2="16"></line>
           <line x1="8" y1="12" x2="16" y2="12"></line>
         </>
-      ) : null}
+      )}
 
-      {name === 'plus-square' ? (
+      {name === 'plus-square' && (
         <>
           <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
           <line x1="12" y1="8" x2="12" y2="16"></line>
           <line x1="8" y1="12" x2="16" y2="12"></line>
         </>
-      ) : null}
+      )}
 
-      {name === 'plus' ? (
+      {name === 'plus' && (
         <>
           <line x1="12" y1="5" x2="12" y2="19"></line>
           <line x1="5" y1="12" x2="19" y2="12"></line>
         </>
-      ) : null}
+      )}
 
-      {name === 'x-circle' ? (
+      {name === 'x-circle' && (
         <>
           <circle cx="12" cy="12" r="10"></circle>
           <line x1="15" y1="9" x2="9" y2="15"></line>
           <line x1="9" y1="9" x2="15" y2="15"></line>
         </>
-      ) : null}
+      )}
 
-      {name === 'x-octagon' ? (
+      {name === 'x-octagon' && (
         <>
           <polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon>
           <line x1="15" y1="9" x2="9" y2="15"></line>
           <line x1="9" y1="9" x2="15" y2="15"></line>
         </>
-      ) : null}
+      )}
 
-      {name === 'x-square' ? (
+      {name === 'x-square' && (
         <>
           <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
           <line x1="9" y1="9" x2="15" y2="15"></line>
           <line x1="15" y1="9" x2="9" y2="15"></line>
         </>
-      ) : null}
+      )}
 
-      {name === 'x' ? (
+      {name === 'x' && (
         <>
           <line x1="18" y1="6" x2="6" y2="18"></line>
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </>
-      ) : null}
+      )}
+
+      {name === 'critical-solid' && (
+        <>
+          <path
+            fill={color}
+            stroke="none"
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12ZM12 6C12.5523 6 13 6.44772 13 7V14C13 14.5523 12.5523 15 12 15C11.4477 15 11 14.5523 11 14V7C11 6.44772 11.4477 6 12 6ZM12 19C12.6904 19 13.25 18.4404 13.25 17.75C13.25 17.0596 12.6904 16.5 12 16.5C11.3096 16.5 10.75 17.0596 10.75 17.75C10.75 18.4404 11.3096 19 12 19Z"
+          />
+        </>
+      )}
+
+      {name === 'critical' && (
+        <>
+          <line
+            x1="12"
+            y1="7"
+            x2="12"
+            y2="14"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+          <circle cx="12" cy="17.75" r="1.25" fill="black" />
+          <circle cx="12" cy="12" r="11" stroke="black" stroke-width="2" />
+        </>
+      )}
+
+      {name === 'fx-account' && (
+        <>
+          <path
+            fill={color}
+            stroke="none"
+            d="M23.5424 8.71316V8.70941C23.5306 8.66869 23.5183 8.62797 23.506 8.58725C23.5033 8.57707 23.5001 8.56689 23.4969 8.55724C23.4738 8.48009 23.4503 8.40293 23.4256 8.32631L23.4224 8.3156C23.2721 7.84854 23.0931 7.39118 22.8866 6.9461C22.6865 6.50528 22.4556 6.07915 22.1954 5.6709C21.1906 4.05672 19.8184 2.70293 18.1909 1.71993V1.71993C16.3226 0.591513 14.1808 -0.00333171 11.9981 1.40362e-05C11.6231 1.40362e-05 11.248 0.0182312 10.8826 0.0535938C9.59025 0.189687 7.41169 0.654223 5.6441 2.20643C12.0785 -1.07908 20.6748 2.87725 19.9435 10.2338C19.6831 12.8592 17.4542 14.6632 15.379 14.9675C15.0099 15.0239 14.6347 15.0277 14.2645 14.9788C9.19643 14.2742 9.50666 10.1202 11.0465 8.34399C9.01051 8.33114 7.43152 10.851 8.19878 13.3269C6.43333 10.0489 8.21753 4.91489 11.9992 3.36107C7.55475 2.71812 3.38839 4.87202 2.04943 8.61565C2.20933 7.24725 2.5285 5.90222 3.00047 4.60788C3.00047 4.60788 0.57759 6.52282 0.0835846 10.5499C0.0760834 10.612 0.069118 10.6742 0.0626885 10.7369C0.0600095 10.7583 0.0578662 10.7797 0.055723 10.8017C0.0367915 10.9892 0.0225036 11.178 0.0128592 11.368C0.0128592 11.3825 0.0128592 11.397 0.0128592 11.4114C0.00910866 11.4907 0.00589376 11.5722 0.00375057 11.6504V11.7174C0.00375057 11.8117 0 11.906 0 12.0008C0 18.6292 5.37352 24.0027 12.0019 24.0027C18.6302 24.0027 24 18.6302 24 12.0019C24.0006 10.8897 23.8466 9.78291 23.5424 8.71316V8.71316Z"
+          />
+        </>
+      )}
+
+      {name === 'info-solid' && (
+        <>
+          <path
+            fill={color}
+            stroke="none"
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12ZM12 19C11.4477 19 11 18.5523 11 18V12C11 11.4477 11.4477 11 12 11C12.5523 11 13 11.4477 13 12V18C13 18.5523 12.5523 19 12 19ZM12 6C11.3096 6 10.75 6.55964 10.75 7.25C10.75 7.94036 11.3096 8.5 12 8.5C12.6904 8.5 13.25 7.94036 13.25 7.25C13.25 6.55964 12.6904 6 12 6Z"
+          />
+        </>
+      )}
+
+      {name === 'info' && (
+        <>
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="16" x2="12" y2="12"></line>
+          <line x1="12" y1="8" x2="12.01" y2="8"></line>
+        </>
+      )}
+
+      {name === 'storage' && (
+        <>
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M11.6313 3.60127C11.8589 3.46624 12.1411 3.46624 12.3687 3.60127L19.6415 7.91599C19.8636 8.04778 20 8.2883 20 8.54822V15.4518C20 15.7117 19.8636 15.9522 19.6415 16.084L12.3687 20.3987C12.1411 20.5338 11.8589 20.5338 11.6313 20.3987L4.35853 16.084C4.13639 15.9522 4 15.7117 4 15.4518V8.54822C4 8.2883 4.13639 8.04778 4.35853 7.91599L11.6313 3.60127ZM5.45455 15.0323V9.83079L11.3939 13.3545V18.5559L5.45455 15.0323ZM12.3636 18.6998L18.5455 15.0323V9.83079L12.3687 13.4953C12.367 13.4963 12.3653 13.4973 12.3636 13.4983V18.6998ZM12 5.0845L17.8384 8.54827L12 12.012L6.1616 8.54827L12 5.0845Z"
+            fill={color}
+            stroke="none"
+          />
+        </>
+      )}
+
+      {name === 'users' && (
+        <>
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+          <circle cx="9" cy="7" r="4"></circle>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+        </>
+      )}
+
+      {name === 'spaces' && (
+        <>
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M11.6958 3.58504C11.8836 3.47165 12.1164 3.47165 12.3042 3.58504L16.3842 6.04881C16.5675 6.15948 16.68 6.36144 16.68 6.57971V10.5173L20.7042 12.9474C20.8875 13.058 21 13.26 21 13.4783V17.4203C21 17.6386 20.8875 17.8405 20.7042 17.9512L16.6242 20.415C16.4364 20.5283 16.2036 20.5283 16.0158 20.415L12 17.99L7.98421 20.415C7.79644 20.5283 7.56356 20.5283 7.37579 20.415L3.29579 17.9512C3.11252 17.8405 3 17.6386 3 17.4203V13.4783C3 13.26 3.11252 13.058 3.29579 12.9474L7.32 10.5173V6.57971C7.32 6.36144 7.43252 6.15948 7.61579 6.04881L11.6958 3.58504ZM8.52 10.1695V7.51371L11.7566 9.4682L11.76 9.47022V12.126L8.52 10.1695ZM12.72 11.8361L15.48 10.1695V7.51371L12.72 9.18038V11.8361ZM12 4.83055L15.015 6.65117L12 8.4718L8.98505 6.65117L12 4.83055ZM12.84 14.4123V17.068L16.08 19.0245V16.3688L16.0766 16.3668L12.84 14.4123ZM19.8 17.068L17.04 18.7347V16.0789L19.8 14.4123V17.068ZM13.305 13.5497L16.32 15.3703L19.335 13.5497L16.32 11.7291L13.305 13.5497ZM4.2 17.068V14.4123L7.43663 16.3668L7.44 16.3688V19.0245L4.2 17.068ZM8.4 18.7347L11.16 17.068V14.4123L8.4 16.0789V18.7347ZM7.68 15.3703L4.66505 13.5497L7.68 11.7291L10.695 13.5497L7.68 15.3703Z"
+            fill={color}
+            stroke="none"
+          />
+        </>
+      )}
+
+      {name === 'space' && (
+        <>
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M11.6313 3.60127C11.8589 3.46624 12.1411 3.46624 12.3687 3.60127L19.6415 7.91599C19.8636 8.04778 20 8.2883 20 8.54822V15.4518C20 15.7117 19.8636 15.9522 19.6415 16.084L12.3687 20.3987C12.1411 20.5338 11.8589 20.5338 11.6313 20.3987L4.35853 16.084C4.13639 15.9522 4 15.7117 4 15.4518V8.54822C4 8.2883 4.13639 8.04778 4.35853 7.91599L11.6313 3.60127ZM5.45455 15.0323V9.83079L11.3939 13.3545V18.5559L5.45455 15.0323ZM12.3636 18.6998L18.5455 15.0323V9.83079L12.3687 13.4953C12.367 13.4963 12.3653 13.4973 12.3636 13.4983V18.6998ZM12 5.0845L17.8384 8.54827L12 12.012L6.1616 8.54827L12 5.0845Z"
+            fill={color}
+            stroke="none"
+          />
+        </>
+      )}
+
+      {name === 'capacity' && (
+        <>
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M7.80464 5.5C6.10128 5.5 4.72044 6.87751 4.72044 8.57675C4.72044 9.73861 5.36601 10.7501 6.31883 11.2736C3.82814 11.9632 2 14.2416 2 16.9459C2 17.3522 2.33011 17.6815 2.73731 17.6815H9.43152C9.43116 17.7091 9.43098 17.7368 9.43098 17.7645C9.43098 18.1707 9.76108 18.5 10.1683 18.5H21.2627C21.6699 18.5 22 18.1707 22 17.7645C22 15.1644 20.4134 12.934 18.1533 11.9843C18.8149 11.3473 19.2264 10.4535 19.2264 9.46378C19.2264 7.52944 17.6545 5.96135 15.7155 5.96135C13.7765 5.96135 12.2046 7.52944 12.2046 9.46378C12.2046 10.4535 12.6161 11.3473 13.2777 11.9843C12.8208 12.1763 12.3914 12.4206 11.9971 12.7098C11.2701 12.01 10.3629 11.4943 9.35152 11.2391C10.2708 10.7065 10.8888 9.71362 10.8888 8.57675C10.8888 6.87751 9.508 5.5 7.80464 5.5ZM6.19507 8.57675C6.19507 7.68996 6.9157 6.97107 7.80464 6.97107C8.69359 6.97107 9.41422 7.68996 9.41422 8.57675C9.41422 9.46355 8.69359 10.1824 7.80464 10.1824C6.9157 10.1824 6.19507 9.46355 6.19507 8.57675ZM10.9174 13.7154C10.1263 12.9798 9.06594 12.5308 7.90047 12.5308C5.70736 12.5308 3.88681 14.1221 3.53577 16.2104H9.62556C9.86408 15.2774 10.3124 14.4281 10.9174 13.7154ZM13.6792 9.46378C13.6792 8.34189 14.5909 7.43242 15.7155 7.43242C16.8401 7.43242 17.7518 8.34189 17.7518 9.46378C17.7518 10.5857 16.8401 11.4951 15.7155 11.4951C14.5909 11.4951 13.6792 10.5857 13.6792 9.46378ZM10.9618 17.0289C11.3166 14.7281 13.3098 12.9662 15.7155 12.9662C18.1212 12.9662 20.1144 14.7281 20.4692 17.0289H10.9618Z"
+            fill={color}
+            stroke="none"
+          />
+        </>
+      )}
+
+      {name === 'code' && (
+        <>
+          <polyline points="16 18 22 12 16 6"></polyline>
+          <polyline points="8 6 2 12 8 18"></polyline>
+        </>
+      )}
+
+      {name === 'menu' && (
+        <>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </>
+      )}
+
+      {name === 'external-link' && (
+        <>
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+          <polyline points="15 3 21 3 21 9"></polyline>
+          <line x1="10" y1="14" x2="21" y2="3"></line>
+        </>
+      )}
+
+      {name === 'log-in' && (
+        <>
+          <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
+          <polyline points="10 17 15 12 10 7"></polyline>
+          <line x1="15" y1="12" x2="3" y2="12"></line>
+        </>
+      )}
+
+      {name === 'log-out' && (
+        <>
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+          <polyline points="16 17 21 12 16 7"></polyline>
+          <line x1="21" y1="12" x2="9" y2="12"></line>
+        </>
+      )}
+
+      {name === 'shield' && (
+        <>
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        </>
+      )}
 
       {/*  
 
@@ -885,10 +1066,6 @@ const Icon = ({
         // Todo finish breaking this up..
   
         
-        <symbol id="code" viewBox="0 0 24 24">
-          <polyline points="16 18 22 12 16 6"></polyline>
-          <polyline points="8 6 2 12 8 18"></polyline>
-        </symbol>
         <symbol id="codepen" viewBox="0 0 24 24">
           <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon>
           <line x1="12" y1="22" x2="12" y2="15.5"></line>
@@ -1041,11 +1218,7 @@ const Icon = ({
           <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
           <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
         </symbol>
-        <symbol id="external-link" viewBox="0 0 24 24">
-          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-          <polyline points="15 3 21 3 21 9"></polyline>
-          <line x1="10" y1="14" x2="21" y2="3"></line>
-        </symbol>
+       
         <symbol id="eye-off" viewBox="0 0 24 24">
           <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
           <line x1="1" y1="1" x2="23" y2="23"></line>
@@ -1219,11 +1392,7 @@ const Icon = ({
           <polyline points="22 12 16 12 14 15 10 15 8 12 2 12"></polyline>
           <path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path>
         </symbol>
-        <symbol id="info" viewBox="0 0 24 24">
-          <circle cx="12" cy="12" r="10"></circle>
-          <line x1="12" y1="16" x2="12" y2="12"></line>
-          <line x1="12" y1="8" x2="12.01" y2="8"></line>
-        </symbol>
+       
         <symbol id="instagram" viewBox="0 0 24 24">
           <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
           <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
@@ -1329,11 +1498,7 @@ const Icon = ({
           <line x1="9" y1="9" x2="9.01" y2="9"></line>
           <line x1="15" y1="9" x2="15.01" y2="9"></line>
         </symbol>
-        <symbol id="menu" viewBox="0 0 24 24">
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </symbol>
+        
         <symbol id="message-circle" viewBox="0 0 24 24">
           <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
         </symbol>
@@ -1828,12 +1993,7 @@ const Icon = ({
           <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
           <circle cx="12" cy="7" r="4"></circle>
         </symbol>
-        <symbol id="users" viewBox="0 0 24 24">
-          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-          <circle cx="9" cy="7" r="4"></circle>
-          <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-        </symbol>
+      
         <symbol id="video-off" viewBox="0 0 24 24">
           <path d="M16 16v1a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2m5.66 0H14a2 2 0 0 1 2 2v3.34l1 1L23 7v10"></path>
           <line x1="1" y1="1" x2="23" y2="23"></line>

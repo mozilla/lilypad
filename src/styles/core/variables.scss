@@ -9,6 +9,9 @@ $backup-font:'Arial';
 // ---------------------------------
 //  Colors
 // ---------------------------------
+/**
+  PRIMARY INTERACTION
+  **/
 $color-interaction-primary: var(--color-interaction-primary);
 $color-interaction-primary-hover: var(--color-interaction-primary-hover);
 $color-interaction-primary-active: var(--color-interaction-primary-active);
@@ -17,6 +20,10 @@ $color-interaction-primary-alt: var(--color-interaction-primary-alt);
 $color-interaction-primary-alt-hover: var(--color-interaction-primary-alt-hover);
 $color-interaction-primary-alt-active: var(--color-interaction-primary-alt-active);
 $color-interaction-primary-alt-disabled: var(--color-interaction-primary-alt-disabled);
+
+/**
+  SECONDARY INTERACTION
+  **/
 $color-interaction-secondary: var(--color-interaction-secondary);
 $color-interaction-secondary-hover: var(--color-interaction-secondary-hover);
 $color-interaction-secondary-active: var(--color-interaction-secondary-active);
@@ -25,6 +32,10 @@ $color-interaction-secondary-alt: var(--color-interaction-secondary-alt);
 $color-interaction-secondary-alt-hover: var(--color-interaction-secondary-alt-hover);
 $color-interaction-secondary-alt-active: var(--color-interaction-secondary-alt-active);
 $color-interaction-secondary-alt-disabled: var(--color-interaction-secondary-alt-disabled);
+
+/**
+  SEMANTIC
+  **/
 $color-semantic-info: var(--color-semantic-info);
 $color-semantic-info-hover: var(--color-semantic-info-hover);
 $color-semantic-info-active: var(--color-semantic-info-active);
@@ -41,6 +52,15 @@ $color-semantic-critical: var(--color-semantic-critical);
 $color-semantic-critical-hover: var(--color-semantic-critical-hover);
 $color-semantic-critical-active: var(--color-semantic-critical-active);
 $color-semantic-critical-disabled: var(--color-semantic-critical-disabled);
+$color-semantic-critical-bg-alt: var(--color-semantic-critical-bg-alt);
+$color-semantic-neutral: var(--color-semantic-neutral);
+$color-semantic-neutral-hover: var(--color-semantic-neutral-hover);
+$color-semantic-neutral-active: var(--color-semantic-neutral-active);
+$color-semantic-neutral-inactive: var(--color-semantic-neutral-inactive);
+
+/**
+  TEXT
+  **/
 $color-text-main: var(--color-text-main);
 $color-text-subtle: var(--color-text-subtle);
 $color-text-reverse: var(--color-text-reverse);
@@ -50,19 +70,43 @@ $color-text-info: var(--color-text-info);
 $color-text-success: var(--color-text-success);
 $color-text-warning: var(--color-text-warning);
 $color-text-critical: var(--color-text-critical);
+
+/**
+  BORDER
+  **/
 $color-border-1: var(--color-border-1);
 $color-border-2: var(--color-border-2);
+
+/**
+  NEUTRALS
+  **/
 $color-neutral-0: var(--color-neutral-0);
+$color-neutral-0-reverse: var(--color-neutral-0-reverse);
 $color-neutral-1: var(--color-neutral-1);
 $color-neutral-2: var(--color-neutral-2);
 $color-neutral-3: var(--color-neutral-3);
-$color-background-info: var(--color-background-info);
-$color-background-success: var(--color-background-success);
-$color-background-warning: var(--color-background-warning);
-$color-background-critical: var(--color-background-critical);
-$color-background-success-subtle: var(--color-background-success-subtle);
-$color-background-warning-subtle: var(--color-background-warning-subtle);
-$color-background-critical-subtle: var(--color-background-critical-subtle);
+
+/**
+  STATUS
+  **/
+$color-status-ready: var(--color-status-ready);
+$color-status-offline: var(--color-status-offline);
+$color-status-bus: var(--color-status-bus);
+
+/**
+  BACKGROUNDS
+  **/
+$color-background-overlay: var(--color-background-overlay);
+$color-background-subtle-callout: var(--color-background-subtle-callout);
+$color-background-modal-overlay: var(--color-background-modal-overlay);
+
+/**
+  MENU
+  **/
+$color-interactions-menu: var(--color-interactions-menu);
+$color-interactions-menu-hover: var(--color-interactions-menu-hover);
+$color-interactions-menu-inactive: var(--color-interactions-menu-inactive);
+
 
 // ---- Primary Brand Colors ---------------------
 $black: #231f20;
