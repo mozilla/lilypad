@@ -95,16 +95,17 @@ const Input = forwardRef(
      */
     const handleOnChange: ChangeEventHandler<HTMLInputElement> = (
       event: ChangeEvent<HTMLInputElement>
-    ) => {
+    ): ChangeEvent<HTMLInputElement> => {
       const newValue = event.target.value;
       onChange && onChange(newValue);
       // If initial value was empty any change makes form dirty
       const isDirty = initialValue === '' ? true : initialValue !== newValue;
       setIsDirty(isDirty);
+      return event;
     };
 
     const handleOnBlur = () => {
-      onBlur && onBlur();
+      onBlur && onBlur(isValid);
     };
 
     const handleOnFocus = () => {
