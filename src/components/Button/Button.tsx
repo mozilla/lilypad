@@ -27,6 +27,7 @@ export type ButtonPropsT = {
   active?: boolean;
   id?: string;
   text?: string;
+  label: string;
   type?: ButtonT;
   category?: ButtonCategoriesE;
   size?: ButtonSizesE;
@@ -43,6 +44,7 @@ const Button = ({
   active,
   id,
   text,
+  label,
   type = 'button',
   category = ButtonCategoriesE.PRIMARY_SOLID,
   size = ButtonSizesE.MEDIUM,
@@ -95,7 +97,7 @@ const Button = ({
   `;
 
   return href ? (
-    // ANCHOR LINK 
+    // ANCHOR LINK
     <a
       className={className}
       id={id}
@@ -106,11 +108,11 @@ const Button = ({
       {content}
     </a>
   ) : (
-    // BUTTON 
+    // BUTTON
     <button
       className={className}
       id={id}
-      aria-label={text}
+      aria-label={label}
       type={type}
       disabled={disabled}
       onClick={onClick}

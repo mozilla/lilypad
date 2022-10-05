@@ -13,6 +13,7 @@
   height: 100%;
   position: absolute;
   border-radius: 6px;
+  box-sizing: border-box;
 }
 
 .value {
@@ -22,4 +23,4 @@
   top: 1px;
   left: 1px;
   border-radius: 6px;
-} 
+}
