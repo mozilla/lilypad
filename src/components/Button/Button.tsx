@@ -27,7 +27,7 @@ export type ButtonPropsT = {
   active?: boolean;
   id?: string;
   text?: string;
-  label?: string;
+  label: string;
   type?: ButtonT;
   category?: ButtonCategoriesE;
   size?: ButtonSizesE;
@@ -112,7 +112,7 @@ const Button = ({
     <button
       className={className}
       id={id}
-      aria-label={label ? label : text}
+      aria-label={label}
       type={type}
       disabled={disabled}
       onClick={onClick}

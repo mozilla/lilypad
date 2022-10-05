@@ -28,7 +28,7 @@ const Template: ComponentStory<typeof Dropdown> = (args) => (
 
 const CtaExample = (
   <div style={{ position: 'relative' }}>
-    <Button text="CTA" />
+    <Button label="cta" text="CTA" />
   </div>
 );
 const ContentExample = <div style={{ padding: '10px' }}>Dropdown Content</div>;

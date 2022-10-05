@@ -23,7 +23,7 @@ const CopyButton = ({
     navigator.clipboard.writeText(value.toString()).then(() => {
       startSuccessTimer();
     });
-  }, [onClick,value]);
+  }, [onClick, value]);
 
   const startSuccessTimer = () => {
     setSuccess(true);
@@ -39,6 +39,7 @@ const CopyButton = ({
         <div className={styles.success}>{successMessage}</div>
       ) : (
         <Button
+          label="copy"
           classProp={classProp}
           onClick={handleClick}
           icon="copy"
