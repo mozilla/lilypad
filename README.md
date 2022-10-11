@@ -33,12 +33,10 @@ Once you have created the file, edit it to include the following information:
 
 ~/.npmrc
 
-```
+```sh
 registry=https://registry.npmjs.org/
 @YOUR_GITHUB_USERNAME:registry=https://npm.pkg.github.com/
 //npm.pkg.github.com/:_authToken=YOUR_AUTH_TOKEN
-
-
 ```
 
 ### Step 4.
@@ -55,7 +53,7 @@ npm install @mozilla/lilypad
 yarn add @mozilla/lilypad
 ```
 
-## Getting started with Material UI
+## Getting started with Lilypad
 
 Here is an example of a basic app using Lilypad's `Button` component:
 
@@ -67,7 +65,7 @@ function App() {
   return (
     <Button
       category={ButtonCategoriesE.PRIMARY_SOLID}
-      icon=""
+      icon="alert-circle"
       text="click me!!"
     />
   );
