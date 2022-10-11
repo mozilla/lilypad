@@ -72,6 +72,28 @@ function App() {
 }
 ```
 
+## Adding Styles
+
+```scss
+@import '@mozilla/lilypad/dist/styles/theme.scss';
+```
+
+```jsx
+  // Set to Light Theme,
+  // Note: if a "data-theme" is not set on <main> it will default the "light" theme
+ <main data-theme="light"></main>
+
+ // Set to Dark Theme
+ <main data-theme="dark"></main>
+
+ // Get theme from users settings "dark" or "light"
+ <main data-theme={themeFromUserSettings}></main>
+```
+
+This will also let you access all of the great ultity classes here [utility.scss](https://github.com/mozilla/lilypad/blob/readme/src/styles/core/utility.scss).
+
+Feel free to override these [CSS variables](https://github.com/mozilla/lilypad/blob/readme/src/styles/theme.scss) with your own colors!
+
 ## License
 
 This project is licensed under the terms of the
