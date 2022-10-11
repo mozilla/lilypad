@@ -90,7 +90,7 @@ function App() {
  <main data-theme={themeFromUserSettings}></main>
 ```
 
-This will also let you access all of the great ultity classes here [utility.scss](https://github.com/mozilla/lilypad/blob/readme/src/styles/core/utility.scss).
+This will also let you access all of the great utility classes here [utility.scss](https://github.com/mozilla/lilypad/blob/readme/src/styles/core/utility.scss).
 
 Feel free to override these [CSS variables](https://github.com/mozilla/lilypad/blob/readme/src/styles/theme.scss) with your own colors!
 
