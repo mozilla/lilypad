@@ -1,6 +1,6 @@
 {
   "name": "@mozilla/lilypad",
-  "version": "1.1.00",
+  "version": "1.1.02",
   "description": "React Component Libray",
   "scripts": {
     "sb": "start-storybook -p 6006",
@@ -43,8 +43,8 @@
     "node-sass": "^7.0.1",
     "postcss": "^8.1.9",
     "postcss-loader": "^4.1.0",
-    "react": "18.1.0",
-    "react-dom": "18.1.0",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
     "rollup": "^2.77.0",
     "rollup-plugin-dts": "^4.2.2",
     "rollup-plugin-postcss": "^4.0.2",
@@ -55,7 +55,7 @@
     "webpack": "^5.73.0"
   },
   "peerDependencies": {
-    "react": "18.1.0"
+    "react": "^18.1.0"
   },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
