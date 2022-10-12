@@ -1,28 +1,30 @@
-main[data-theme="light"],
+@use './core/utility.scss' as *;
+
+main[data-theme='light'],
 :root {
   /**
   PRIMARY INTERACTION
   **/
-  --color-interaction-primary: #1700C7;
+  --color-interaction-primary: #1700c7;
   --color-interaction-primary-hover: #170696;
   --color-interaction-primary-active: #170696;
   --color-interaction-primary-disabled: rgba(176, 176, 176, 0.5);
-  --color-interaction-primary-alt: #FFFFFF;
-  --color-interaction-primary-alt-hover: #E8EFFD;
-  --color-interaction-primary-alt-active: #CBD8F0;
-  --color-interaction-primary-alt-disabled: #E7E7E7;
+  --color-interaction-primary-alt: #ffffff;
+  --color-interaction-primary-alt-hover: #e8effd;
+  --color-interaction-primary-alt-active: #cbd8f0;
+  --color-interaction-primary-alt-disabled: #e7e7e7;
 
   /**
   SECONDARY INTERACTION
   **/
   --color-interaction-secondary: #ffffff;
   --color-interaction-secondary-hover: #d3d3d3;
-  --color-interaction-secondary-active: #CCCCD1;
+  --color-interaction-secondary-active: #ccccd1;
   --color-interaction-secondary-disabled: rgba(176, 176, 176, 0.5);
-  --color-interaction-secondary-alt: #FFFFFF;
-  --color-interaction-secondary-alt-hover: #E8E8E8;
-  --color-interaction-secondary-alt-active: #D9D9D9;
-  --color-interaction-secondary-alt-disabled: #E7E7E7;
+  --color-interaction-secondary-alt: #ffffff;
+  --color-interaction-secondary-alt-hover: #e8e8e8;
+  --color-interaction-secondary-alt-active: #d9d9d9;
+  --color-interaction-secondary-alt-disabled: #e7e7e7;
 
   /**
   SEMANTIC
@@ -54,9 +56,9 @@ main[data-theme="light"],
   **/
   --color-text-main: #000000;
   --color-text-subtle: #757575;
-  --color-text-reverse: #FFFFFF;
+  --color-text-reverse: #ffffff;
   --color-text-reverse-subtle: #e7e7e7;
-  --color-text-disabled: #B0B0B0;
+  --color-text-disabled: #b0b0b0;
   --color-text-info: #000000;
   --color-text-success: #000000;
   --color-text-warning: #000000;
@@ -65,24 +67,25 @@ main[data-theme="light"],
   /**
   BORDER
   **/
-  --color-border-1: #E6E6E6;
+  --color-border-1: #e6e6e6;
   --color-border-2: #cacaca;
+  --color-border-3: rgba(202, 202, 202, 0.2);
 
   /**
   NEUTRALS
   **/
-  --color-neutral-0: #FFFFFF;
+  --color-neutral-0: #ffffff;
   --color-neutral-0-reverse: #000000;
-  --color-neutral-1: #F5F5F5;
-  --color-neutral-2: #EDEDED;
-  --color-neutral-3: #E7E7E7;
+  --color-neutral-1: #f5f5f5;
+  --color-neutral-2: #ededed;
+  --color-neutral-3: #e7e7e7;
 
   /**
   STATUS
   **/
-  --color-status-ready: #7ED320;
-  --color-status-offline: #ADA7A8;
-  --color-status-busy: #F19B53;
+  --color-status-ready: #7ed320;
+  --color-status-offline: #ada7a8;
+  --color-status-busy: #f19b53;
 
   /**
   BACKGROUNDS
@@ -90,7 +93,8 @@ main[data-theme="light"],
   --color-background-overlay: rgba(23, 10, 122, 0.4);
   --color-background-subtle-callout: #e8effd;
   --color-background-modal-overlay: rgba(0, 0, 0, 0.3);
-
+  --color-background-critical: #f9e1e5;
+  --color-background-neutral-0: #ffffff;
 
   /**
   MENU
@@ -100,9 +104,8 @@ main[data-theme="light"],
   --color-interactions-menu-inactive: #757575;
 }
 
-
-// PLACE HOLDER FOR DARK VALUES 
-main[data-theme="dark"] {
+// PLACE HOLDER FOR DARK VALUES
+main[data-theme='dark'] {
   /**
   PRIMARY INTERACTION
   **/
@@ -110,10 +113,10 @@ main[data-theme="dark"] {
   --color-interaction-primary-hover: #7092e4;
   --color-interaction-primary-active: #7092e4;
   --color-interaction-primary-disabled: rgba(176, 176, 176, 0.5);
-  --color-interaction-primary-alt: #FFFFFF;
-  --color-interaction-primary-alt-hover: #E8EFFD;
-  --color-interaction-primary-alt-active: #CBD8F0;
-  --color-interaction-primary-alt-disabled: #E7E7E7;
+  --color-interaction-primary-alt: #ffffff;
+  --color-interaction-primary-alt-hover: #e8effd;
+  --color-interaction-primary-alt-active: #cbd8f0;
+  --color-interaction-primary-alt-disabled: #e7e7e7;
 
   /**
   SECONDARY INTERACTION
@@ -122,10 +125,10 @@ main[data-theme="dark"] {
   --color-interaction-secondary-hover: #515764;
   --color-interaction-secondary-active: #515764;
   --color-interaction-secondary-disabled: rgba(176, 176, 176, 0.5);
-  --color-interaction-secondary-alt: #FFFFFF;
-  --color-interaction-secondary-alt-hover: #E8E8E8;
-  --color-interaction-secondary-alt-active: #D9D9D9;
-  --color-interaction-secondary-alt-disabled: #E7E7E7;
+  --color-interaction-secondary-alt: #ffffff;
+  --color-interaction-secondary-alt-hover: #e8e8e8;
+  --color-interaction-secondary-alt-active: #d9d9d9;
+  --color-interaction-secondary-alt-disabled: #e7e7e7;
 
   /**
   SEMANTIC
@@ -183,9 +186,9 @@ main[data-theme="dark"] {
   /**
   STATUS
   **/
-  --color-status-ready: #7ED320;
-  --color-status-offline: #ADA7A8;
-  --color-status-busy: #F19B53;
+  --color-status-ready: #7ed320;
+  --color-status-offline: #ada7a8;
+  --color-status-busy: #f19b53;
 
   /**
   BACKGROUNDS
@@ -193,7 +196,8 @@ main[data-theme="dark"] {
   --color-background-overlay: rgba(23, 10, 122, 0.4);
   --color-background-subtle-callout: #e8effd;
   --color-background-modal-overlay: rgba(0, 0, 0, 0.3);
-
+  --color-background-critical: #f9e1e5;
+  --color-background-neutral-0: #ffffff;
 
   /**
   MENU
