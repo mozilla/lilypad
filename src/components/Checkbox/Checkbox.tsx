@@ -18,11 +18,11 @@ type CheckboxPropsT = {
 const Checkbox = forwardRef(
   (
     {
-      classProp,
+      classProp = '',
       label,
       disabled,
       checked,
-      labelClassProp,
+      labelClassProp = '',
       onChange,
     }: CheckboxPropsT,
     ref

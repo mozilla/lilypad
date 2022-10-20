@@ -17,25 +17,24 @@
   }
 
   /* Hover */
-  &:hover input:enabled~.checkmark {
+  &:hover input:enabled ~ .checkmark {
     background-color: $color-interaction-primary-alt-hover;
   }
 
   /* Checked */
-  input:checked:enabled~.checkmark {
+  input:checked:enabled ~ .checkmark {
     background-color: $color-interaction-primary;
   }
 
   /* Checkbox & Hover */
-  input:checked:hover:enabled~.checkmark {
+  input:checked:hover:enabled ~ .checkmark {
     background-color: $color-interaction-primary-hover;
   }
 
   /* Show Check */
-  input:checked~.checkmark:after {
+  input:checked ~ .checkmark:after {
     display: block;
   }
-
 }
 
 .label {
@@ -50,6 +49,7 @@
   position: relative;
   height: 22px;
   width: 22px;
+  min-width: 22px;
   background-color: $color-interaction-primary-alt;
   border: $color-interaction-primary solid 2px;
   border-radius: 4px;
@@ -62,7 +62,7 @@
 
   &:after {
     transform: rotate(45deg);
-    content: "";
+    content: '';
     position: absolute;
     display: none;
     left: 8px;
@@ -74,4 +74,3 @@
     border-width: 0 2px 2px 0;
   }
 }
-
