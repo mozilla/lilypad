@@ -3,11 +3,12 @@ import React, {
   useRef,
   ChangeEventHandler,
   ChangeEvent,
+  ReactNode,
 } from 'react';
 import styles from './Checkbox.module.scss';
 
 type CheckboxPropsT = {
-  label?: string;
+  label?: string | ReactNode;
   checked?: boolean;
   disabled?: boolean;
   classProp?: string;
