@@ -24,7 +24,7 @@
     input {
       @include font-size(16);
       color: $color-text-main;
-      border: $color-interaction-secondary solid 2px;
+      border: $color-border-1 solid 2px;
       border-radius: 12px;
       padding: 12px;
 
@@ -48,7 +48,7 @@
 .error_message {
   @include font-size(16);
   color: $color-semantic-critical;
-  margin-top: 6px; 
+  margin-top: 6px;
   line-height: 24px;
 }
 
@@ -58,7 +58,6 @@
   color: $color-text-subtle;
   line-height: 24px;
 }
-
 
 @mixin icon() {
   position: absolute;
