@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  FocusEventHandler,
   ChangeEventHandler,
   ChangeEvent,
   useState,
@@ -35,9 +36,9 @@ type InputProps = {
   type?: InputT;
   info?: string;
   classProp?: string;
-  onBlur?: Function;
+  onBlur: Function;
   onFocus?: Function;
-  onChange?: Function;
+  onChange: Function;
   validator?: Function;
   required?: boolean;
   customErrorMessage?: string;
@@ -47,6 +48,7 @@ type InputProps = {
   value: string | number | readonly string[] | undefined;
   icon?: IconT;
   iconColor?: InputIconColorE;
+  id?: string;
 };
 
 const Input = forwardRef(
@@ -70,6 +72,7 @@ const Input = forwardRef(
       value,
       icon,
       iconColor = InputIconColorE.DEFAULT,
+      id,
     }: InputProps,
     ref
   ) => {
@@ -97,15 +100,15 @@ const Input = forwardRef(
       event: ChangeEvent<HTMLInputElement>
     ): ChangeEvent<HTMLInputElement> => {
       const newValue = event.target.value;
-      onChange && onChange(newValue);
+      onChange(event);
       // If initial value was empty any change makes form dirty
       const isDirty = initialValue === '' ? true : initialValue !== newValue;
       setIsDirty(isDirty);
       return event;
     };
 
-    const handleOnBlur = () => {
-      onBlur && onBlur(isValid);
+    const handleOnBlur: FocusEventHandler<HTMLInputElement> = (event) => {
+      onBlur(event);
     };
 
     const handleOnFocus = () => {
@@ -152,6 +155,7 @@ const Input = forwardRef(
 
         <input
           ref={inputRef}
+          id={id}
           type={type}
           name={name}
           value={value}
