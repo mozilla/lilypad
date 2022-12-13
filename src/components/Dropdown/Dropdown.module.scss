@@ -14,3 +14,13 @@
   background-color: $white;
   box-shadow: $drop-shadow;
 }
+
+.left {
+  position: absolute;
+  left: 0;
+}
+
+.right {
+  position: absolute;
+  right: 0;
+}

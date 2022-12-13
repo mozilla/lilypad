@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  FocusEventHandler,
   ChangeEventHandler,
   ChangeEvent,
   useState,
@@ -20,7 +21,7 @@ export type InputInterfaceT = {
   isDirty: Function;
 };
 
-export type InputT = 'text' | 'password' | 'email' | 'number' | 'tel';
+export type InputT = 'text' | 'password' | 'email' | 'number' | 'tel' | 'time';
 
 export enum InputIconColorE {
   SUCCESS = 'success',
@@ -47,6 +48,7 @@ type InputProps = {
   value: string | number | readonly string[] | undefined;
   icon?: IconT;
   iconColor?: InputIconColorE;
+  id?: string;
 };
 
 const Input = forwardRef(
@@ -70,6 +72,7 @@ const Input = forwardRef(
       value,
       icon,
       iconColor = InputIconColorE.DEFAULT,
+      id,
     }: InputProps,
     ref
   ) => {
@@ -97,19 +100,27 @@ const Input = forwardRef(
       event: ChangeEvent<HTMLInputElement>
     ): ChangeEvent<HTMLInputElement> => {
       const newValue = event.target.value;
-      onChange && onChange(newValue);
+      typeof onChange === 'function' && onChange(event);
+
       // If initial value was empty any change makes form dirty
       const isDirty = initialValue === '' ? true : initialValue !== newValue;
       setIsDirty(isDirty);
       return event;
     };
 
-    const handleOnBlur = () => {
-      onBlur && onBlur(isValid);
+    /**
+     * Handle Blue
+     * @param event
+     */
+    const handleOnBlur: FocusEventHandler<HTMLInputElement> = (event) => {
+      typeof onBlur === 'function' && onBlur(event);
     };
 
+    /**
+     * Handle Focus
+     */
     const handleOnFocus = () => {
-      onFocus && onFocus();
+      typeof onFocus === 'function' && onFocus();
     };
 
     /**
@@ -152,6 +163,7 @@ const Input = forwardRef(
 
         <input
           ref={inputRef}
+          id={id}
           type={type}
           name={name}
           value={value}
