@@ -36,9 +36,9 @@ type InputProps = {
   type?: InputT;
   info?: string;
   classProp?: string;
-  onBlur: Function;
+  onBlur?: Function;
   onFocus?: Function;
-  onChange: Function;
+  onChange?: Function;
   validator?: Function;
   required?: boolean;
   customErrorMessage?: string;
@@ -100,19 +100,27 @@ const Input = forwardRef(
       event: ChangeEvent<HTMLInputElement>
     ): ChangeEvent<HTMLInputElement> => {
       const newValue = event.target.value;
-      onChange(event);
+      typeof onChange === 'function' && onChange(event);
+
       // If initial value was empty any change makes form dirty
       const isDirty = initialValue === '' ? true : initialValue !== newValue;
       setIsDirty(isDirty);
       return event;
     };
 
+    /**
+     * Handle Blue
+     * @param event
+     */
     const handleOnBlur: FocusEventHandler<HTMLInputElement> = (event) => {
-      onBlur(event);
+      typeof onBlur === 'function' && onBlur(event);
     };
 
+    /**
+     * Handle Focus
+     */
     const handleOnFocus = () => {
-      onFocus && onFocus();
+      typeof onFocus === 'function' && onFocus();
     };
 
     /**
