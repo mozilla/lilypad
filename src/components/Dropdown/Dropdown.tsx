@@ -92,7 +92,7 @@ const Dropdown = forwardRef(
           {isVisible && (
             <div
               className={`${styles.content_wrapper} ${
-                alignment === 'right' ? 'u-right-absolute' : 'u-left-absolute'
+                alignment === 'right' ? styles.right : styles.left
               }`}
             >
               {content}

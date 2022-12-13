@@ -21,7 +21,7 @@ export type InputInterfaceT = {
   isDirty: Function;
 };
 
-export type InputT = 'text' | 'password' | 'email' | 'number' | 'tel';
+export type InputT = 'text' | 'password' | 'email' | 'number' | 'tel' | 'time';
 
 export enum InputIconColorE {
   SUCCESS = 'success',
