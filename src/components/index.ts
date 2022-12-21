@@ -15,6 +15,11 @@ export {
   InputT,
   InputIconColorE,
 } from './Input';
+export {
+  default as TextArea,
+  TextAreaInterfaceT,
+  TextAreaIconColorE,
+} from './TextArea';
 export { default as Select, OptionT, SelectInterfaceT } from './Select';
 export { default as ProgressBar } from './ProgressBar';
 export { default as RadioButton } from './RadioButton';
