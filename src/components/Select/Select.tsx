@@ -1,4 +1,5 @@
 import React from 'react';
+import Icon from '../Icon';
 import {
   FocusEventHandler,
   ChangeEventHandler,
@@ -9,33 +10,22 @@ import {
   forwardRef,
   useImperativeHandle,
 } from 'react';
-import styles from './Input.module.scss';
-import Icon, { IconT } from '../Icon';
-import ToolTip from '../ToolTip';
+import styles from './Select.module.scss';
 
-/**
- * Methods available to access the component in the parent component. These would most likley
- * only be used outside of the form context. Ie search input or some type of filter input.
- */
-export type InputInterfaceT = {
-  focusInput: Function;
+export type SelectInterfaceT = {
+  focusSelect: Function;
   isDirty: Function;
 };
 
-export type InputT = 'text' | 'password' | 'email' | 'number' | 'tel' | 'time';
+export type OptionT = {
+  value: string;
+  title: string;
+};
 
-export enum InputIconColorE {
-  SUCCESS = 'success',
-  ERROR = 'error',
-  DEFAULT = 'default',
-}
-
-type InputProps = {
+type SelectPropsT = {
   label: string;
-  placeholder: string;
-  toolTip?: string;
+  options: OptionT[];
   name: string;
-  type?: InputT;
   info?: string;
   classProp?: string;
   onBlur?: Function;
@@ -44,23 +34,16 @@ type InputProps = {
   validator?: Function;
   required?: boolean;
   customErrorMessage?: string;
-  pattern?: string;
-  maxLength?: number;
-  minLength?: number;
   value: string | number | readonly string[] | undefined;
-  icon?: IconT;
-  iconColor?: InputIconColorE;
   id?: string;
 };
 
-const Input = forwardRef(
+const Select = forwardRef(
   (
     {
       label,
-      placeholder,
-      toolTip,
-      type = 'text',
       name,
+      options,
       info = '',
       classProp = '',
       onChange,
@@ -69,39 +52,34 @@ const Input = forwardRef(
       validator = () => true,
       required = false,
       customErrorMessage,
-      pattern,
-      maxLength,
-      minLength,
       value,
-      icon,
-      iconColor = InputIconColorE.DEFAULT,
       id,
-    }: InputProps,
+    }: SelectPropsT,
     ref
   ) => {
     const [isValid, setIsValid] = useState<boolean>(false);
     const [isDirty, setIsDirty] = useState<boolean>(false);
     const [initialValue, setInitialValue] = useState(value); // used to check if dirty
     const [currentErrorMessage, setCurrentErrorMessage] = useState<string>('');
-    const inputRef = useRef<HTMLInputElement>(null);
+    const selectRef = useRef<HTMLSelectElement>(null);
 
     /**
      * Exposed Component API
      */
     useImperativeHandle(ref, () => {
       return {
-        focusInput: () => inputRef.current?.focus(),
+        focusSelect: () => selectRef.current?.focus(),
         isDirty: () => isDirty,
       };
     });
 
     /**
-     * Handle Input Change
+     * Handle Select Change
      * @param event
      */
-    const handleOnChange: ChangeEventHandler<HTMLInputElement> = (
-      event: ChangeEvent<HTMLInputElement>
-    ): ChangeEvent<HTMLInputElement> => {
+    const handleOnChange: ChangeEventHandler<HTMLSelectElement> = (
+      event: ChangeEvent<HTMLSelectElement>
+    ): ChangeEvent<HTMLSelectElement> => {
       const newValue = event.target.value;
       typeof onChange === 'function' && onChange(event);
 
@@ -115,7 +93,7 @@ const Input = forwardRef(
      * Handle Blue
      * @param event
      */
-    const handleOnBlur: FocusEventHandler<HTMLInputElement> = (event) => {
+    const handleOnBlur: FocusEventHandler<HTMLSelectElement> = (event) => {
       typeof onBlur === 'function' && onBlur(event);
     };
 
@@ -127,14 +105,14 @@ const Input = forwardRef(
     };
 
     /**
-     * Validate Input
+     * Validate Select
      */
     useEffect(() => {
-      const input = inputRef.current;
-      if (!input) return;
+      const select = selectRef.current;
+      if (!select) return;
 
-      const valid = input.validity.valid;
-      const validationMessage = input.validationMessage;
+      const valid = select.validity.valid;
+      const validationMessage = select.validationMessage;
       const validation = valid && validator(value);
 
       // Prop error message takes precedence
@@ -155,42 +133,36 @@ const Input = forwardRef(
 
     return (
       <div
-        className={`${styles.input_wrapper}  ${
-          showError ? styles.input_error : null
+        className={`${styles.select_wrapper}  ${
+          showError ? styles.select_error : null
         } ${classProp}`}
       >
-        <label className={styles.label}>
+        <label htmlFor={id}>
           {label}
           <span> {required ? '*' : ''}</span>
-          {toolTip && (
-            <ToolTip description={toolTip} classProp={styles.tool_tip}>
-              <Icon name="info" />
-            </ToolTip>
-          )}
         </label>
 
-        <input
-          ref={inputRef}
-          id={id}
-          type={type}
-          name={name}
-          value={value}
-          required={required}
-          placeholder={placeholder ? placeholder : label}
-          onChange={handleOnChange}
-          onBlur={handleOnBlur}
-          onFocus={handleOnFocus}
-          maxLength={maxLength}
-          minLength={minLength}
-          pattern={pattern}
-          className={`${icon && styles.has_icon} ${
-            showError && styles.has_error
-          }`}
-        />
-
-        {icon ? (
-          <Icon name={icon} classProp={styles['icon_' + iconColor]} />
-        ) : null}
+        <div className={styles.select_container}>
+          <select
+            ref={selectRef}
+            id={id}
+            name={name}
+            onChange={handleOnChange}
+            onBlur={handleOnBlur}
+            onFocus={handleOnFocus}
+            value={value}
+            className={styles.select}
+          >
+            {options.map(({ value: optionValue, title }, i) => {
+              return (
+                <option key={i} value={optionValue}>
+                  {title}
+                </option>
+              );
+            })}
+          </select>
+          <Icon classProp={styles.arrow} name="chevron-down" />
+        </div>
 
         {/* Error Message */}
         {showError ? (
@@ -199,12 +171,12 @@ const Input = forwardRef(
           ''
         )}
 
-        {/* Additional Input Information  */}
+        {/* Additional Select Information  */}
         {showInfo ? <span className={styles.info}>{info}</span> : ''}
       </div>
     );
   }
 );
 
-Input.displayName = 'Input';
-export default Input;
+Select.displayName = 'Select';
+export default Select;

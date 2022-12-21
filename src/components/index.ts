@@ -8,12 +8,14 @@ export {
   ButtonSizesE,
 } from './Button';
 export { default as Icon, IconT } from './Icon';
+export { default as ToolTip } from './ToolTip';
 export {
   default as Input,
   InputInterfaceT,
   InputT,
   InputIconColorE,
 } from './Input';
+export { default as Select, OptionT, SelectInterfaceT } from './Select';
 export { default as ProgressBar } from './ProgressBar';
 export { default as RadioButton } from './RadioButton';
 export { default as CopyButton } from './CopyButton';

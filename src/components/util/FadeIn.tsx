@@ -3,7 +3,7 @@ import { PropsWithChildren, useEffect, useState, Children } from 'react';
 
 export type FadeInPropsT = {
   isVisible: boolean;
-  onComplete: Function;
+  onComplete?: Function;
   classProp?: string;
 };
 

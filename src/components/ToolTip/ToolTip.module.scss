@@ -1,0 +1,16 @@
+@use '../../styles/boilerplate.scss'as *;
+
+.description {
+  @include body-sm();
+  display: block;
+  position: absolute;
+  z-index: 1;
+  padding: 10px;
+  margin-top: 5px;
+  min-width: 100px;
+  max-width: 300px;
+  border-radius: 12px;
+  padding-left: 13px;
+  background-color: $color-interactions-menu;
+  color: $color-text-reverse;
+}

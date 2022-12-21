@@ -1,6 +1,6 @@
 @use '../../styles/boilerplate.scss'as *;
 
-.input {
+.select {
   &_wrapper {
     @include primary-font();
     display: flex;
@@ -8,6 +8,7 @@
     flex-direction: column;
     width: 100%;
     padding-bottom: 10px;
+    position: relative;
 
     label {
       @include font-size(16);
@@ -21,12 +22,16 @@
       }
     }
 
-    input {
+    select {
       @include font-size(16);
       color: $color-text-main;
       border: $color-border-1 solid 2px;
       border-radius: 12px;
       padding: 12px;
+      background: transparent;
+      appearance: none;
+      background-color: transparent;
+      z-index: 1;
 
       &.has_error {
         border: $color-semantic-critical solid 2px;
@@ -38,22 +43,27 @@
     }
   }
 
+  &_container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    background-color: $color-neutral-0;
+    flex-direction: column;
+    border-radius: 12px;
+  }
+
   &_error {
-    input {
+    select {
       border: $color-semantic-critical solid 1px;
     }
   }
 }
 
-.tool_tip {
-  margin-left: 10px;
-  svg {
-    stroke: $color-interactions-menu;
-  }
-}
-
-.label {
-  display: flex;
+.arrow {
+  position: absolute;
+  right: 14px;
+  top: 13px;
+  stroke: $color-interactions-menu;
 }
 
 .error_message {
@@ -68,25 +78,4 @@
   margin-top: 6px;
   color: $color-text-subtle;
   line-height: 24px;
-}
-
-@mixin icon() {
-  position: absolute;
-  top: 42px;
-  right: 12px;
-}
-
-.icon_success {
-  @include icon();
-  stroke: $color-semantic-success;
-}
-
-.icon_error {
-  @include icon();
-  stroke: $color-semantic-critical;
-}
-
-.icon_default {
-  @include icon();
-  stroke: $color-text-info;
 }
