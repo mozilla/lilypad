@@ -20,6 +20,7 @@ export {
   TextAreaInterfaceT,
   TextAreaIconColorE,
 } from './TextArea';
+export { default as Switch } from './Switch';
 export { default as Select, OptionT, SelectInterfaceT } from './Select';
 export { default as ProgressBar } from './ProgressBar';
 export { default as RadioButton } from './RadioButton';

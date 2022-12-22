@@ -43,6 +43,7 @@ type InputProps = {
   onChange?: Function;
   validator?: Function;
   required?: boolean;
+  isError?: boolean;
   customErrorMessage?: string;
   pattern?: string;
   maxLength?: number;
@@ -68,6 +69,7 @@ const Input = forwardRef(
       onFocus,
       validator = () => true,
       required = false,
+      isError,
       customErrorMessage,
       pattern,
       maxLength,
@@ -81,8 +83,12 @@ const Input = forwardRef(
   ) => {
     const [isValid, setIsValid] = useState<boolean>(false);
     const [isDirty, setIsDirty] = useState<boolean>(false);
+    const [showError, setShowError] = useState<boolean>(false);
+    const [showInfo, setShowInfo] = useState<boolean>(false);
     const [initialValue, setInitialValue] = useState(value); // used to check if dirty
-    const [currentErrorMessage, setCurrentErrorMessage] = useState<string>('');
+    const [currentErrorMessage, setCurrentErrorMessage] = useState<string>(
+      customErrorMessage ? customErrorMessage : ''
+    );
     const inputRef = useRef<HTMLInputElement>(null);
 
     /**
@@ -94,6 +100,38 @@ const Input = forwardRef(
         isDirty: () => isDirty,
       };
     });
+
+    /**
+     * Validate Input
+     */
+    useEffect(() => {
+      const input = inputRef.current;
+      if (!input) return;
+
+      const valid = input.validity.valid;
+      const validationMessage = input.validationMessage;
+      const validation = valid && validator(value);
+
+      // Prop error message takes precedence
+      if (!validation) {
+        const message = customErrorMessage
+          ? customErrorMessage
+          : validationMessage;
+        message ? setCurrentErrorMessage(message) : null;
+      }
+      setIsValid(validation);
+    }, [value, customErrorMessage, validator]);
+
+    /**
+     * Error UI logic
+     */
+    useEffect(() => {
+      setShowError(isError || (isDirty && !isValid));
+    }, [isDirty, isValid, isError]);
+
+    useEffect(() => {
+      setShowInfo(Boolean(info.length) && !showError);
+    }, [info, showError]);
 
     /**
      * Handle Input Change
@@ -125,33 +163,6 @@ const Input = forwardRef(
     const handleOnFocus = () => {
       typeof onFocus === 'function' && onFocus();
     };
-
-    /**
-     * Validate Input
-     */
-    useEffect(() => {
-      const input = inputRef.current;
-      if (!input) return;
-
-      const valid = input.validity.valid;
-      const validationMessage = input.validationMessage;
-      const validation = valid && validator(value);
-
-      // Prop error message takes precedence
-      if (!validation) {
-        const message = customErrorMessage
-          ? customErrorMessage
-          : validationMessage;
-        message ? setCurrentErrorMessage(message) : null;
-      }
-      setIsValid(validation);
-    }, [value, customErrorMessage, validator]);
-
-    /**
-     * Error UI logic
-     */
-    const showError = isDirty && !isValid;
-    const showInfo = info.length && !showError;
 
     return (
       <div
