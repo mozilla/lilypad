@@ -10,6 +10,13 @@ export {
 export { default as Icon, IconT } from './Icon';
 export { default as ToolTip } from './ToolTip';
 export {
+  default as Toast,
+  ToastInterfaceT,
+  NewToastT,
+  ToastTypesE,
+  ToastLocationE,
+} from './Toast';
+export {
   default as Input,
   InputInterfaceT,
   InputT,

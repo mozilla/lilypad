@@ -1,0 +1,80 @@
+@use '../../styles/boilerplate.scss'as *;
+
+.wrapper {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.container {
+  z-index: 100;
+  color: white;
+  padding: 16px;
+  border-radius: 10px;
+  width: 300px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: $drop-shadow;
+  margin-bottom: 14px;
+
+  svg {
+    stroke: white;
+  }
+
+  &.success {
+    background-color: green;
+  }
+  &.error {
+    background-color: red;
+  }
+  &.warn {
+    background-color: #ef6500;
+  }
+  &.plain {
+    color: $color-text-main;
+    background-color: $color-background-neutral-0;
+    svg {
+      stroke: $color-text-main;
+    }
+  }
+}
+
+.close {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+
+.progress_bar {
+  position: absolute;
+  height: 10px;
+  border-radius: 10px;
+  width: calc(100% * var(--progress));
+  background: linear-gradient(
+    107.97deg,
+    #489cbe 6.73%,
+    #5427c9 39.4%,
+    #a8527c 77.18%,
+    #a67878 104.75%
+  );
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.callback_wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  svg {
+    margin-right: 10px;
+  }
+}
+
+.title {
+  @include h3;
+}

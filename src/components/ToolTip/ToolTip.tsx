@@ -1,4 +1,4 @@
-import React, { useState, ReactNode } from 'react';
+import React, { useState, ReactNode, useCallback } from 'react';
 import styles from './ToolTip.module.scss';
 import FadeIn from '../util/FadeIn';
 
@@ -9,22 +9,29 @@ type ToolTipPropsT = {
 };
 
 const ToolTip = ({ children, description, classProp = '' }: ToolTipPropsT) => {
-  const [show, setShow] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
-  /**
-   * Toggle Visibilty
-   */
-  const toggleToolTip = () => {
-    setShow((state) => !state);
-  };
+  const handleOpen = useCallback(() => {
+    setIsVisible((state) => !state);
+    setIsOpen((state) => !state);
+  }, []);
+
+  const handleClose = useCallback(() => {
+    setIsOpen((state) => !state);
+  }, []);
+
+  const handleOnComplete = useCallback(() => {
+    if (!isOpen) setIsVisible(false);
+  }, [isOpen]);
 
   return (
     <section className={classProp}>
-      <div onMouseEnter={toggleToolTip} onMouseLeave={toggleToolTip}>
+      <div onMouseEnter={handleOpen} onMouseLeave={handleClose}>
         {children}
       </div>
-      <FadeIn isVisible={show}>
-        {show && <p className={styles.description}>{description}</p>}
+      <FadeIn isVisible={isOpen} onComplete={handleOnComplete}>
+        {isVisible && <p className={styles.description}>{description}</p>}
       </FadeIn>
     </section>
   );
