@@ -150,7 +150,7 @@ const Input = forwardRef(
     };
 
     /**
-     * Handle Blue
+     * Handle Blur
      * @param event
      */
     const handleOnBlur: FocusEventHandler<HTMLInputElement> = (event) => {

@@ -45,4 +45,5 @@ Main.args = {
   name: 'firstName',
   info: 'Additional Text Area Information',
   required: true,
+  isError: false,
 };

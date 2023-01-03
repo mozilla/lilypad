@@ -33,6 +33,7 @@ type SelectPropsT = {
   onChange?: Function;
   validator?: Function;
   required?: boolean;
+  isError?: boolean;
   customErrorMessage?: string;
   value: string | number | readonly string[] | undefined;
   id?: string;
@@ -51,6 +52,7 @@ const Select = forwardRef(
       onFocus,
       validator = () => true,
       required = false,
+      isError,
       customErrorMessage,
       value,
       id,
@@ -59,8 +61,12 @@ const Select = forwardRef(
   ) => {
     const [isValid, setIsValid] = useState<boolean>(false);
     const [isDirty, setIsDirty] = useState<boolean>(false);
+    const [showError, setShowError] = useState<boolean>(false);
+    const [showInfo, setShowInfo] = useState<boolean>(false);
     const [initialValue, setInitialValue] = useState(value); // used to check if dirty
-    const [currentErrorMessage, setCurrentErrorMessage] = useState<string>('');
+    const [currentErrorMessage, setCurrentErrorMessage] = useState<string>(
+      customErrorMessage ? customErrorMessage : ''
+    );
     const selectRef = useRef<HTMLSelectElement>(null);
 
     /**
@@ -72,6 +78,17 @@ const Select = forwardRef(
         isDirty: () => isDirty,
       };
     });
+
+    /**
+     * Error UI logic
+     */
+    useEffect(() => {
+      setShowError(isError || (isDirty && !isValid));
+    }, [isDirty, isValid, isError]);
+
+    useEffect(() => {
+      setShowInfo(Boolean(info.length) && !showError);
+    }, [info, showError]);
 
     /**
      * Handle Select Change
@@ -90,7 +107,7 @@ const Select = forwardRef(
     };
 
     /**
-     * Handle Blue
+     * Handle Blur
      * @param event
      */
     const handleOnBlur: FocusEventHandler<HTMLSelectElement> = (event) => {
@@ -124,12 +141,6 @@ const Select = forwardRef(
       }
       setIsValid(validation);
     }, [value, customErrorMessage, validator]);
-
-    /**
-     * Error UI logic
-     */
-    const showError = isDirty && !isValid;
-    const showInfo = info.length && !showError;
 
     return (
       <div

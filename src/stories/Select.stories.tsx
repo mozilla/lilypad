@@ -45,6 +45,7 @@ Main.args = {
   name: 'firstName',
   info: 'Additional Input Information',
   required: true,
+  isError: false,
   options: [
     { title: '30 Minuts', value: '30' },
     { title: '35 Minuts', value: '35' },

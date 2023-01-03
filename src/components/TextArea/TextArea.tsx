@@ -41,6 +41,7 @@ type TextAreaPropsT = {
   disabled?: boolean;
   validator?: Function;
   required?: boolean;
+  isError?: boolean;
   customErrorMessage?: string;
   maxLength?: number;
   minLength?: number;
@@ -65,6 +66,7 @@ const TextArea = forwardRef(
       onFocus,
       validator = () => true,
       required = false,
+      isError,
       customErrorMessage,
       maxLength,
       minLength,
@@ -77,8 +79,12 @@ const TextArea = forwardRef(
   ) => {
     const [isValid, setIsValid] = useState<boolean>(false);
     const [isDirty, setIsDirty] = useState<boolean>(false);
+    const [showError, setShowError] = useState<boolean>(false);
+    const [showInfo, setShowInfo] = useState<boolean>(false);
     const [initialValue, setInitialValue] = useState(value); // used to check if dirty
-    const [currentErrorMessage, setCurrentErrorMessage] = useState<string>('');
+    const [currentErrorMessage, setCurrentErrorMessage] = useState<string>(
+      customErrorMessage ? customErrorMessage : ''
+    );
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
     /**
@@ -90,37 +96,6 @@ const TextArea = forwardRef(
         isDirty: () => isDirty,
       };
     });
-
-    /**
-     * Handle TextArea Change
-     * @param event
-     */
-    const handleOnChange: ChangeEventHandler<HTMLTextAreaElement> = (
-      event: ChangeEvent<HTMLTextAreaElement>
-    ): ChangeEvent<HTMLTextAreaElement> => {
-      const newValue = event.target.value;
-      typeof onChange === 'function' && onChange(event);
-
-      // If initial value was empty any change makes form dirty
-      const isDirty = initialValue === '' ? true : initialValue !== newValue;
-      setIsDirty(isDirty);
-      return event;
-    };
-
-    /**
-     * Handle Blue
-     * @param event
-     */
-    const handleOnBlur: FocusEventHandler<HTMLTextAreaElement> = (event) => {
-      typeof onBlur === 'function' && onBlur(event);
-    };
-
-    /**
-     * Handle Focus
-     */
-    const handleOnFocus = () => {
-      typeof onFocus === 'function' && onFocus();
-    };
 
     /**
      * Validate TextArea
@@ -146,8 +121,44 @@ const TextArea = forwardRef(
     /**
      * Error UI logic
      */
-    const showError = isDirty && !isValid;
-    const showInfo = info.length && !showError;
+    useEffect(() => {
+      setShowError(isError || (isDirty && !isValid));
+    }, [isDirty, isValid, isError]);
+
+    useEffect(() => {
+      setShowInfo(Boolean(info.length) && !showError);
+    }, [info, showError]);
+
+    /**
+     * Handle TextArea Change
+     * @param event
+     */
+    const handleOnChange: ChangeEventHandler<HTMLTextAreaElement> = (
+      event: ChangeEvent<HTMLTextAreaElement>
+    ): ChangeEvent<HTMLTextAreaElement> => {
+      const newValue = event.target.value;
+      typeof onChange === 'function' && onChange(event);
+
+      // If initial value was empty any change makes form dirty
+      const isDirty = initialValue === '' ? true : initialValue !== newValue;
+      setIsDirty(isDirty);
+      return event;
+    };
+
+    /**
+     * Handle Blur
+     * @param event
+     */
+    const handleOnBlur: FocusEventHandler<HTMLTextAreaElement> = (event) => {
+      typeof onBlur === 'function' && onBlur(event);
+    };
+
+    /**
+     * Handle Focus
+     */
+    const handleOnFocus = () => {
+      typeof onFocus === 'function' && onFocus();
+    };
 
     return (
       <div
