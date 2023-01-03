@@ -1,4 +1,4 @@
-@use '../../styles/boilerplate.scss'as *;
+@use '../../styles/core/boilerplate.scss'as *;
 
 .wrapper {
   position: absolute;
@@ -22,13 +22,13 @@
   }
 
   &.success {
-    background-color: green;
+    background-color: $color-semantic-success;
   }
   &.error {
-    background-color: red;
+    background-color: $color-semantic-critical;
   }
   &.warn {
-    background-color: #ef6500;
+    background-color: $color-semantic-warning;
   }
   &.plain {
     color: $color-text-main;
@@ -76,5 +76,5 @@
 }
 
 .title {
-  @include h3;
+  @include heading-sm();
 }

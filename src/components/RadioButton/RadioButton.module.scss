@@ -1,4 +1,4 @@
-@use '../../styles/boilerplate.scss'as *;
+@use '../../styles/core/boilerplate.scss'as *;
 @use '../../styles/tools/functions.scss'as *;
 
 .button {
@@ -7,7 +7,7 @@
     display: flex;
     align-items: center;
 
-    input[type="radio"] {
+    input[type='radio'] {
       @include prefix(appearance, none, webkit ms moz);
       background-color: $color-interaction-primary-alt;
       margin: 0;
@@ -22,13 +22,12 @@
       place-content: center;
     }
 
-
-    input[type="radio"]:hover {
+    input[type='radio']:hover {
       background-color: $color-interaction-primary-alt-hover;
     }
 
-    input[type="radio"]::before {
-      content: "";
+    input[type='radio']::before {
+      content: '';
       width: 14px;
       height: 14px;
       border-radius: 50%;
@@ -39,11 +38,11 @@
       background-color: $color-interaction-primary-alt;
     }
 
-    input[type="radio"]:checked::before {
+    input[type='radio']:checked::before {
       transform: scale(1);
     }
 
-    input[type="radio"]:focus::before {
+    input[type='radio']:focus::before {
       box-shadow: inset 1em 1em $color-interaction-primary-hover;
     }
 

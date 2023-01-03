@@ -1,4 +1,4 @@
-@use '../../styles/boilerplate.scss'as *;
+@use '../../styles/core/boilerplate.scss'as *;
 
 .container {
   @include prefix(user-select, none, webkit ms moz);

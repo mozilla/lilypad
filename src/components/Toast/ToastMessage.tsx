@@ -43,6 +43,9 @@ const ToastMessage = ({
   const progressBar = useRef<HTMLDivElement>(null);
   const timeVisible = useRef<number>(0);
 
+  /**
+   * Init Component
+   */
   useEffect(() => {
     setIsVisible(true);
     setIsOpen(true);
@@ -52,6 +55,10 @@ const ToastMessage = ({
     initInterval(timeVisible.current);
   }, []);
 
+  /**
+   * Init intercal for countdown
+   * @param time number
+   */
   const initInterval = (time: number) => {
     const interval = window.setInterval(() => {
       const increment = 10;
@@ -71,6 +78,11 @@ const ToastMessage = ({
     setIntervalId(interval);
   };
 
+  /**
+   * Animate progress bar
+   * @param time
+   * @param duration
+   */
   const animateProgress = (time: number, duration: number) => {
     progressBar.current?.style.setProperty(
       '--progress',
@@ -78,21 +90,40 @@ const ToastMessage = ({
     );
   };
 
+  /**
+   * Mouse Enter
+   */
   const handleMouseEnter = () => {
-    if (!pauseOnHover) return;
+    if (!pauseOnHover || !autoClose) return;
     clearInterval(intervalId);
   };
 
+  /**
+   * Mouse Leave
+   */
   const handleMouseLeave = () => {
-    if (!pauseOnHover) return;
+    if (!pauseOnHover || !autoClose) return;
     initInterval(timeVisible.current);
   };
 
+  /**
+   * On Close
+   */
   const handleClose = useCallback(() => {
     setIsOpen(false);
     clearInterval(intervalId);
   }, []);
 
+  /**
+   * Handle CTA action click
+   */
+  const handleAction = useCallback(() => {
+    typeof callback === 'function' && callback();
+  }, []);
+
+  /**
+   * On fade out complete
+   */
   const handleOnComplete = useCallback(() => {
     if (!isOpen) {
       setIsVisible(false);
@@ -101,10 +132,9 @@ const ToastMessage = ({
     }
   }, [isOpen]);
 
-  const handleAction = useCallback(() => {
-    typeof callback === 'function' && callback();
-  }, []);
-
+  /**
+   * Get button category
+   */
   const ButtonCategory = (): ButtonCategoriesE => {
     let category = ButtonCategoriesE.SECONDARY_CLEAR;
     if (type === ToastTypesE.PLAIN) {
@@ -130,7 +160,7 @@ const ToastMessage = ({
             category={ButtonCategory()}
           />
           <div className={styles.header}>
-            {icon && <Icon name={icon} size={18} />}
+            {icon && <Icon name={icon} size={20} />}
             <div className={styles.title}>{title}</div>
           </div>
           <p>{description}</p>

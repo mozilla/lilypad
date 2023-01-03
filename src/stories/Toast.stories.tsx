@@ -33,7 +33,7 @@ export default {
     icon: {
       control: {
         type: 'select',
-        options: ['', 'check', 'x'],
+        options: ['', 'check', 'check-circle', 'x', 'alert-circle', 'smile'],
       },
     },
     type: {
@@ -64,6 +64,16 @@ export default {
         options: [false, true],
       },
     },
+    autoClose: {
+      control: {
+        type: 'boolean',
+        options: [false, true],
+      },
+    },
+    callbackCta: {
+      name: 'callbackCta',
+      type: { name: 'string' },
+    },
   },
 } as ComponentMeta<typeof Toast>;
 
@@ -71,6 +81,8 @@ export default {
 const Template: ComponentStory<typeof ToastMessage> = (args) => {
   const toastRef = useRef<ToastInterfaceT>();
   const toastDarkRef = useRef<ToastInterfaceT>();
+
+  const callback = args.callbackCta ? () => {} : undefined;
 
   const success: NewToastT = {
     title: args.title,
@@ -80,6 +92,9 @@ const Template: ComponentStory<typeof ToastMessage> = (args) => {
     type: args.type,
     location: args.location,
     pauseOnHover: args.pauseOnHover,
+    autoClose: args.autoClose,
+    callback: callback,
+    callbackCta: args.callbackCta,
   };
 
   const handleClick = () => {
@@ -129,4 +144,6 @@ Main.args = {
   type: ToastTypesE.SUCCESS,
   location: ToastLocationE.TOP_RIGHT,
   pauseOnHover: true,
+  autoClose: true,
+  callbackCta: undefined,
 };

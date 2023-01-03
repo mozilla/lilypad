@@ -8,7 +8,11 @@ export {
   ButtonSizesE,
 } from './Button';
 export { default as Icon, IconT } from './Icon';
-export { default as ToolTip } from './ToolTip';
+export {
+  default as ToolTip,
+  ToolTipLocationE,
+  ToolTipCategoriesE,
+} from './ToolTip';
 export {
   default as Toast,
   ToastInterfaceT,
