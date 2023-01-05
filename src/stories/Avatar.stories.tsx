@@ -1,11 +1,11 @@
-import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
-import Avatar from '../components/Avatar/Avatar'
+import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+import Avatar from '../components/Avatar/Avatar';
 
 export default {
   title: 'Example/Avatar',
   component: Avatar,
-} as ComponentMeta<typeof Avatar>
+} as ComponentMeta<typeof Avatar>;
 
 const Template: ComponentStory<typeof Avatar> = (args) => (
   <>
@@ -20,9 +20,9 @@ const Template: ComponentStory<typeof Avatar> = (args) => (
   </>
 );
 
-export const Main = Template.bind({})
+export const Main = Template.bind({});
 Main.args = {
-  src: 'https://ui-avatars.com/api/?background=0D8ABC&color=fff',
+  src: 'https://avatars.dicebear.com/api/big-ears/:dr.svg?background=%230000ff',
   alt: 'JD',
-  size: 50
-}
+  size: 50,
+};

@@ -8,33 +8,45 @@
 
 .container {
   z-index: 100;
-  color: white;
   padding: 16px;
-  border-radius: 10px;
-  width: 300px;
+  width: 523px;
   position: relative;
   overflow: hidden;
   box-shadow: $drop-shadow;
   margin-bottom: 14px;
-
-  svg {
-    stroke: white;
-  }
+  background-color: $color-background-neutral-0;
+  color: $color-text-main;
 
   &.success {
-    background-color: $color-semantic-success;
+    .icon {
+      stroke: $color-semantic-success;
+    }
+    .progress_bar {
+      background-color: $color-semantic-success;
+    }
   }
   &.error {
-    background-color: $color-semantic-critical;
+    .icon {
+      stroke: $color-semantic-critical;
+    }
+    .progress_bar {
+      background-color: $color-semantic-critical;
+    }
   }
-  &.warn {
-    background-color: $color-semantic-warning;
+  &.warning {
+    .icon {
+      stroke: $color-semantic-warning;
+    }
+    .progress_bar {
+      background-color: $color-semantic-warning;
+    }
   }
-  &.plain {
-    color: $color-text-main;
-    background-color: $color-background-neutral-0;
-    svg {
-      stroke: $color-text-main;
+  &.info {
+    .icon {
+      stroke: $color-semantic-info;
+    }
+    .progress_bar {
+      background-color: $color-semantic-info;
     }
   }
 }
@@ -43,23 +55,21 @@
   position: absolute;
   right: 5px;
   top: 5px;
+  color: $color-text-main;
 }
 
 .progress_bar {
   position: absolute;
-  height: 10px;
-  border-radius: 10px;
+  height: 8px;
   width: calc(100% * var(--progress));
-  background: linear-gradient(
-    107.97deg,
-    #489cbe 6.73%,
-    #5427c9 39.4%,
-    #a8527c 77.18%,
-    #a67878 104.75%
-  );
   bottom: 0;
   left: 0;
   right: 0;
+
+  &.active {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
 }
 
 .callback_wrapper {
@@ -67,14 +77,6 @@
   justify-content: flex-end;
 }
 
-.header {
-  display: flex;
-  align-items: center;
-  svg {
-    margin-right: 10px;
-  }
-}
-
-.title {
-  @include heading-sm();
+.icon {
+  margin-right: 20px;
 }

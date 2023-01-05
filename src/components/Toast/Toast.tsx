@@ -1,7 +1,5 @@
 import React, { useState, forwardRef, useImperativeHandle } from 'react';
 import styles from './Toast.module.scss';
-import { IconT } from '../Icon';
-
 import ToastMessage from './ToastMessage';
 
 export type ToastPropsT = {
@@ -15,8 +13,8 @@ export type ToastInterfaceT = {
 export enum ToastTypesE {
   SUCCESS = 'success',
   ERROR = 'error',
-  PLAIN = 'plain',
-  WARN = 'warn',
+  INFO = 'info',
+  WARNING = 'warning',
 }
 
 export enum ToastLocationE {
@@ -32,7 +30,6 @@ export type NewToastT = {
   duration?: number;
   autoClose?: boolean;
   type?: ToastTypesE;
-  icon?: IconT;
   callback?: Function;
   callbackCta?: string;
   location?: ToastLocationE;

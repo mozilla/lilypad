@@ -2,9 +2,9 @@
 //   Font Setup
 // -----------------
 $font-size-base: 16; // base size in px
-$primary-font: 'Inter';
-$secondary-font: 'Space Grotesk';
-$backup-font: 'Arial';
+$primary-font: var(--font-primary);
+$secondary-font: var(--font-seondary);
+$backup-font: var(--font-backup);
 
 // ---------------------------------
 //  Colors
@@ -130,15 +130,15 @@ $blue: #0d73a6;
 $light-blue: #e0f5ff;
 $link-blue: #007ab8;
 $purple: #663df5;
-
-// ---- Accent Colors ---------------------
-$teal: #23a2b3;
-$light-teal: rgba($teal, 0.1);
-$pink: #d83a94;
-$blue-neon: #4d4dff;
-$yellow-neon: #f1ea57;
-$peach: #d96868;
-$tan: #e5dfd8;
+$gradient-warm: linear-gradient(270deg, #ff806f 0%, #ffff98 100%);
+$gradient-rainbow: linear-gradient(
+  107.97deg,
+  #489cbe 6.73%,
+  #5427c9 39.4%,
+  #a8527c 77.18%,
+  #a67878 104.75%
+);
+$gradient-cool: linear-gradient(90deg, #6ae1d9 0%, #9898ff 100%);
 
 // ---- Utility Colors  ---------------------
 $white: #ffffff;

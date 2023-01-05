@@ -1,14 +1,13 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import styles from './ToastMessage.module.scss';
-import Icon, { IconT } from '../Icon';
 import Button, { ButtonCategoriesE, ButtonSizesE } from '../Button';
 import FadeIn from '../util/FadeIn';
 import { ToastTypesE, ToastLocationE } from './Toast';
+import { InfoIcon, SuccessIcon, WarningIcon, ErrorIcon } from './icons';
 
 export type ToastPropsT = {
   title: string;
   description: string;
-  icon?: IconT;
   id: string;
   selfDestruct?: (id: string, location: ToastLocationE) => void;
   callback?: Function;
@@ -21,10 +20,29 @@ export type ToastPropsT = {
   classProp?: string;
 };
 
+type ToastIconPropsT = {
+  type: ToastTypesE;
+  classProp?: string;
+};
+
+const ToastIcon = ({ type, classProp }: ToastIconPropsT) => {
+  switch (type) {
+    case ToastTypesE.INFO:
+      return <InfoIcon classProp={classProp} />;
+    case ToastTypesE.SUCCESS:
+      return <SuccessIcon classProp={classProp} />;
+    case ToastTypesE.WARNING:
+      return <WarningIcon classProp={classProp} />;
+    case ToastTypesE.ERROR:
+      return <ErrorIcon classProp={classProp} />;
+    default:
+      return <InfoIcon classProp={classProp} />;
+  }
+};
+
 const ToastMessage = ({
   title,
   description,
-  icon = 'check',
   id,
   selfDestruct,
   callback,
@@ -132,17 +150,6 @@ const ToastMessage = ({
     }
   }, [isOpen]);
 
-  /**
-   * Get button category
-   */
-  const ButtonCategory = (): ButtonCategoriesE => {
-    let category = ButtonCategoriesE.SECONDARY_CLEAR;
-    if (type === ToastTypesE.PLAIN) {
-      category = ButtonCategoriesE.PRIMARY_CLEAR;
-    }
-    return category;
-  };
-
   return (
     <FadeIn isVisible={isOpen} onComplete={handleOnComplete}>
       {isVisible && (
@@ -157,25 +164,35 @@ const ToastMessage = ({
             icon="x"
             classProp={styles.close}
             label="close"
-            category={ButtonCategory()}
+            category={ButtonCategoriesE.PRIMARY_CLEAR}
           />
-          <div className={styles.header}>
-            {icon && <Icon name={icon} size={20} />}
-            <div className={styles.title}>{title}</div>
-          </div>
-          <p>{description}</p>
-          {callback && (
-            <div className={styles.callback_wrapper}>
-              <Button
-                onClick={handleAction}
-                text={callbackCta}
-                label={callbackCta}
-                size={ButtonSizesE.SMALL}
-                category={ButtonCategoriesE.PRIMARY_SOLID}
-              />
+          <div className="flex">
+            <div className={styles.icons}>
+              <ToastIcon type={type} classProp="mr-20" />
             </div>
-          )}
-          <div ref={progressBar} className={styles.progress_bar}></div>
+            <div>
+              <div className="heading-xs">{title}</div>
+              <p className="body-md">{description}</p>
+              {callback && (
+                <div className={styles.callback_wrapper}>
+                  <Button
+                    onClick={handleAction}
+                    text={callbackCta}
+                    label={callbackCta}
+                    size={ButtonSizesE.SMALL}
+                    category={ButtonCategoriesE.PRIMARY_OUTLINE}
+                    icon="arrow-right"
+                    iconPlacedRight={true}
+                  />
+                </div>
+              )}
+            </div>
+          </div>
+
+          <div
+            ref={progressBar}
+            className={`${styles.progress_bar} ${autoClose && styles.active}`}
+          ></div>
         </div>
       )}
     </FadeIn>

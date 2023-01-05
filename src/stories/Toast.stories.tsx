@@ -41,9 +41,9 @@ export default {
         type: 'select',
         options: [
           ToastTypesE.SUCCESS,
-          ToastTypesE.WARN,
+          ToastTypesE.WARNING,
           ToastTypesE.ERROR,
-          ToastTypesE.PLAIN,
+          ToastTypesE.INFO,
         ],
       },
     },
@@ -88,7 +88,6 @@ const Template: ComponentStory<typeof ToastMessage> = (args) => {
     title: args.title,
     description: args.description,
     duration: args.duration,
-    icon: args.icon,
     type: args.type,
     location: args.location,
     pauseOnHover: args.pauseOnHover,
@@ -137,10 +136,10 @@ const Template: ComponentStory<typeof ToastMessage> = (args) => {
 export const Main = Template.bind({});
 Main.args = {
   classProp: '',
-  title: 'Success',
-  description: 'This is a description about your toast',
+  title: 'Lorem ipsum dolor sit amet',
+  description:
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
   duration: 3000,
-  icon: 'check',
   type: ToastTypesE.SUCCESS,
   location: ToastLocationE.TOP_RIGHT,
   pauseOnHover: true,

@@ -1,0 +1,17 @@
+@use '../../../styles/core/boilerplate.scss'as *;
+
+.success {
+  fill: $color-semantic-success;
+}
+
+.info {
+  fill: $color-semantic-info;
+}
+
+.warning {
+  fill: $color-semantic-warning;
+}
+
+.error {
+  fill: $color-semantic-critical;
+}

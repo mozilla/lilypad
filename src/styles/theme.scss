@@ -1,7 +1,15 @@
 @use './tools/utility.scss' as *;
+@use './tools/flex.scss' as *;
 
 main[data-theme='light'],
 :root {
+  /**
+  FONTS
+  **/
+  --font-primary: 'Inter';
+  --font-secondary: 'Space Grotesk';
+  --font-backup: 'Arial';
+
   /**
   PRIMARY INTERACTION
   **/
@@ -37,7 +45,7 @@ main[data-theme='light'],
   --color-semantic-success-hover: #229a60;
   --color-semantic-success-active: #39ab74;
   --color-semantic-success-disabled: #767676;
-  --color-semantic-warning: #a86500;
+  --color-semantic-warning: #e9a949;
   --color-semantic-warning-hover: #b8771c;
   --color-semantic-warning-active: #c78938;
   --color-semantic-warning-disabled: #747474;
@@ -107,6 +115,13 @@ main[data-theme='light'],
 // PLACE HOLDER FOR DARK VALUES
 main[data-theme='dark'] {
   /**
+  FONTS
+  **/
+  --font-primary: 'Inter';
+  --font-secondary: 'Space Grotesk';
+  --font-backup: 'Arial';
+
+  /**
   PRIMARY INTERACTION
   **/
   --color-interaction-primary: #5282ff;
@@ -141,7 +156,7 @@ main[data-theme='dark'] {
   --color-semantic-success-hover: #08743f;
   --color-semantic-success-active: #045f33;
   --color-semantic-success-disabled: #767676;
-  --color-semantic-warning: #a86500;
+  --color-semantic-warning: #e9a949;
   --color-semantic-warning-hover: #915200;
   --color-semantic-warning-active: #783f00;
   --color-semantic-warning-disabled: #747474;
