@@ -1,0 +1,43 @@
+@use '../../styles/core/boilerplate.scss'as *;
+
+.container {
+  z-index: 100;
+  padding: 0 0 0 16px;
+  min-width: 190px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: $drop-shadow;
+  background-color: $color-background-neutral-0;
+  color: $color-text-reverse;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 16px;
+  margin-bottom: 12px;
+  overflow: hidden;
+
+  p {
+    margin: 0;
+  }
+
+  &.neutral {
+    background-color: $color-semantic-neutral;
+  }
+  &.info {
+    background-color: $color-semantic-info;
+  }
+  &.success {
+    background-color: $color-semantic-success;
+  }
+  &.warning {
+    background-color: $color-semantic-warning;
+    color: $color-text-main;
+
+    .close {
+      color: $color-text-main;
+    }
+  }
+  &.error {
+    background-color: $color-semantic-critical;
+  }
+}
