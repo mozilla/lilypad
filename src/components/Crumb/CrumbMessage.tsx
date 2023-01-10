@@ -1,8 +1,8 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import styles from './CrumbMessage.module.scss';
-import Button, { ButtonCategoriesE } from '../Button';
 import FadeIn from '../util/FadeIn';
 import { CrumbTypesE, CrumbLocationE } from './Crumb';
+import Icon from '../Icon';
 
 export type CrumbPropsT = {
   description: string;
@@ -32,6 +32,8 @@ const CrumbMessage = ({
   const [intervalId, setIntervalId] = useState<number>();
   const crumbRef = useRef<HTMLDivElement>(null);
   const timeVisible = useRef<number>(0);
+  const touchStart = useRef<number>(0);
+  const touchEnd = useRef<number>(0);
 
   /**
    * Init Component
@@ -39,11 +41,64 @@ const CrumbMessage = ({
   useEffect(() => {
     setIsVisible(true);
     setIsOpen(true);
+    initSwipe();
 
     // If no auto close don't count down
     if (!autoClose) return;
     initInterval(timeVisible.current);
+    return;
   }, []);
+
+  /**
+   * Init Swipe Events
+   */
+  const initSwipe = () => {
+    // Touch Events
+    crumbRef.current?.addEventListener('touchstart', handleTouchStart);
+    crumbRef.current?.addEventListener('touchmove', handleTouchMove);
+    crumbRef.current?.addEventListener('touchend', handleTouchEnd);
+  };
+
+  /**
+   * Remove Touch Events
+   */
+  const removeEvents = () => {
+    crumbRef.current?.removeEventListener('touchstart', handleTouchStart);
+    crumbRef.current?.removeEventListener('touchmove', handleTouchMove);
+    crumbRef.current?.removeEventListener('touchend', handleTouchEnd);
+  };
+
+  /**
+   * Touch Start
+   * @param e  TouchEvent
+   */
+  const handleTouchStart = (e: TouchEvent) => {
+    touchStart.current = e.targetTouches[0].clientX;
+  };
+
+  /**
+   * Touch Move
+   * @param e  TouchEvent
+   */
+  const handleTouchMove = (e: TouchEvent) => {
+    touchEnd.current = e.targetTouches[0].clientX;
+  };
+
+  /**
+   * Touch End
+   */
+  const handleTouchEnd = () => {
+    const threshold = 45;
+    const difference =
+      touchStart.current > touchEnd.current
+        ? touchStart.current - touchEnd.current
+        : touchEnd.current - touchStart.current;
+
+    // If touch distance goes over threshold then close crumb
+    if (difference > threshold) {
+      handleClose();
+    }
+  };
 
   /**
    * Init intercal for countdown
@@ -86,6 +141,7 @@ const CrumbMessage = ({
    * On Close
    */
   const handleClose = useCallback(() => {
+    removeEvents();
     setIsOpen(false);
     clearInterval(intervalId);
   }, []);
@@ -101,23 +157,43 @@ const CrumbMessage = ({
     }
   }, [isOpen]);
 
+  const fadeAnimation = () => {
+    // Fade to the right
+    let animation = 'translateX(60px)';
+    if (
+      location === CrumbLocationE.BOTTOM_LEFT ||
+      location === CrumbLocationE.TOP_LEFT
+    ) {
+      // Fade to the left
+      animation = 'translateX(-60px)';
+    }
+    return animation;
+  };
+
   return (
-    <FadeIn isVisible={isOpen} onComplete={handleOnComplete}>
+    <FadeIn
+      isVisible={isOpen}
+      onComplete={handleOnComplete}
+      animation={fadeAnimation()}
+    >
       {isVisible && (
         <div
+          draggable="true"
           className={`${classProp} ${styles.container} ${styles[type]}`}
           ref={crumbRef}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
+          {/* CRUMB DISPLAYS MAX 30 CHARACTERS - USE TOAST IF YOU NEED MORE  */}
           <p className="body-md-semi-bold ">{description.slice(0, 30)}</p>
-          <Button
+
+          <button
+            className={styles.close}
             onClick={handleClose}
-            icon="x"
-            classProp={styles.close}
-            label="close"
-            category={ButtonCategoriesE.SECONDARY_CLEAR}
-          />
+            aria-label="close"
+          >
+            <Icon name="x" size={24} color="currentColor" />
+          </button>
         </div>
       )}
     </FadeIn>

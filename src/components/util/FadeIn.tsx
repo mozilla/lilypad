@@ -4,12 +4,19 @@ import { PropsWithChildren, useEffect, useState, Children } from 'react';
 export type FadeInPropsT = {
   isVisible: boolean;
   onComplete?: Function;
+  animation?: string;
   classProp?: string;
 };
 
 const FadeIn = (props: PropsWithChildren<FadeInPropsT>) => {
+  const {
+    isVisible,
+    onComplete,
+    animation = 'translateY(20px)',
+    classProp = '',
+  } = props;
+
   const [maxIsVisible, setMaxIsVisible] = useState(0);
-  const { isVisible, classProp = '', onComplete } = props;
   const arrayChildren = Children.toArray(props.children);
 
   useEffect(() => {
@@ -43,7 +50,7 @@ const FadeIn = (props: PropsWithChildren<FadeInPropsT>) => {
           <div
             style={{
               transition: `opacity 500ms, transform 500ms`,
-              transform: maxIsVisible > i ? 'none' : 'translateY(20px)',
+              transform: maxIsVisible > i ? 'none' : animation,
               opacity: maxIsVisible > i ? 1 : 0,
             }}
           >
