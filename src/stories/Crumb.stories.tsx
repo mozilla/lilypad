@@ -25,6 +25,12 @@ export default {
       name: 'duration',
       type: { name: 'number', required: true },
     },
+    hasIcon: {
+      control: {
+        type: 'boolean',
+        options: [false, true],
+      },
+    },
     icon: {
       control: {
         type: 'select',
@@ -81,6 +87,8 @@ const Template: ComponentStory<typeof CrumbMessage> = (args) => {
   const success: NewCrumbT = {
     description: args.description,
     duration: args.duration,
+    icon: args.icon,
+    hasIcon: args.hasIcon,
     type: args.type,
     location: args.location,
     pauseOnHover: args.pauseOnHover,
@@ -127,9 +135,11 @@ const Template: ComponentStory<typeof CrumbMessage> = (args) => {
 export const Main = Template.bind({});
 Main.args = {
   classProp: '',
-  description: 'Crumb Pie 🥧',
+  description: 'You are beautiful',
+  icon: undefined,
+  hasIcon: false,
   duration: 3000,
-  type: CrumbTypesE.SUCCESS,
+  type: CrumbTypesE.INFO,
   location: CrumbLocationE.TOP_RIGHT,
   pauseOnHover: true,
   autoClose: true,

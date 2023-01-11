@@ -1,6 +1,7 @@
 import React, { useState, forwardRef, useImperativeHandle } from 'react';
 import styles from './Crumb.module.scss';
 import CrumbMessage from './CrumbMessage';
+import { IconT } from '../Icon';
 
 export type CrumbPropsT = {
   classProp?: string;
@@ -32,6 +33,8 @@ export type NewCrumbT = {
   type?: CrumbTypesE;
   location?: CrumbLocationE;
   pauseOnHover?: boolean;
+  hasIcon?: boolean;
+  icon?: IconT;
 };
 
 export interface CrumbI extends NewCrumbT {

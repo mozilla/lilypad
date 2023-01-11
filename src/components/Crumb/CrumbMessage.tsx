@@ -2,7 +2,14 @@ import React, { useState, useRef, useCallback, useEffect } from 'react';
 import styles from './CrumbMessage.module.scss';
 import FadeIn from '../util/FadeIn';
 import { CrumbTypesE, CrumbLocationE } from './Crumb';
-import Icon from '../Icon';
+import Icon, { IconT } from '../Icon';
+import {
+  InfoIcon,
+  SuccessIcon,
+  WarningIcon,
+  ErrorIcon,
+  CustomIcon,
+} from './icons';
 
 export type CrumbPropsT = {
   description: string;
@@ -14,6 +21,28 @@ export type CrumbPropsT = {
   location?: CrumbLocationE;
   pauseOnHover?: boolean;
   classProp?: string;
+  hasIcon?: boolean;
+  icon?: IconT;
+};
+
+type CrumbIconPropsT = {
+  type: CrumbTypesE;
+  classProp?: string;
+};
+
+const CrumbIcon = ({ type, classProp }: CrumbIconPropsT) => {
+  switch (type) {
+    case CrumbTypesE.INFO:
+      return <InfoIcon classProp={classProp} />;
+    case CrumbTypesE.SUCCESS:
+      return <SuccessIcon classProp={classProp} />;
+    case CrumbTypesE.WARNING:
+      return <WarningIcon classProp={classProp} />;
+    case CrumbTypesE.ERROR:
+      return <ErrorIcon classProp={classProp} />;
+    default:
+      return <InfoIcon classProp={classProp} />;
+  }
 };
 
 const CrumbMessage = ({
@@ -25,6 +54,8 @@ const CrumbMessage = ({
   type = CrumbTypesE.SUCCESS,
   location = CrumbLocationE.TOP_RIGHT,
   pauseOnHover = true,
+  hasIcon = false,
+  icon,
   classProp = '',
 }: CrumbPropsT) => {
   const [isOpen, setIsOpen] = useState(true);
@@ -184,6 +215,13 @@ const CrumbMessage = ({
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
+          {hasIcon &&
+            (icon ? (
+              <CustomIcon type={type} icon={icon} />
+            ) : (
+              <CrumbIcon type={type} classProp="pl-12" />
+            ))}
+
           {/* CRUMB DISPLAYS MAX 30 CHARACTERS - USE TOAST IF YOU NEED MORE  */}
           <p className="body-md-semi-bold ">{description.slice(0, 30)}</p>
 
