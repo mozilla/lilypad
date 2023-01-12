@@ -121,7 +121,7 @@ const ToastMessage = ({
         ? touchStart.current - touchEnd.current
         : touchEnd.current - touchStart.current;
 
-    // If touch distance goes over threshold then close crumb
+    // If touch distance goes over threshold then close toast
     if (difference > threshold) {
       handleClose();
     }
