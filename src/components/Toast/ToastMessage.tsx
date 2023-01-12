@@ -60,6 +60,8 @@ const ToastMessage = ({
   const toastRef = useRef<HTMLDivElement>(null);
   const progressBar = useRef<HTMLDivElement>(null);
   const timeVisible = useRef<number>(0);
+  const touchStart = useRef<number>(0);
+  const touchEnd = useRef<number>(0);
 
   /**
    * Init Component
@@ -67,6 +69,7 @@ const ToastMessage = ({
   useEffect(() => {
     setIsVisible(true);
     setIsOpen(true);
+    initSwipe();
 
     // If no auto close don't count down
     if (!autoClose) return;
@@ -74,7 +77,58 @@ const ToastMessage = ({
   }, []);
 
   /**
-   * Init intercal for countdown
+   * Init Swipe Events
+   */
+  const initSwipe = () => {
+    // Touch Events
+    toastRef.current?.addEventListener('touchstart', handleTouchStart);
+    toastRef.current?.addEventListener('touchmove', handleTouchMove);
+    toastRef.current?.addEventListener('touchend', handleTouchEnd);
+  };
+
+  /**
+   * Remove Touch Events
+   */
+  const removeEvents = () => {
+    toastRef.current?.removeEventListener('touchstart', handleTouchStart);
+    toastRef.current?.removeEventListener('touchmove', handleTouchMove);
+    toastRef.current?.removeEventListener('touchend', handleTouchEnd);
+  };
+
+  /**
+   * Touch Start
+   * @param e  TouchEvent
+   */
+  const handleTouchStart = (e: TouchEvent) => {
+    touchStart.current = e.targetTouches[0].clientX;
+  };
+
+  /**
+   * Touch Move
+   * @param e  TouchEvent
+   */
+  const handleTouchMove = (e: TouchEvent) => {
+    touchEnd.current = e.targetTouches[0].clientX;
+  };
+
+  /**
+   * Touch End
+   */
+  const handleTouchEnd = () => {
+    const threshold = 45;
+    const difference =
+      touchStart.current > touchEnd.current
+        ? touchStart.current - touchEnd.current
+        : touchEnd.current - touchStart.current;
+
+    // If touch distance goes over threshold then close crumb
+    if (difference > threshold) {
+      handleClose();
+    }
+  };
+
+  /**
+   * Init interval for countdown
    * @param time number
    */
   const initInterval = (time: number) => {
@@ -128,6 +182,7 @@ const ToastMessage = ({
    * On Close
    */
   const handleClose = useCallback(() => {
+    removeEvents();
     setIsOpen(false);
     clearInterval(intervalId);
   }, []);
@@ -150,8 +205,25 @@ const ToastMessage = ({
     }
   }, [isOpen]);
 
+  const fadeAnimation = () => {
+    // Fade to the right
+    let animation = 'translateX(100px)';
+    if (
+      location === ToastLocationE.BOTTOM_LEFT ||
+      location === ToastLocationE.TOP_LEFT
+    ) {
+      // Fade to the left
+      animation = 'translateX(-100px)';
+    }
+    return animation;
+  };
+
   return (
-    <FadeIn isVisible={isOpen} onComplete={handleOnComplete}>
+    <FadeIn
+      isVisible={isOpen}
+      onComplete={handleOnComplete}
+      animation={fadeAnimation()}
+    >
       {isVisible && (
         <div
           className={`${classProp} ${styles.container} ${styles[type]}`}
@@ -170,7 +242,7 @@ const ToastMessage = ({
             <div className={styles.icons}>
               <ToastIcon type={type} classProp="mr-20" />
             </div>
-            <div>
+            <div className="mr-20">
               <div className="heading-xs">{title}</div>
               <p className="body-md">{description}</p>
               {callback && (

@@ -62,27 +62,19 @@ const Toast = forwardRef(({ classProp = '' }: ToastPropsT, ref) => {
 
     switch (toast.location) {
       case ToastLocationE.TOP_RIGHT:
-        setTopRightToasts((toasts) => {
-          return [toast, ...toasts];
-        });
+        setTopRightToasts((toasts) => [toast, ...toasts]);
         break;
 
       case ToastLocationE.TOP_LEFT:
-        setTopLeftToasts((toasts) => {
-          return [toast, ...toasts];
-        });
+        setTopLeftToasts((toasts) => [toast, ...toasts]);
         break;
 
       case ToastLocationE.BOTTOM_RIGHT:
-        setBottomRightToasts((toasts) => {
-          return [toast, ...toasts];
-        });
+        setBottomRightToasts((toasts) => [toast, ...toasts]);
         break;
 
       case ToastLocationE.BOTTOM_LEFT:
-        setBottomLeftToasts((toasts) => {
-          return [toast, ...toasts];
-        });
+        setBottomLeftToasts((toasts) => [toast, ...toasts]);
         break;
 
       default:

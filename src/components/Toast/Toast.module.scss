@@ -23,3 +23,21 @@
   bottom: 5px;
   left: 5px;
 }
+
+.top_left,
+.top_right {
+  @include mobile-down {
+    top: 0px;
+    right: 0px;
+    left: 0px;
+  }
+}
+
+.bottom_left,
+.bottom_right {
+  @include mobile-down {
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+  }
+}

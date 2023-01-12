@@ -16,6 +16,13 @@
   margin-bottom: 14px;
   background-color: $color-background-neutral-0;
   color: $color-text-main;
+  box-sizing: border-box;
+
+  @include mobile-down {
+    margin: 0;
+    width: 100vw;
+    max-width: 100vw;
+  }
 
   &.success {
     .icon {
