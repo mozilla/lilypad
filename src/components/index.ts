@@ -8,7 +8,7 @@ export {
   ButtonSizesE,
 } from './Button';
 export { default as Checkbox } from './Checkbox';
-
+export { default as RangeSlider } from './RangeSlider';
 export { default as CopyButton } from './CopyButton';
 export {
   default as Crumb,
