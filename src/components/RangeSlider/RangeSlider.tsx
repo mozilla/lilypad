@@ -75,7 +75,7 @@ const RangeSlider = ({
         {isVisible && (
           <span
             style={{
-              left: `calc(${internalValue}% + (${6 - internalValue * 0.15}px))`,
+              left: `calc(${internalValue}% + (${8 - internalValue * 0.2}px))`,
             }}
             className={styles.bubble}
           >
@@ -83,18 +83,17 @@ const RangeSlider = ({
           </span>
         )}
       </FadeIn>
-      <div className="flex">
-        <div className={styles.start}>0</div>
-        <input
-          onChange={handleChange}
-          value={internalValue}
-          ref={rangeInput}
-          type="range"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        />
-        <div className={styles.end}>{finish}</div>
-      </div>
+      <div className={styles.start}>0</div>
+      <input
+        onChange={handleChange}
+        value={internalValue}
+        ref={rangeInput}
+        type="range"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      />
+      <div className={styles.end}>{finish}</div>
+
       <label className="mt-5 block">
         <Badge
           name={`Value: ${internalValue}`}
