@@ -17,6 +17,13 @@ export {
   CrumbTypesE,
   CrumbLocationE,
 } from './Crumb';
+export {
+  default as Notification,
+  NotificationInterfaceT,
+  NewNotificationT,
+  NotificationTypesE,
+  NotificationLocationE,
+} from './Notification';
 export { default as Icon, IconT } from './Icon';
 export {
   default as Input,

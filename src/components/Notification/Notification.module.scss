@@ -1,0 +1,43 @@
+@use '../../styles/core/boilerplate.scss'as *;
+
+.top_right {
+  position: fixed;
+  top: 5px;
+  right: 5px;
+}
+
+.top_left {
+  position: fixed;
+  top: 5px;
+  left: 5px;
+}
+
+.bottom_right {
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+}
+
+.bottom_left {
+  position: fixed;
+  bottom: 5px;
+  left: 5px;
+}
+
+.top_left,
+.top_right {
+  @include mobile-down {
+    top: 0px;
+    right: 0px;
+    left: 0px;
+  }
+}
+
+.bottom_left,
+.bottom_right {
+  @include mobile-down {
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+  }
+}

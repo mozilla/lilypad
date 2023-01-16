@@ -1,0 +1,93 @@
+@use '../../styles/core/boilerplate.scss'as *;
+
+button:hover {
+  cursor: pointer;
+}
+
+.close {
+  border: 0;
+  padding: 12px;
+  color: $color-text-reverse;
+}
+
+.container {
+  z-index: 100;
+  position: relative;
+  overflow: hidden;
+  box-shadow: $drop-shadow;
+  color: $color-text-reverse;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 16px;
+  margin-bottom: 12px;
+  overflow: hidden;
+
+  p {
+    padding: 12px;
+    margin: 0;
+  }
+
+  // NEUTRAL COLORS
+  &.neutral {
+    background-color: $color-semantic-neutral;
+
+    .close {
+      background-color: $color-semantic-neutral;
+
+      &:hover {
+        background-color: $color-semantic-neutral-hover;
+      }
+    }
+  }
+  // INFO COLORS
+  &.info {
+    background-color: $color-semantic-info;
+
+    .close {
+      background-color: $color-semantic-info;
+
+      &:hover {
+        background-color: $color-semantic-info-hover;
+      }
+    }
+  }
+  // SUCCESS COLORS
+  &.success {
+    background-color: $color-semantic-success;
+
+    .close {
+      background-color: $color-semantic-success;
+
+      &:hover {
+        background-color: $color-semantic-success-hover;
+      }
+    }
+  }
+  // WARNING COLORS
+  &.warning {
+    background-color: $color-semantic-warning;
+    color: $color-text-main;
+
+    .close {
+      background-color: $color-semantic-warning;
+      color: $color-text-main;
+
+      &:hover {
+        background-color: $color-semantic-warning-hover;
+      }
+    }
+  }
+  // ERROR COLORS
+  &.error {
+    background-color: $color-semantic-critical;
+
+    .close {
+      background-color: $color-semantic-critical;
+
+      &:hover {
+        background-color: $color-semantic-critical-hover;
+      }
+    }
+  }
+}

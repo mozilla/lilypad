@@ -1,20 +1,28 @@
 import React, { useRef } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Button from '../components/Button/Button';
+// import {
+//   Toast,
+//   ToastInterfaceT,
+//   NewToastT,
+//   ToastTypesE,
+//   ToastLocationE,
+// } from '../components';
 import {
-  Toast,
-  ToastInterfaceT,
-  NewToastT,
-  ToastTypesE,
-  ToastLocationE,
+  Notification,
+  NotificationInterfaceT,
+  NewNotificationT,
+  NotificationTypesE,
+  NotificationLocationE,
+  IconT,
 } from '../components';
-import ToastMessage from '../components/Toast/ToastMessage';
+import ToastMessage from '../components/Notification/ToastMessage';
 import '../styles/theme.scss';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
   title: 'Example/Toast',
-  component: Toast,
+  component: Notification,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
     title: {
@@ -30,6 +38,12 @@ export default {
       name: 'duration',
       type: { name: 'number', required: true },
     },
+    hasIcon: {
+      control: {
+        type: 'boolean',
+        options: [false, true],
+      },
+    },
     icon: {
       control: {
         type: 'select',
@@ -40,10 +54,11 @@ export default {
       control: {
         type: 'select',
         options: [
-          ToastTypesE.SUCCESS,
-          ToastTypesE.WARNING,
-          ToastTypesE.ERROR,
-          ToastTypesE.INFO,
+          NotificationTypesE.SUCCESS,
+          NotificationTypesE.WARNING,
+          NotificationTypesE.ERROR,
+          NotificationTypesE.INFO,
+          NotificationTypesE.NEUTRAL,
         ],
       },
     },
@@ -51,10 +66,10 @@ export default {
       control: {
         type: 'select',
         options: [
-          ToastLocationE.TOP_LEFT,
-          ToastLocationE.TOP_RIGHT,
-          ToastLocationE.BOTTOM_LEFT,
-          ToastLocationE.BOTTOM_RIGHT,
+          NotificationLocationE.TOP_LEFT,
+          NotificationLocationE.TOP_RIGHT,
+          NotificationLocationE.BOTTOM_LEFT,
+          NotificationLocationE.BOTTOM_RIGHT,
         ],
       },
     },
@@ -70,21 +85,65 @@ export default {
         options: [false, true],
       },
     },
+    category: {
+      control: {
+        type: 'select',
+        options: ['crumb', 'toast'],
+      },
+    },
     callbackCta: {
       name: 'callbackCta',
       type: { name: 'string' },
     },
   },
-} as ComponentMeta<typeof Toast>;
+} as ComponentMeta<typeof Notification>;
+
+export type NotifcationStoryPropsT = {
+  title: string;
+  description: string;
+  id: string;
+  selfDestruct?: (id: string, location: NotificationLocationE) => void;
+  callback?: Function;
+  callbackCta?: string;
+  duration?: number;
+  autoClose?: boolean;
+  hasIcon?: Boolean;
+  icon?: IconT;
+  type?: NotificationTypesE;
+  location?: NotificationLocationE;
+  pauseOnHover?: boolean;
+  category: 'crumb' | 'toast';
+  classProp?: string;
+};
+
+const NotifcationStory = ({
+  title,
+  description,
+  id,
+  selfDestruct,
+  callback,
+  callbackCta = 'Confirm',
+  duration = 2000,
+  autoClose = true,
+  hasIcon = false,
+  icon,
+  type = NotificationTypesE.SUCCESS,
+  location = NotificationLocationE.TOP_RIGHT,
+  pauseOnHover = true,
+  category,
+  classProp = '',
+}: NotifcationStoryPropsT) => {
+  return <></>;
+};
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof ToastMessage> = (args) => {
-  const toastRef = useRef<ToastInterfaceT>();
-  const toastDarkRef = useRef<ToastInterfaceT>();
+const Template: ComponentStory<typeof NotifcationStory> = (args) => {
+  const toastRef = useRef<NotificationInterfaceT>();
+  const toastDarkRef = useRef<NotificationInterfaceT>();
 
   const callback = args.callbackCta ? () => {} : undefined;
 
-  const success: NewToastT = {
+  const success: NewNotificationT = {
     title: args.title,
     description: args.description,
     duration: args.duration,
@@ -92,8 +151,11 @@ const Template: ComponentStory<typeof ToastMessage> = (args) => {
     location: args.location,
     pauseOnHover: args.pauseOnHover,
     autoClose: args.autoClose,
+    icon: args.icon,
+    hasIcon: args.hasIcon,
     callback: callback,
     callbackCta: args.callbackCta,
+    category: args.category,
   };
 
   const handleClick = () => {
@@ -113,7 +175,7 @@ const Template: ComponentStory<typeof ToastMessage> = (args) => {
           text="Dispatch Toast"
           onClick={handleClick}
         />
-        <Toast ref={toastRef} />
+        <Notification ref={toastRef} />
       </main>
 
       <main
@@ -126,7 +188,7 @@ const Template: ComponentStory<typeof ToastMessage> = (args) => {
           text="Dispatch Toast"
           onClick={handleDarkClick}
         />
-        <Toast ref={toastDarkRef} />
+        <Notification ref={toastDarkRef} />
       </main>
     </>
   );
@@ -140,9 +202,12 @@ Main.args = {
   description:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
   duration: 3000,
-  type: ToastTypesE.SUCCESS,
-  location: ToastLocationE.TOP_RIGHT,
+  type: NotificationTypesE.SUCCESS,
+  location: NotificationLocationE.TOP_RIGHT,
   pauseOnHover: true,
   autoClose: true,
   callbackCta: undefined,
+  icon: undefined,
+  hasIcon: false,
+  category: 'toast',
 };

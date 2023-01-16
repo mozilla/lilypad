@@ -34,12 +34,12 @@ const ToolTip = ({
   const [isVisible, setIsVisible] = useState(false);
 
   const handleOpen = () => {
-    setIsVisible((state) => !state);
-    setIsOpen((state) => !state);
+    setIsVisible(true);
+    setIsOpen(true);
   };
 
   const handleClose = () => {
-    setIsOpen((state) => !state);
+    setIsOpen(false);
   };
 
   const handleOnComplete = useCallback(() => {

@@ -1,0 +1,27 @@
+@use '../../../styles/core/boilerplate.scss'as *;
+
+.success {
+  fill: $color-semantic-success;
+}
+
+.info {
+  fill: $color-semantic-info;
+}
+
+.warning {
+  fill: $color-semantic-warning;
+}
+
+.error {
+  fill: $color-semantic-critical;
+}
+
+.custom-success,
+.custom-error,
+.custom-info {
+  color: $color-text-reverse;
+}
+
+.custom-warning {
+  color: $color-text-main;
+}
