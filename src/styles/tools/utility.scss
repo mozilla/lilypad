@@ -18,6 +18,10 @@ $fontSizes: 12, 14, 16, 18, 20;
   @include body-md();
 }
 
+.body-md-semi-bold {
+  @include body-md-semi-bold();
+}
+
 .body-md-bold {
   @include body-md-bold();
 }

@@ -116,6 +116,16 @@
   }
 }
 
+@mixin body-md-semi-bold {
+  @include primary-font(600);
+  @include font-size(16);
+  line-height: 24px;
+
+  @include tablet-down {
+    @include font-size(14);
+  }
+}
+
 @mixin body-md-bold {
   @include primary-font(700);
   @include font-size(16);

@@ -15,6 +15,7 @@ const FadeIn = (props: PropsWithChildren<FadeInPropsT>) => {
     animation = 'translateY(20px)',
     classProp = '',
   } = props;
+
   const [maxIsVisible, setMaxIsVisible] = useState(0);
   const arrayChildren = Children.toArray(props.children);
 
