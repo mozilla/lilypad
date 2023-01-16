@@ -107,7 +107,7 @@ export type NotifcationStoryPropsT = {
   callbackCta?: string;
   duration?: number;
   autoClose?: boolean;
-  hasIcon?: Boolean;
+  hasIcon?: boolean;
   icon?: IconT;
   type?: NotificationTypesE;
   location?: NotificationLocationE;
@@ -159,11 +159,11 @@ const Template: ComponentStory<typeof NotifcationStory> = (args) => {
   };
 
   const handleClick = () => {
-    toastRef.current?.dispatchToast(success);
+    toastRef.current?.dispatchNotification(success);
   };
 
   const handleDarkClick = () => {
-    toastDarkRef.current?.dispatchToast(success);
+    toastDarkRef.current?.dispatchNotification(success);
   };
 
   return (

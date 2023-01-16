@@ -7,7 +7,7 @@ export type ToastPropsT = {
 };
 
 export type ToastInterfaceT = {
-  dispatchToast: Function;
+  dispatchNotification: Function;
 };
 
 export enum ToastTypesE {
@@ -50,11 +50,11 @@ const Toast = forwardRef(({ classProp = '' }: ToastPropsT, ref) => {
    */
   useImperativeHandle(ref, (): ToastInterfaceT => {
     return {
-      dispatchToast: dispatchToast,
+      dispatchNotification: dispatchNotification,
     };
   });
 
-  const dispatchToast = (newToast: NewToastT) => {
+  const dispatchNotification = (newToast: NewToastT) => {
     const toast = {
       ...newToast,
       id: String(Date.now()),

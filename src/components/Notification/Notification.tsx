@@ -9,7 +9,7 @@ export type NotificationPropsT = {
 };
 
 export type NotificationInterfaceT = {
-  dispatchToast: Function;
+  dispatchNotification: Function;
 };
 
 export enum NotificationTypesE {
@@ -55,7 +55,7 @@ const Notification = forwardRef(
      */
     useImperativeHandle(ref, (): NotificationInterfaceT => {
       return {
-        dispatchToast: dispatchNotification,
+        dispatchNotification: dispatchNotification,
       };
     });
 
