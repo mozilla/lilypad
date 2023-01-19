@@ -1,13 +1,6 @@
 import React, { useRef } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Button from '../components/Button/Button';
-// import {
-//   Toast,
-//   ToastInterfaceT,
-//   NewToastT,
-//   ToastTypesE,
-//   ToastLocationE,
-// } from '../components';
 import {
   Notification,
   NotificationInterfaceT,
@@ -16,17 +9,16 @@ import {
   NotificationLocationE,
   IconT,
 } from '../components';
-import ToastMessage from '../components/Notification/ToastMessage';
 import '../styles/theme.scss';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Example/Toast',
+  title: 'Example/Notification',
   component: Notification,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
     title: {
-      name: 'title',
+      name: 'Title (Toast Only)',
       type: { name: 'string', required: true },
       defaultValue: 'Toast Title',
     },
@@ -39,12 +31,14 @@ export default {
       type: { name: 'number', required: true },
     },
     hasIcon: {
+      name: 'Has Icon (crumb only)',
       control: {
         type: 'boolean',
         options: [false, true],
       },
     },
     icon: {
+      name: 'Icon (crumb only)',
       control: {
         type: 'select',
         options: ['', 'check', 'check-circle', 'x', 'alert-circle', 'smile'],

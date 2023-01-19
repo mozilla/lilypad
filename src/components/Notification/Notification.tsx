@@ -1,4 +1,5 @@
 import React, { useState, forwardRef, useImperativeHandle } from 'react';
+import { NotificationTypesE, NotificationLocationE } from './types';
 import styles from './Notification.module.scss';
 import ToastMessage from './ToastMessage';
 import CrumbMessage from './CrumbMessage';
@@ -11,21 +12,6 @@ export type NotificationPropsT = {
 export type NotificationInterfaceT = {
   dispatchNotification: Function;
 };
-
-export enum NotificationTypesE {
-  NEUTRAL = 'neutral',
-  SUCCESS = 'success',
-  ERROR = 'error',
-  INFO = 'info',
-  WARNING = 'warning',
-}
-
-export enum NotificationLocationE {
-  TOP_RIGHT = 'top_right',
-  TOP_LEFT = 'top_left',
-  BOTTOM_RIGHT = 'bottom_right',
-  BOTTOM_LEFT = 'bottom_left',
-}
 
 export type NewNotificationT = {
   title: string;

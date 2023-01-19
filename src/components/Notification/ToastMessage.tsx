@@ -2,7 +2,7 @@ import React, { useState, useRef, useCallback, useEffect } from 'react';
 import styles from './ToastMessage.module.scss';
 import Button, { ButtonCategoriesE, ButtonSizesE } from '../Button';
 import FadeIn from '../util/FadeIn';
-import { NotificationTypesE, NotificationLocationE } from './Notification';
+import { NotificationTypesE, NotificationLocationE } from './types';
 import { InfoIcon, SuccessIcon, WarningIcon, ErrorIcon } from './icons';
 
 export type ToastPropsT = {

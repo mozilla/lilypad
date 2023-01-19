@@ -1,6 +1,6 @@
 import React from 'react';
 import Icon, { IconT } from '../../Icon';
-import { NotificationTypesE } from '../Notification';
+import { NotificationTypesE } from '../types';
 import styles from './icon.module.scss';
 
 type InfoIconPropsT = {

@@ -1,7 +1,7 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import styles from './CrumbMessage.module.scss';
 import FadeIn from '../util/FadeIn';
-import { NotificationTypesE, NotificationLocationE } from './Notification';
+import { NotificationTypesE, NotificationLocationE } from './types';
 import Icon, { IconT } from '../Icon';
 import {
   InfoIcon,
