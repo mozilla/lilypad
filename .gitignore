@@ -1,2 +1,5 @@
 dist
 node_modules
+
+# VS code local settings
+/.vscode

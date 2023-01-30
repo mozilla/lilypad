@@ -1,0 +1,80 @@
+@use '../../styles/core/boilerplate.scss'as *;
+
+.wrapper {
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    .handle_shadow {
+      background: rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  button {
+    border: 0px;
+    background-color: transparent;
+    position: relative;
+    cursor: pointer;
+  }
+
+  button.disabled {
+    cursor: not-allowed;
+  }
+
+  label {
+    @include body-md();
+    color: $color-text-main;
+    line-height: 24px;
+    font-weight: 600;
+    margin-left: 12px;
+  }
+}
+
+.track {
+  height: 16px;
+  width: 40px;
+  background: #e0e0e0; // need to add this to theme.
+  border-radius: 8px;
+}
+
+@mixin handle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 24px;
+  width: 24px;
+  border-radius: 40px;
+  top: -3px;
+  left: -4px;
+  transition: 500ms background ease-in-out, 500ms transform ease-in-out;
+}
+
+.handle {
+  &_on {
+    @include handle;
+    transform: translateX(130%);
+    background: $color-interaction-primary;
+  }
+
+  &_off {
+    @include handle;
+    transform: translateX(-5%);
+    background: #676767; // need to add this to theme.
+  }
+
+  &_shadow {
+    position: absolute;
+    height: 35px;
+    width: 35px;
+    border-radius: 40px;
+    top: -5px;
+    left: -5px;
+    background: rgba(0, 0, 0, 0);
+    transition: 250ms background ease-in-out;
+  }
+}
+
+.icon {
+  stroke: #ffffff;
+}

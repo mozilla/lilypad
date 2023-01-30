@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Dropdown from '../components/Dropdown/Dropdown';
 import Button from '../components/Button/Button';
 import '../styles/theme.scss';
-import '../styles/core/utility.scss';
+import '../styles/tools/utility.scss';
 
 export default {
   title: 'Example/Dropdown',

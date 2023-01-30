@@ -1,6 +1,6 @@
-@use '../core/variables.scss'as *;
-@use '../tools/media-queries.scss'as *;
-@use '../tools/functions.scss'as *;
+@use '../core/variables.scss' as *;
+@use './media-queries.scss' as *;
+@use './functions.scss' as *;
 
 /*-------------------------------
   TYPOGRAPHY STYLES
@@ -10,7 +10,7 @@
   font-size: rem($size);
 }
 
-@mixin primary-font($weight: 400) {
+@mixin primary-font($weight: 600) {
   font-family: $primary-font, $backup-font;
   font-weight: $weight;
 }
@@ -23,63 +23,72 @@
 /*-------------------------------
   HEADLINE STYLES
 -------------------------------*/
-@mixin h1 {
-  @include font-size(25);
-  @include primary-font(500);
-  letter-spacing: 0;
-  line-height: 38px;
+@mixin heading-xxl {
+  @include font-size(40);
+  @include secondary-font(700);
+  line-height: 51px;
 
-  @include tablet-up {
-    @include font-size(40);
-    line-height: 52px;
+  @include tablet-down {
+    @include font-size(28.8);
+    line-height: 37px;
   }
 }
 
-@mixin h2 {
-  @include font-size(18);
-  @include primary-font(500);
-  line-height: 27px;
-  letter-spacing: 0;
+@mixin heading-xl {
+  @include font-size(36);
+  @include secondary-font(700);
+  line-height: 46px;
 
-  @include tablet-up {
-    @include font-size(25);
-    line-height: 38px;
+  @include tablet-down {
+    @include font-size(25.6);
+    line-height: 33px;
   }
 }
 
-@mixin h3 {
-  @include font-size(18);
-  @include primary-font(600);
-  line-height: 27px;
-  letter-spacing: 0;
+@mixin heading-lg {
+  @include font-size(32);
+  @include secondary-font(700);
+  line-height: 41px;
+
+  @include tablet-down {
+    @include font-size(24);
+    line-height: 31px;
+  }
 }
 
-@mixin h4 {
-  @include font-size(14);
+@mixin heading-md {
+  @include font-size(28);
+  @include secondary-font(700);
+  line-height: 36px;
+
+  @include tablet-down {
+    @include font-size(21);
+    line-height: 27px;
+  }
+}
+
+@mixin heading-sm {
+  @include font-size(24);
   @include primary-font(700);
-  line-height: 25px;
-  letter-spacing: 0;
+  line-height: 31px;
 
-  @include tablet-up {
-    @include font-size(18);
-    letter-spacing: 0;
-    line-height: 21px;
+  @include tablet-down {
+    @include font-size(19.2);
+    line-height: 24px;
   }
 }
 
-@mixin h5 {
-  @include font-size(12);
+@mixin heading-xs {
+  @include font-size(20);
   @include primary-font(700);
-  line-height: 25px;
-  letter-spacing: 0;
-
-  @include tablet-up {
-    @include font-size(16);
-    letter-spacing: 0;
-    line-height: 21px;
-  }
+  line-height: 26px;
 }
 
+@mixin heading-xxs {
+  @include font-size(16);
+  @include primary-font(700);
+  line-height: 20px;
+}
 
 /*-------------------------------
   BODY STYLES
@@ -98,14 +107,29 @@
 }
 
 @mixin body-md {
-  @include primary-font(300);
-  @include font-size(12);
-  letter-spacing: 0;
+  @include primary-font(500);
+  @include font-size(16);
   line-height: 24px;
 
-  @include tablet-up {
+  @include tablet-down {
     @include font-size(14);
   }
+}
+
+@mixin body-md-semi-bold {
+  @include primary-font(600);
+  @include font-size(16);
+  line-height: 24px;
+
+  @include tablet-down {
+    @include font-size(14);
+  }
+}
+
+@mixin body-md-bold {
+  @include primary-font(700);
+  @include font-size(16);
+  line-height: 24px;
 }
 
 @mixin body-sm {
@@ -124,6 +148,15 @@
 /*-------------------------------
   UTILITY MIXINS
 -------------------------------*/
+@mixin body-error {
+  @include font-size(12);
+  @include primary-font(400);
+  color: $color-text-reverse;
+  background-color: $color-semantic-critical;
+  padding: 14px;
+  border-radius: 12px;
+}
+
 @mixin size($size) {
   height: #{$size}px;
   width: #{$size}px;

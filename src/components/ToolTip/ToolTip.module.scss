@@ -1,0 +1,75 @@
+@use '../../styles/core/boilerplate.scss'as *;
+$tip-width: 250px;
+
+.wrapper {
+  position: relative;
+  display: inline-flex;
+}
+
+.description {
+  @include body-sm();
+  display: block;
+  z-index: 2;
+  padding: 10px;
+  min-width: $tip-width;
+  max-width: $tip-width;
+  width: $tip-width;
+  border-radius: 12px;
+  padding: 14px;
+  box-shadow: $drop-shadow;
+}
+
+.container {
+  position: absolute;
+}
+
+/*-------------------------------
+  TOOL TIP LOCATIONS
+-------------------------------*/
+.right {
+  right: 0px;
+  transform: translate(100%);
+  p {
+    margin-top: 0px;
+    margin-left: 10px;
+  }
+}
+
+.left {
+  left: 0px;
+  transform: translate(-100%);
+  p {
+    margin-top: 0px;
+    margin-right: 10px;
+  }
+}
+
+.top {
+  left: 0px;
+  top: 0px;
+  transform: translate(0, -100%);
+}
+
+.bottom {
+  left: 0px;
+  bottom: 0px;
+  transform: translate(0, 100%);
+}
+
+/*-------------------------------
+  TOOL TIP CATEGORIES
+-------------------------------*/
+.primary {
+  background-color: $color-interactions-menu;
+  color: $color-text-reverse;
+}
+
+.secondary {
+  background-color: $color-interaction-primary;
+  color: $color-text-reverse;
+}
+
+.tertiary {
+  background-color: $color-background-neutral-0;
+  color: $color-text-main;
+}

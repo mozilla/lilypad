@@ -1,4 +1,4 @@
-@use '../../styles/boilerplate.scss'as *;
+@use '../../styles/core/boilerplate.scss'as *;
 
 .input {
   &_wrapper {
@@ -27,6 +27,7 @@
       border: $color-border-1 solid 2px;
       border-radius: 12px;
       padding: 12px;
+      font-family: inherit;
 
       &.has_error {
         border: $color-semantic-critical solid 2px;
@@ -43,6 +44,17 @@
       border: $color-semantic-critical solid 1px;
     }
   }
+}
+
+.tool_tip {
+  margin-left: 10px;
+  svg {
+    stroke: $color-interactions-menu;
+  }
+}
+
+.label {
+  display: flex;
 }
 
 .error_message {

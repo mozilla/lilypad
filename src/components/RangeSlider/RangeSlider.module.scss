@@ -1,0 +1,108 @@
+@use '../../styles/core/boilerplate.scss'as *;
+@use '../../styles/tools/functions.scss'as *;
+
+.wrapper {
+  position: relative;
+  box-sizing: content-box;
+  margin: 0 auto 3rem;
+}
+
+input[type='range'] {
+  width: 100%;
+  margin: 4.3px 0;
+  background-color: transparent;
+  -webkit-appearance: none;
+  appearance: none;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::-webkit-slider-runnable-track {
+    background: #3071a9;
+    border: 0.2px solid #010101;
+    border-radius: 1.3px;
+    width: 100%;
+    height: 7.4px;
+    cursor: pointer;
+  }
+
+  &::-webkit-slider-thumb {
+    margin-top: -4.5px;
+    width: 15px;
+    height: 15px;
+    background: #a29393;
+    border: 1px solid #000000;
+    border-radius: 25px;
+    cursor: pointer;
+    -webkit-appearance: none;
+  }
+
+  /**
+  Moz Styles 
+  **/
+  &:focus::-webkit-slider-runnable-track {
+    background: #72a8d7;
+  }
+  &::-moz-range-track {
+    background: rgb(214, 214, 214);
+    border: 0.2px solid #010101;
+    border-radius: 10px;
+    width: 100%;
+    height: 7.4px;
+    cursor: pointer;
+  }
+  &::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    background: $color-text-reverse;
+    border: 3px solid #000000;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+}
+
+.bubble {
+  @include body-md;
+  background: $color-interaction-primary;
+  color: $color-text-reverse;
+  padding: 4px 12px;
+  position: absolute;
+  border-radius: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -50px;
+  min-width: 25px;
+  display: flex;
+  justify-content: center;
+  box-sizing: $drop-shadow;
+}
+
+.bubble::before {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 16px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid $color-interaction-primary;
+}
+
+.start,
+.end {
+  @include body-md;
+  position: absolute;
+  top: 0;
+}
+
+.start {
+  left: -5px;
+  transform: translateX(-100%);
+}
+
+.end {
+  right: -5px;
+  transform: translateX(100%);
+}

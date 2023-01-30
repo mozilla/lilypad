@@ -63,8 +63,8 @@ const Button = ({
         <Icon
           name={icon}
           color="currentColor"
-          size={24}
-          classProp={text ? 'margin-right-10' : ''}
+          size={22}
+          classProp={text ? 'mr-10' : ''}
         />
       ) : (
         ''
@@ -76,8 +76,8 @@ const Button = ({
         <Icon
           name={icon}
           color="currentColor"
-          size={24}
-          classProp={text ? 'margin-left-10' : ''}
+          size={22}
+          classProp={text ? 'ml-10' : ''}
         />
       ) : (
         ''

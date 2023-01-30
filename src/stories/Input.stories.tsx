@@ -14,7 +14,7 @@ export default {
 const Template: ComponentStory<typeof Input> = (args) => {
   const [value, setValue] = useState(initialValues.firstName);
   const onChange = (e: any) => {
-    setValue(e.target.valid);
+    setValue(e.target.value);
   };
 
   const [darkValue, setDarkValue] = useState(initialValues.firstName);
