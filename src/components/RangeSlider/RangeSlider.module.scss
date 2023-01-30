@@ -94,6 +94,7 @@ input[type='range'] {
 .end {
   @include body-md;
   position: absolute;
+  top: 0;
 }
 
 .start {

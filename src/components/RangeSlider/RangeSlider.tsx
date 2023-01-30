@@ -11,21 +11,28 @@ import FadeIn from '../util/FadeIn';
 import styles from './RangeSlider.module.scss';
 
 type RangeSliderPropsT = {
+  label: string;
+  name: string;
+  id?: string;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   value: number;
-  start?: number;
   finish?: number;
   classProp?: string;
 };
 
 const RangeSlider = ({
+  label,
+  name,
+  id,
+  onChange,
   value,
   finish = 100,
   classProp = '',
 }: RangeSliderPropsT) => {
   const rangeInput = useRef<HTMLInputElement>(null);
   const [internalValue, setInternalValue] = useState(value);
-  const [isOpen, setIsOpen] = useState(true);
-  const [isVisible, setIsVisible] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const calcInternalValue = Math.round((value / finish) * 100);
@@ -33,11 +40,11 @@ const RangeSlider = ({
   }, [value, finish]);
 
   const handleChange: ChangeEventHandler<HTMLInputElement> = (
-    e: ChangeEvent<HTMLInputElement>
+    event: ChangeEvent<HTMLInputElement>
   ) => {
-    console.log('e', e.target.value);
-    const value = Number(e.target.value);
+    const value = Number(event.target.value);
     setInternalValue(value);
+    typeof onChange === 'function' && onChange(event);
   };
 
   /**
@@ -69,8 +76,13 @@ const RangeSlider = ({
     return Math.round((finish / 100) * internalValue);
   };
 
-  return (
+  return finish < value ? (
+    <span className="body-error">
+      <b>"Value"</b> must be smaller then <b>"Finish"</b>{' '}
+    </span>
+  ) : (
     <div className={`${styles.wrapper} ${classProp}`}>
+      <label className="sr-only">{label}</label>
       <FadeIn isVisible={isOpen} onComplete={handleOnComplete}>
         {isVisible && (
           <span
@@ -88,18 +100,22 @@ const RangeSlider = ({
         onChange={handleChange}
         value={internalValue}
         ref={rangeInput}
+        id={id}
+        name={name}
         type="range"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
+        step="10"
+        list="markers"
       />
       <div className={styles.end}>{finish}</div>
 
-      <label className="mt-5 block">
+      <div className="mt-5 block">
         <Badge
-          name={`Value: ${internalValue}`}
+          name={`Value: ${getDisplayValue()}`}
           category={BadgeCategoriesE.PRIMARY}
         />
-      </label>
+      </div>
     </div>
   );
 };

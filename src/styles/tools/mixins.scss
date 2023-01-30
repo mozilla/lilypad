@@ -148,6 +148,15 @@
 /*-------------------------------
   UTILITY MIXINS
 -------------------------------*/
+@mixin body-error {
+  @include font-size(12);
+  @include primary-font(400);
+  color: $color-text-reverse;
+  background-color: $color-semantic-critical;
+  padding: 14px;
+  border-radius: 12px;
+}
+
 @mixin size($size) {
   height: #{$size}px;
   width: #{$size}px;

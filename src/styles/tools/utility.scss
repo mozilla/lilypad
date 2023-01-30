@@ -59,6 +59,10 @@ $fontSizes: 12, 14, 16, 18, 20;
   text-transform: capitalize;
 }
 
+.body-error {
+  @include body-error();
+}
+
 // ---------------------------------
 //   Quick Media-Q
 // ---------------------------------
