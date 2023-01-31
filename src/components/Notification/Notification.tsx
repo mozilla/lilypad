@@ -1,8 +1,7 @@
 import React, { useState, forwardRef, useImperativeHandle } from 'react';
 import { NotificationTypesE, NotificationLocationE } from './types';
 import styles from './Notification.module.scss';
-import ToastMessage from './ToastMessage';
-import CrumbMessage from './CrumbMessage';
+import NotificationMessage, { CategoryE } from './NotificationMesssage';
 import { IconT } from '../Icon/Icon';
 
 export type NotificationPropsT = {
@@ -25,7 +24,7 @@ export type NewNotificationT = {
   callbackCta?: string;
   location?: NotificationLocationE;
   pauseOnHover?: boolean;
-  category: 'crumb' | 'toast';
+  category: CategoryE;
 };
 
 export interface NotificationI extends NewNotificationT {
@@ -45,6 +44,10 @@ const Notification = forwardRef(
       };
     });
 
+    /**
+     * Dispatch Notification
+     * @param newNotifcation
+     */
     const dispatchNotification = (newNotifcation: NewNotificationT) => {
       const notification = {
         ...newNotifcation,
@@ -54,36 +57,37 @@ const Notification = forwardRef(
       setNotifications((notifications) => [notification, ...notifications]);
     };
 
-    const filterNotifications = (toasts: NotificationI[], id: string) =>
-      toasts.filter((toast) => toast.id != id);
+    /**
+     * Filter out notification
+     * @param toasts
+     * @param id
+     * @returns NotificationI[]
+     */
+    const filterNotifications = (
+      toasts: NotificationI[],
+      id: string
+    ): NotificationI[] => toasts.filter((toast) => toast.id != id);
 
+    /**
+     * Remove current message from state
+     * @param id
+     */
     const removeSelf = (id: string) => {
       setNotifications((state) => filterNotifications(state, id));
     };
 
-    const renderNotification = (notification: NotificationI) => {
-      // CRUMB ELEMENT
-      if (notification.category === 'crumb') {
-        return (
-          <CrumbMessage
-            removeSelf={removeSelf}
-            key={notification.id}
-            {...notification}
-          />
-        );
-      }
-
-      // TOAST ELEMENT
-      if (notification.category === 'toast') {
-        return (
-          <ToastMessage
-            removeSelf={removeSelf}
-            key={notification.id}
-            {...notification}
-          />
-        );
-      }
-    };
+    /**
+     * Render correct notification type
+     * @param notification
+     * @returns JSX
+     */
+    const renderNotification = (notification: NotificationI) => (
+      <NotificationMessage
+        removeSelf={removeSelf}
+        key={notification.id}
+        {...notification}
+      />
+    );
 
     /**
      * Locations
@@ -104,7 +108,7 @@ const Notification = forwardRef(
     );
 
     return (
-      <div id="lily_toast" className={classProp}>
+      <div id="lily_notification" className={classProp}>
         {/* TOP RIGHT  */}
         {Boolean(topRightNotifications.length) && (
           <div className={styles.top_right}>
