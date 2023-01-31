@@ -1,7 +1,7 @@
 import React, { useState, forwardRef, useImperativeHandle } from 'react';
 import { NotificationTypesE, NotificationLocationE } from './types';
 import styles from './Notification.module.scss';
-import NotificationMessage, { CategoryE } from './NotificationMesssage';
+import NotificationMessage, { CategoryE } from './NotificationMessage';
 import { IconT } from '../Icon/Icon';
 
 export type NotificationPropsT = {
