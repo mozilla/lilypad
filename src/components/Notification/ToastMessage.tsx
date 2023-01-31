@@ -34,27 +34,6 @@ const ToastMessage = forwardRef(
     ref: ForwardedRef<HTMLDivElement>
   ) => {
     /**
-     * Mouse Enter
-     */
-    const handleMouseEnter = () => {
-      typeof mouseEnter === 'function' ? mouseEnter() : '';
-    };
-
-    /**
-     * Mouse Leave
-     */
-    const handleMouseLeave = () => {
-      typeof mouseLeave === 'function' ? mouseLeave() : '';
-    };
-
-    /**
-     * On Close
-     */
-    const handleClose = useCallback(() => {
-      typeof close === 'function' ? close() : '';
-    }, []);
-
-    /**
      * Handle CTA action click
      */
     const handleAction = useCallback(() => {
@@ -65,11 +44,11 @@ const ToastMessage = forwardRef(
       <div
         className={`${classProp} ${styles.container} ${styles[type]}`}
         ref={ref}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
+        onMouseEnter={mouseEnter}
+        onMouseLeave={mouseLeave}
       >
         <Button
-          onClick={handleClose}
+          onClick={close}
           icon="x"
           classProp={styles.close}
           label="close"

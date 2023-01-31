@@ -30,33 +30,12 @@ const CrumbMessage = forwardRef(
     }: CrumbPropsT,
     ref: ForwardedRef<HTMLDivElement>
   ) => {
-    /**
-     * Mouse Enter
-     */
-    const handleMouseEnter = () => {
-      typeof mouseEnter === 'function' ? mouseEnter() : '';
-    };
-
-    /**
-     * Mouse Leave
-     */
-    const handleMouseLeave = () => {
-      typeof mouseLeave === 'function' ? mouseLeave() : '';
-    };
-
-    /**
-     * On Close
-     */
-    const handleClose = useCallback(() => {
-      typeof close === 'function' ? close() : '';
-    }, []);
-
     return (
       <div
         className={`${classProp} ${styles.container} ${styles[type]}`}
         ref={ref}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
+        onMouseEnter={mouseEnter}
+        onMouseLeave={mouseLeave}
       >
         {hasIcon &&
           (icon ? (
@@ -68,11 +47,7 @@ const CrumbMessage = forwardRef(
         {/* CRUMB DISPLAYS MAX 30 CHARACTERS - USE TOAST IF YOU NEED MORE  */}
         <p className="body-md-semi-bold ">{description.slice(0, 30)}</p>
 
-        <button
-          className={styles.close}
-          onClick={handleClose}
-          aria-label="close"
-        >
+        <button className={styles.close} onClick={close} aria-label="close">
           <Icon name="x" size={24} color="currentColor" />
         </button>
       </div>
