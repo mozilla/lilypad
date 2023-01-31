@@ -1,9 +1,10 @@
-@use '../../styles/boilerplate.scss'as *;
+@use '../../styles/core/boilerplate.scss'as *;
 
 .wrapper {
   width: 100%;
   height: 6px;
   position: relative;
+  overflow: hidden;
 }
 
 .container {

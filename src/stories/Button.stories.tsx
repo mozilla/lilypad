@@ -1,7 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Button, { ButtonCategoriesE, ButtonSizesE } from '../components/Button/Button';
-import '../styles/theme.scss'
+import Button, {
+  ButtonCategoriesE,
+  ButtonSizesE,
+} from '../components/Button/Button';
+import '../styles/theme.scss';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -31,7 +34,14 @@ export default {
     icon: {
       control: {
         type: 'select',
-        options: ['', 'star', 'arrow-left', 'arrow-right', 'critical-solid', 'fx-account'],
+        options: [
+          '',
+          'star',
+          'arrow-left',
+          'arrow-right',
+          'critical-solid',
+          'fx-account',
+        ],
       },
     },
     iconPlacedRight: {

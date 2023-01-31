@@ -1,6 +1,6 @@
 @use '../../styles/core/boilerplate.scss'as *;
 
-.input {
+.text_area {
   &_wrapper {
     @include primary-font();
     display: flex;
@@ -21,13 +21,14 @@
       }
     }
 
-    input {
+    textarea {
       @include font-size(16);
+      font-family: inherit;
       color: $color-text-main;
       border: $color-border-1 solid 2px;
       border-radius: 12px;
       padding: 12px;
-      font-family: inherit;
+      background-color: $color-background-neutral-0;
 
       &.has_error {
         border: $color-semantic-critical solid 2px;
@@ -73,7 +74,7 @@
 
 @mixin icon() {
   position: absolute;
-  top: 44px;
+  top: 42px;
   right: 12px;
 }
 

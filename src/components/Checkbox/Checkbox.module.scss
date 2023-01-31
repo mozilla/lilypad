@@ -1,4 +1,4 @@
-@use '../../styles/boilerplate.scss'as *;
+@use '../../styles/core/boilerplate.scss'as *;
 
 .container {
   @include prefix(user-select, none, webkit ms moz);
@@ -7,6 +7,10 @@
   align-items: center;
   position: relative;
   cursor: pointer;
+  &,
+  & * {
+    box-sizing: border-box;
+  }
 
   /* Hide the browser's default checkbox */
   input {
@@ -65,8 +69,8 @@
     content: '';
     position: absolute;
     display: none;
-    left: 8px;
-    top: 3px;
+    left: 6px;
+    top: 1px;
     width: 5px;
     height: 11px;
     border: solid $color-text-reverse;

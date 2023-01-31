@@ -9,7 +9,7 @@ import {
   forwardRef,
   useImperativeHandle,
 } from 'react';
-import styles from './Input.module.scss';
+import styles from './TextArea.module.scss';
 import Icon, { IconT } from '../Icon';
 import ToolTip from '../ToolTip';
 
@@ -17,68 +17,64 @@ import ToolTip from '../ToolTip';
  * Methods available to access the component in the parent component. These would most likley
  * only be used outside of the form context. Ie search input or some type of filter input.
  */
-export type InputInterfaceT = {
-  focusInput: Function;
+export type TextAreaInterfaceT = {
+  focusTextArea: Function;
   isDirty: Function;
 };
 
-export type InputT = 'text' | 'password' | 'email' | 'number' | 'tel' | 'time';
-
-export enum InputIconColorE {
+export enum TextAreaIconColorE {
   SUCCESS = 'success',
   ERROR = 'error',
   DEFAULT = 'default',
 }
 
-type InputProps = {
+type TextAreaPropsT = {
   label: string;
   placeholder: string;
   toolTip?: string;
   name: string;
-  type?: InputT;
   info?: string;
   classProp?: string;
   onBlur?: Function;
   onFocus?: Function;
   onChange?: Function;
+  disabled?: boolean;
   validator?: Function;
   required?: boolean;
   isError?: boolean;
   customErrorMessage?: string;
-  pattern?: string;
   maxLength?: number;
   minLength?: number;
   value: string | number | readonly string[] | undefined;
   icon?: IconT;
-  iconColor?: InputIconColorE;
+  iconColor?: TextAreaIconColorE;
   id?: string;
 };
 
-const Input = forwardRef(
+const TextArea = forwardRef(
   (
     {
       label,
       placeholder,
       toolTip,
-      type = 'text',
       name,
       info = '',
       classProp = '',
       onChange,
+      disabled,
       onBlur,
       onFocus,
       validator = () => true,
       required = false,
       isError,
       customErrorMessage,
-      pattern,
       maxLength,
       minLength,
       value,
       icon,
-      iconColor = InputIconColorE.DEFAULT,
+      iconColor = TextAreaIconColorE.DEFAULT,
       id,
-    }: InputProps,
+    }: TextAreaPropsT,
     ref
   ) => {
     const [isValid, setIsValid] = useState<boolean>(false);
@@ -89,27 +85,27 @@ const Input = forwardRef(
     const [currentErrorMessage, setCurrentErrorMessage] = useState<string>(
       customErrorMessage ? customErrorMessage : ''
     );
-    const inputRef = useRef<HTMLInputElement>(null);
+    const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
     /**
      * Exposed Component API
      */
     useImperativeHandle(ref, () => {
       return {
-        focusInput: () => inputRef.current?.focus(),
+        focusTextArea: () => textAreaRef.current?.focus(),
         isDirty: () => isDirty,
       };
     });
 
     /**
-     * Validate Input
+     * Validate TextArea
      */
     useEffect(() => {
-      const input = inputRef.current;
-      if (!input) return;
+      const textArea = textAreaRef.current;
+      if (!textArea) return;
 
-      const valid = input.validity.valid;
-      const validationMessage = input.validationMessage;
+      const valid = textArea.validity.valid;
+      const validationMessage = textArea.validationMessage;
       const validation = valid && validator(value);
 
       // Prop error message takes precedence
@@ -134,12 +130,12 @@ const Input = forwardRef(
     }, [info, showError]);
 
     /**
-     * Handle Input Change
+     * Handle TextArea Change
      * @param event
      */
-    const handleOnChange: ChangeEventHandler<HTMLInputElement> = (
-      event: ChangeEvent<HTMLInputElement>
-    ): ChangeEvent<HTMLInputElement> => {
+    const handleOnChange: ChangeEventHandler<HTMLTextAreaElement> = (
+      event: ChangeEvent<HTMLTextAreaElement>
+    ): ChangeEvent<HTMLTextAreaElement> => {
       const newValue = event.target.value;
       typeof onChange === 'function' && onChange(event);
 
@@ -153,7 +149,7 @@ const Input = forwardRef(
      * Handle Blur
      * @param event
      */
-    const handleOnBlur: FocusEventHandler<HTMLInputElement> = (event) => {
+    const handleOnBlur: FocusEventHandler<HTMLTextAreaElement> = (event) => {
       typeof onBlur === 'function' && onBlur(event);
     };
 
@@ -166,8 +162,8 @@ const Input = forwardRef(
 
     return (
       <div
-        className={`${styles.input_wrapper}  ${
-          showError ? styles.input_error : null
+        className={`${styles.text_area_wrapper}  ${
+          showError ? styles.text_area_error : null
         } ${classProp}`}
       >
         <label className={styles.label}>
@@ -180,10 +176,9 @@ const Input = forwardRef(
           )}
         </label>
 
-        <input
-          ref={inputRef}
+        <textarea
+          ref={textAreaRef}
           id={id}
-          type={type}
           name={name}
           value={value}
           required={required}
@@ -191,13 +186,13 @@ const Input = forwardRef(
           onChange={handleOnChange}
           onBlur={handleOnBlur}
           onFocus={handleOnFocus}
+          disabled={disabled}
           maxLength={maxLength}
           minLength={minLength}
-          pattern={pattern}
           className={`${icon && styles.has_icon} ${
             showError && styles.has_error
           }`}
-        />
+        ></textarea>
 
         {icon ? (
           <Icon name={icon} classProp={styles['icon_' + iconColor]} />
@@ -210,12 +205,12 @@ const Input = forwardRef(
           ''
         )}
 
-        {/* Additional Input Information  */}
+        {/* Additional TextArea Information  */}
         {showInfo ? <span className={styles.info}>{info}</span> : ''}
       </div>
     );
   }
 );
 
-Input.displayName = 'Input';
-export default Input;
+TextArea.displayName = 'TextArea';
+export default TextArea;
