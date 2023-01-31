@@ -99,6 +99,7 @@ const Notification = forwardRef(
     const topLeftNotifications = notifications.filter(
       ({ location }) => location === NotificationLocationE.TOP_LEFT
     );
+
     const bottomRightNotifications = notifications.filter(
       ({ location }) => location === NotificationLocationE.BOTTOM_RIGHT
     );

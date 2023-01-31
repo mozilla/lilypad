@@ -24,7 +24,7 @@ export type NotificationMessagePropsT = {
   location?: NotificationLocationE;
   pauseOnHover?: boolean;
   hasIcon?: boolean;
-  category?: CategoryE;
+  category: CategoryE;
   icon?: IconT;
   classProp?: string;
 };
@@ -160,8 +160,6 @@ const NotificationMessage = ({
    * Mouse Enter
    */
   const handleMouseEnter = () => {
-    console.log('hit 2');
-
     if (!pauseOnHover || !autoClose) return;
     clearInterval(intervalId);
   };
@@ -221,38 +219,45 @@ const NotificationMessage = ({
     ></div>
   );
 
+  const renderMessage = (param: CategoryE) => {
+    switch (param) {
+      case CategoryE.CRUMB:
+        return (
+          <CrumbMessage
+            description={description}
+            ref={notificationRef}
+            icon={icon}
+            hasIcon={hasIcon}
+            mouseEnter={handleMouseEnter}
+            mouseLeave={handleMouseLeave}
+            close={handleClose}
+          />
+        );
+      case CategoryE.TOAST:
+        return (
+          <ToastMessage
+            title={title}
+            description={description}
+            ref={notificationRef}
+            callback={callback}
+            callbackCta={callbackCta}
+            type={type}
+            mouseEnter={handleMouseEnter}
+            mouseLeave={handleMouseLeave}
+            close={handleClose}
+            progressBar={ProgressBar}
+          />
+        );
+    }
+  };
+
   return (
     <FadeIn
       isVisible={isOpen}
       onComplete={handleOnComplete}
       animation={fadeAnimation()}
     >
-      {isVisible && category === CategoryE.TOAST && (
-        <ToastMessage
-          title={title}
-          description={description}
-          ref={notificationRef}
-          callback={callback}
-          callbackCta={callbackCta}
-          type={type}
-          mouseEnter={handleMouseEnter}
-          mouseLeave={handleMouseLeave}
-          close={handleClose}
-          progressBar={ProgressBar}
-        />
-      )}
-
-      {isVisible && category === CategoryE.CRUMB && (
-        <CrumbMessage
-          description={description}
-          ref={notificationRef}
-          icon={icon}
-          hasIcon={hasIcon}
-          mouseEnter={handleMouseEnter}
-          mouseLeave={handleMouseLeave}
-          close={handleClose}
-        />
-      )}
+      {isVisible && renderMessage(category)}
     </FadeIn>
   );
 };

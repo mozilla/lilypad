@@ -16,7 +16,7 @@ export {
   NotificationTypesE,
   NotificationLocationE,
 } from './Notification';
-export { default as Icon, IconT } from './Icon';
+export { default as Icon, type IconT } from './Icon';
 export {
   default as Input,
   type InputInterfaceT,

@@ -9,6 +9,7 @@ import {
   NotificationLocationE,
   IconT,
 } from '../components';
+import { CategoryE } from '../components/Notification/NotificationMessage';
 import '../styles/theme.scss';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
@@ -106,7 +107,7 @@ export type NotifcationStoryPropsT = {
   type?: NotificationTypesE;
   location?: NotificationLocationE;
   pauseOnHover?: boolean;
-  category: 'crumb' | 'toast';
+  category: CategoryE;
   classProp?: string;
 };
 
@@ -132,8 +133,8 @@ const NotifcationStory = ({
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof NotifcationStory> = (args) => {
-  const toastRef = useRef<NotificationInterfaceT>();
-  const toastDarkRef = useRef<NotificationInterfaceT>();
+  const notificationRef = useRef<NotificationInterfaceT>();
+  const notificationDarkRef = useRef<NotificationInterfaceT>();
 
   const callback = args.callbackCta ? () => {} : undefined;
 
@@ -153,11 +154,11 @@ const Template: ComponentStory<typeof NotifcationStory> = (args) => {
   };
 
   const handleClick = () => {
-    toastRef.current?.dispatchNotification(success);
+    notificationRef.current?.dispatchNotification(success);
   };
 
   const handleDarkClick = () => {
-    toastDarkRef.current?.dispatchNotification(success);
+    notificationDarkRef.current?.dispatchNotification(success);
   };
 
   return (
@@ -165,11 +166,11 @@ const Template: ComponentStory<typeof NotifcationStory> = (args) => {
       <main data-theme="light" style={{ padding: '20px' }}>
         <h3>Light Theme</h3>
         <Button
-          label="toast button"
-          text="Dispatch Toast"
+          label="notification button"
+          text="Dispatch Notification"
           onClick={handleClick}
         />
-        <Notification ref={toastRef} />
+        <Notification ref={notificationRef} />
       </main>
 
       <main
@@ -178,11 +179,11 @@ const Template: ComponentStory<typeof NotifcationStory> = (args) => {
       >
         <h3 style={{ color: '#ffffff' }}>Dark Theme</h3>
         <Button
-          label="toast button"
-          text="Dispatch Toast"
+          label="notification button"
+          text="Dispatch Notification"
           onClick={handleDarkClick}
         />
-        <Notification ref={toastDarkRef} />
+        <Notification ref={notificationDarkRef} />
       </main>
     </>
   );
@@ -203,5 +204,5 @@ Main.args = {
   callbackCta: undefined,
   icon: undefined,
   hasIcon: false,
-  category: 'toast',
+  category: CategoryE.TOAST,
 };
