@@ -227,6 +227,7 @@ const NotificationMessage = ({
             description={description}
             ref={notificationRef}
             icon={icon}
+            type={type}
             hasIcon={hasIcon}
             mouseEnter={handleMouseEnter}
             mouseLeave={handleMouseLeave}
