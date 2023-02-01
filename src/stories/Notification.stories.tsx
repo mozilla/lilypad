@@ -8,8 +8,8 @@ import {
   NotificationTypesE,
   NotificationLocationE,
   IconT,
+  CategoryE,
 } from '../components';
-import { CategoryE } from '../components/Notification/NotificationMessage';
 import '../styles/theme.scss';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
