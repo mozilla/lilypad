@@ -127,6 +127,7 @@ const NotificationMessage = ({
    */
   const initInterval = (time: number) => {
     const interval = window.setInterval(() => {
+      console.log('intervaling....');
       const increment = 10;
 
       if (time > duration) {
@@ -160,7 +161,9 @@ const NotificationMessage = ({
    * Mouse Enter
    */
   const handleMouseEnter = () => {
+    console.log('handleMouseEnter');
     if (!pauseOnHover || !autoClose) return;
+    console.log('handleMouseEnter - trying to clear');
     clearInterval(intervalId);
   };
 
@@ -168,7 +171,9 @@ const NotificationMessage = ({
    * Mouse Leave
    */
   const handleMouseLeave = () => {
+    console.log('handleMouseLeave');
     if (!pauseOnHover || !autoClose) return;
+    console.log('handleMouseLeave - trying to set');
     initInterval(timeVisible.current);
   };
 
