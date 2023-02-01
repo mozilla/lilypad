@@ -15,6 +15,7 @@ export {
   type NewNotificationT,
   NotificationTypesE,
   NotificationLocationE,
+  CategoryE
 } from './Notification';
 export { default as Icon, type IconT } from './Icon';
 export {
