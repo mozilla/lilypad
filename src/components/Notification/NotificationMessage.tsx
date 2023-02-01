@@ -47,7 +47,7 @@ const NotificationMessage = ({
 }: NotificationMessagePropsT) => {
   const [isOpen, setIsOpen] = useState(true);
   const [isVisible, setIsVisible] = useState(true);
-  const [intervalId, setIntervalId] = useState<number>();
+  const intervalId = useRef<number>();
   const notificationRef = useRef<HTMLDivElement>(null);
   const progressBar = useRef<HTMLDivElement>(null);
   const timeVisible = useRef<number>(0);
@@ -127,11 +127,10 @@ const NotificationMessage = ({
    */
   const initInterval = (time: number) => {
     const interval = window.setInterval(() => {
-      console.log('intervaling....');
       const increment = 10;
 
       if (time > duration) {
-        clearInterval(interval);
+        window.clearInterval(interval);
         handleClose();
       }
 
@@ -142,7 +141,7 @@ const NotificationMessage = ({
       animateProgress(time, duration);
     }, 10);
 
-    setIntervalId(interval);
+    intervalId.current = interval;
   };
 
   /**
@@ -161,19 +160,15 @@ const NotificationMessage = ({
    * Mouse Enter
    */
   const handleMouseEnter = () => {
-    console.log('handleMouseEnter');
     if (!pauseOnHover || !autoClose) return;
-    console.log('handleMouseEnter - trying to clear');
-    clearInterval(intervalId);
+    window.clearInterval(intervalId.current);
   };
 
   /**
    * Mouse Leave
    */
   const handleMouseLeave = () => {
-    console.log('handleMouseLeave');
     if (!pauseOnHover || !autoClose) return;
-    console.log('handleMouseLeave - trying to set');
     initInterval(timeVisible.current);
   };
 
@@ -183,14 +178,7 @@ const NotificationMessage = ({
   const handleClose = useCallback(() => {
     removeEvents();
     setIsOpen(false);
-    clearInterval(intervalId);
-  }, []);
-
-  /**
-   * Handle CTA action click
-   */
-  const handleAction = useCallback(() => {
-    typeof callback === 'function' && callback();
+    window.clearInterval(intervalId.current);
   }, []);
 
   /**
