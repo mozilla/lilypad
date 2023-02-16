@@ -59,7 +59,7 @@ const ToastMessage = forwardRef(
             <NotificationIcon type={type} classProp="mr-20" />
           </div>
           <div className="mr-20">
-            <div className="heading-xs">X{title}</div>
+            <div className="heading-xs">{title}</div>
             <p className="body-md my-16-dt my-14-mb">{description}</p>
             {callback && (
               <div className={styles.callback_wrapper}>

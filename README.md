@@ -2,55 +2,20 @@
 
 React Component Library
 
-```
-  _        _   _                               _
- | |      (_) | |                             | |
- | |       _  | |  _   _   _ __     __ _    __| |
- | |      | | | | | | | | | '_ \   / _` |  / _` |
- | |____  | | | | | |_| | | |_) | | (_| | | (_| |
- |______| |_| |_|  \__, | | .__/   \__,_|  \__,_|
-                    __/ | | |
-                   |___/  |_|
-```
+![Alt text](src/assets/readme.jpg?raw=true 'lilypad graphic')
 
 ## Installation
-
-Lilypad is available as an [npm package](https://github.com/mozilla/lilypad/pkgs/npm/lilypad).
-
-### Step 1.
-
-First, create an access token on Github to fetch our maintained Lilypad component library on npm, you need to create an access token on github and enable Mozilla organization on the access token.
-
-### Step 2.
-
-Configure your local install of NPM itself to be authorized to use Lilypad. To do this we use a `.npmrc` file. This file is NOT PART OF YOUR PROJECT. This is a global file in a central location. For Mac/Linux users it goes in your home directory ~/.npmrc.
-
-For Windows users it goes in your home directory as well, though the syntax will be different. Something along the lines of C:\Users\{YOUR_WINDOWS_USERNAME}
-
-### Step 3.
-
-Once you have created the file, edit it to include the following information:
-
-~/.npmrc
-
-```sh
-registry=https://registry.npmjs.org/
-@YOUR_GITHUB_USERNAME:registry=https://npm.pkg.github.com/
-//npm.pkg.github.com/:_authToken=YOUR_AUTH_TOKEN
-```
-
-### Step 4.
 
 **npm:**
 
 ```sh
-npm install @mozilla/lilypad
+npm install @mozilla/lilypad-ui
 ```
 
 **yarn:**
 
 ```sh
-yarn add @mozilla/lilypad
+yarn add @mozilla/lilypad-ui
 ```
 
 ## Getting started with Lilypad
@@ -71,6 +36,10 @@ function App() {
   );
 }
 ```
+
+## Storybook
+
+[click here!](https://mozilla.github.io/lilypad/)
 
 ## Adding Styles
 
