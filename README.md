@@ -24,7 +24,7 @@ Here is an example of a basic app using Lilypad's `Button` component:
 
 ```jsx
 import * as React from 'react';
-import { Button, ButtonCategoriesE } from '@mozilla/lilypad';
+import { Button, ButtonCategoriesE } from '@mozilla/lilypad-ui';
 
 function App() {
   return (
@@ -44,7 +44,7 @@ function App() {
 ## Adding Styles
 
 ```scss
-@import '@mozilla/lilypad/dist/styles/theme.scss';
+@import '@mozilla/lilypad-ui/dist/styles/theme.scss';
 ```
 
 ```jsx
