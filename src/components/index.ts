@@ -18,6 +18,7 @@ export {
   CategoryE
 } from './Notification';
 export { default as Icon, type IconT } from './Icon';
+export { default as HubIcon, type HubIconT } from './HubIcon';
 export {
   default as Input,
   type InputInterfaceT,
