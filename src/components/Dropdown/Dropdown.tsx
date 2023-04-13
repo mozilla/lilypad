@@ -21,10 +21,14 @@ type DropdownProps = {
   content: ReactNode;
   classProp?: string;
   alignment?: AlignmentT;
+  width?: number;
 };
 
 const Dropdown = forwardRef(
-  ({ cta, content, classProp = '', alignment }: DropdownProps, ref) => {
+  (
+    { cta, content, width = 320, alignment, classProp = '' }: DropdownProps,
+    ref
+  ) => {
     const [isOpen, setIsOpen] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
@@ -91,6 +95,7 @@ const Dropdown = forwardRef(
         <FadeIn isVisible={isOpen} onComplete={handleOnComplete}>
           {isVisible && (
             <div
+              style={{ width: `${width}px` }}
               className={`${styles.content_wrapper} ${
                 alignment === 'right' ? styles.right : styles.left
               }`}
