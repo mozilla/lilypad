@@ -1,5 +1,14 @@
 @use '../../styles/core/boilerplate.scss'as *;
 
+$z-index: 9999;
+
+.top_center {
+  position: fixed;
+  top: 5px;
+  left: 50%;
+  transform: translate(-50%);
+}
+
 .top_right {
   position: fixed;
   top: 5px;
@@ -10,6 +19,13 @@
   position: fixed;
   top: 5px;
   left: 5px;
+}
+
+.bottom_center {
+  position: fixed;
+  bottom: 5px;
+  left: 50%;
+  transform: translate(-50%);
 }
 
 .bottom_right {
@@ -24,20 +40,28 @@
   left: 5px;
 }
 
+.top_center,
 .top_left,
 .top_right {
+  z-index: $z-index;
+
   @include mobile-down {
     top: 0px;
     right: 0px;
     left: 0px;
+    transform: none;
   }
 }
 
+.bottom_center,
 .bottom_left,
 .bottom_right {
+  z-index: $z-index;
+
   @include mobile-down {
     bottom: 0px;
     right: 0px;
     left: 0px;
+    transform: none;
   }
 }
