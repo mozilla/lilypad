@@ -54,7 +54,7 @@ const ToolTip = ({
       </div>
 
       {/* Tool Tip  */}
-      <span className={`${styles.container} ${styles[location]}`}>
+      <div className={`${styles.container} ${styles[location]}`}>
         <FadeIn isVisible={isOpen} onComplete={handleOnComplete}>
           {isVisible && (
             <p className={`${styles.description} ${styles[category]}`}>
@@ -62,7 +62,7 @@ const ToolTip = ({
             </p>
           )}
         </FadeIn>
-      </span>
+      </div>
     </section>
   );
 };
