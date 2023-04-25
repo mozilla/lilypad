@@ -1,6 +1,6 @@
-import React, { useState, ReactNode, useCallback } from 'react';
+import React, { useState, ReactNode } from 'react';
 import styles from './ToolTip.module.scss';
-import FadeIn from '../util/FadeIn';
+import FadeInWrapper from '../util/FadeIn';
 
 export enum ToolTipCategoriesE {
   PRIMARY = 'primary',
@@ -31,20 +31,14 @@ const ToolTip = ({
   classProp = '',
 }: ToolTipPropsT) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
 
   const handleOpen = () => {
-    setIsVisible(true);
     setIsOpen(true);
   };
 
   const handleClose = () => {
     setIsOpen(false);
   };
-
-  const handleOnComplete = useCallback(() => {
-    if (!isOpen) setIsVisible(false);
-  }, [isOpen]);
 
   return (
     <section className={`${classProp} ${styles.wrapper}`}>
@@ -55,13 +49,11 @@ const ToolTip = ({
 
       {/* Tool Tip  */}
       <span className={`${styles.container} ${styles[location]}`}>
-        <FadeIn isVisible={isOpen} onComplete={handleOnComplete}>
-          {isVisible && (
-            <p className={`${styles.description} ${styles[category]}`}>
-              {description}
-            </p>
-          )}
-        </FadeIn>
+        <FadeInWrapper visible={isOpen}>
+          <p className={`${styles.description} ${styles[category]}`}>
+            {description}
+          </p>
+        </FadeInWrapper>
       </span>
     </section>
   );

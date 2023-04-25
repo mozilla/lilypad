@@ -1,6 +1,6 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import styles from './ToastMessage.module.scss';
-import FadeIn from '../util/FadeIn';
+import FadeInWrapper from '../util/FadeIn';
 import { NotificationTypesE, NotificationLocationE } from './types';
 import { IconT } from '../Icon';
 import ToastMessage from './ToastMessage';
@@ -46,7 +46,6 @@ const NotificationMessage = ({
   icon,
 }: NotificationMessagePropsT) => {
   const [isOpen, setIsOpen] = useState(true);
-  const [isVisible, setIsVisible] = useState(true);
   const intervalId = useRef<number>();
   const notificationRef = useRef<HTMLDivElement>(null);
   const progressBar = useRef<HTMLDivElement>(null);
@@ -58,7 +57,6 @@ const NotificationMessage = ({
    * Init Component
    */
   useEffect(() => {
-    setIsVisible(true);
     setIsOpen(true);
     initSwipe();
 
@@ -186,7 +184,6 @@ const NotificationMessage = ({
    */
   const handleOnComplete = useCallback(() => {
     if (!isOpen) {
-      setIsVisible(false);
       // dispatch parent to delete me
       typeof removeSelf === 'function' && removeSelf(id);
     }
@@ -246,13 +243,13 @@ const NotificationMessage = ({
   };
 
   return (
-    <FadeIn
-      isVisible={isOpen}
+    <FadeInWrapper
+      visible={isOpen}
       onComplete={handleOnComplete}
       animation={fadeAnimation()}
     >
-      {isVisible && renderMessage(category)}
-    </FadeIn>
+      {renderMessage(category)}
+    </FadeInWrapper>
   );
 };
 
