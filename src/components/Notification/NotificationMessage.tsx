@@ -1,6 +1,6 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import styles from './ToastMessage.module.scss';
-import FadeInWrapper from '../util/FadeIn';
+import FadeIn from '../FadeIn';
 import { NotificationTypesE, NotificationLocationE } from './types';
 import { IconT } from '../Icon';
 import ToastMessage from './ToastMessage';
@@ -243,13 +243,13 @@ const NotificationMessage = ({
   };
 
   return (
-    <FadeInWrapper
+    <FadeIn
       visible={isOpen}
       onComplete={handleOnComplete}
       animation={fadeAnimation()}
     >
       {renderMessage(category)}
-    </FadeInWrapper>
+    </FadeIn>
   );
 };
 

@@ -8,7 +8,7 @@ import {
   forwardRef,
 } from 'react';
 import styles from './Dropdown.module.scss';
-import FadeInWrapper from '../util/FadeIn';
+import FadeIn from '../FadeIn';
 
 export type dropdownT = {
   closeDropdown: Function;
@@ -81,7 +81,7 @@ const Dropdown = forwardRef(
         <div onClick={onToggleClick}>{cta}</div>
 
         {/* Dropdown Custom Content */}
-        <FadeInWrapper visible={isOpen}>
+        <FadeIn visible={isOpen}>
           <div
             style={{ width: `${width}px` }}
             className={`${styles.content_wrapper} ${
@@ -90,7 +90,7 @@ const Dropdown = forwardRef(
           >
             {content}
           </div>
-        </FadeInWrapper>
+        </FadeIn>
       </div>
     );
   }

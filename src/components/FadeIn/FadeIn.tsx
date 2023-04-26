@@ -7,27 +7,24 @@ import React, {
   ReactNode,
 } from 'react';
 
+/**
+ * FADE IN
+ */
 type FadeInPropsT = {
-  isVisible: Boolean;
-  onComplete: () => void;
-  children: ReactNode;
-  animation?: string;
-  classProp?: string;
-};
-
-type FadeInWrapperPropsT = {
   visible: boolean;
   animation?: string;
   onComplete?: () => void;
   children: ReactNode;
+  classProp?: string;
 };
 
-const FadeInWrapper = ({
+const FadeIn = ({
   visible = true,
   onComplete,
   animation,
   children,
-}: FadeInWrapperPropsT) => {
+  classProp = '',
+}: FadeInPropsT) => {
   const [isOpen, setIsOpen] = useState<boolean>(visible);
   const [isVisible, setIsVisible] = useState<boolean>(visible);
   const arrayChildren = Children.toArray(children);
@@ -50,25 +47,38 @@ const FadeInWrapper = ({
   }, [isOpen]);
 
   return (
-    <FadeIn
+    <FadeContents
       isVisible={isOpen}
       onComplete={handleOnComplete}
       animation={animation}
+      classProp={classProp}
     >
       {Children.map(arrayChildren, (child, i) => {
         return isVisible && <>{child}</>;
       })}
-    </FadeIn>
+    </FadeContents>
   );
 };
 
-export const FadeIn = ({
+/**
+ * FADE IN CONTENTS
+ */
+
+type FadeContentsPropsT = {
+  isVisible: boolean;
+  animation?: string;
+  onComplete: () => void;
+  children: ReactNode;
+  classProp?: string;
+};
+
+const FadeContents = ({
   isVisible,
   onComplete,
   children,
   animation = 'translateY(20px)',
-  classProp,
-}: PropsWithChildren<FadeInPropsT>) => {
+  classProp = '',
+}: PropsWithChildren<FadeContentsPropsT>) => {
   const [maxIsVisible, setMaxIsVisible] = useState(0);
   const arrayChildren = Children.toArray(children);
 
@@ -119,4 +129,4 @@ export const FadeIn = ({
   );
 };
 
-export default FadeInWrapper;
+export default FadeIn;

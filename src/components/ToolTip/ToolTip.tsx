@@ -1,6 +1,6 @@
 import React, { useState, ReactNode } from 'react';
 import styles from './ToolTip.module.scss';
-import FadeInWrapper from '../util/FadeIn';
+import FadeIn from '../FadeIn';
 
 export enum ToolTipCategoriesE {
   PRIMARY = 'primary',
@@ -49,11 +49,11 @@ const ToolTip = ({
 
       {/* Tool Tip  */}
       <span className={`${styles.container} ${styles[location]}`}>
-        <FadeInWrapper visible={isOpen}>
+        <FadeIn visible={isOpen}>
           <p className={`${styles.description} ${styles[category]}`}>
             {description}
           </p>
-        </FadeInWrapper>
+        </FadeIn>
       </span>
     </section>
   );
