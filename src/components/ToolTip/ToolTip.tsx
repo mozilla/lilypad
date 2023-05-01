@@ -47,7 +47,7 @@ const ToolTip = ({
   }, [isOpen]);
 
   return (
-    <section className={`${classProp} ${styles.wrapper}`}>
+    <section className={styles.wrapper}>
       {/* Contents that trigger tool top */}
       <div onMouseEnter={handleOpen} onMouseLeave={handleClose}>
         {children}
@@ -57,7 +57,7 @@ const ToolTip = ({
       <div className={`${styles.container} ${styles[location]}`}>
         <FadeIn isVisible={isOpen} onComplete={handleOnComplete}>
           {isVisible && (
-            <p className={`${styles.description} ${styles[category]}`}>
+            <p className={`${styles.description} ${styles[category]} ${classProp}`}>
               {description}
             </p>
           )}
