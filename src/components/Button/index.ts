@@ -1,2 +1,2 @@
-export { default, ButtonT, ButtonCategoriesE, ButtonSizesE } from './Button';
+export { default, type ButtonT, ButtonCategoriesE, ButtonSizesE } from './Button';
 

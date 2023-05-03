@@ -1,1 +1,1 @@
-export { default, InputInterfaceT, InputT, InputIconColorE } from './Input';
+export { default, type InputInterfaceT, type InputT, InputIconColorE } from './Input';

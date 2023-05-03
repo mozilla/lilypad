@@ -1,1 +1,1 @@
-export { default, OptionT, SelectInterfaceT } from './Select';
+export { default, type OptionT, type SelectInterfaceT } from './Select';
