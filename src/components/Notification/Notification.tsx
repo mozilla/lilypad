@@ -92,12 +92,20 @@ const Notification = forwardRef(
     /**
      * Locations
      */
+    const topCenterNotifications = notifications.filter(
+      ({ location }) => location === NotificationLocationE.TOP_CENTER
+    );
+
     const topRightNotifications = notifications.filter(
       ({ location }) => location === NotificationLocationE.TOP_RIGHT
     );
 
     const topLeftNotifications = notifications.filter(
       ({ location }) => location === NotificationLocationE.TOP_LEFT
+    );
+
+    const bottomCenterNotifications = notifications.filter(
+      ({ location }) => location === NotificationLocationE.BOTTOM_CENTER
     );
 
     const bottomRightNotifications = notifications.filter(
@@ -110,6 +118,13 @@ const Notification = forwardRef(
 
     return (
       <div id="lily_notification" className={classProp}>
+        {/* TOP CENTER  */}
+        {Boolean(topCenterNotifications.length) && (
+          <div className={styles.top_center}>
+            {topCenterNotifications.map(renderNotification)}
+          </div>
+        )}
+
         {/* TOP RIGHT  */}
         {Boolean(topRightNotifications.length) && (
           <div className={styles.top_right}>
@@ -121,6 +136,13 @@ const Notification = forwardRef(
         {Boolean(topLeftNotifications.length) && (
           <div className={styles.top_left}>
             {topLeftNotifications.map(renderNotification)}
+          </div>
+        )}
+
+        {/* BOTTOM CENTER  */}
+        {Boolean(bottomCenterNotifications.length) && (
+          <div className={styles.bottom_center}>
+            {bottomCenterNotifications.map(renderNotification)}
           </div>
         )}
 

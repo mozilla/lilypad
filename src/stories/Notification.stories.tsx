@@ -61,8 +61,10 @@ export default {
       control: {
         type: 'select',
         options: [
+          NotificationLocationE.TOP_CENTER,
           NotificationLocationE.TOP_LEFT,
           NotificationLocationE.TOP_RIGHT,
+          NotificationLocationE.BOTTOM_CENTER,
           NotificationLocationE.BOTTOM_LEFT,
           NotificationLocationE.BOTTOM_RIGHT,
         ],
