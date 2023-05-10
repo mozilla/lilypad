@@ -59,11 +59,11 @@ const Switch = ({
         onClick={handleSwitchClick}
         className={disabled && styles.disabled}
       >
-        <div className={styles.track}></div>
+        <div className={isOn ? styles.track_on : styles.track_off}></div>
         <div className={isOn ? styles.handle_on : styles.handle_off}>
           <div className={styles.handle_shadow}></div>
           {currentIcon && (
-            <Icon classProp={styles.icon} size={16} name={currentIcon} />
+            <Icon classProp={isOn ? styles.icon_on : styles.icon_off} size={16} name={currentIcon} />
           )}
         </div>
       </button>
