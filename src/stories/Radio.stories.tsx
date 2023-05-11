@@ -42,11 +42,8 @@ const Template: ComponentStory<typeof RadioButton> = (args) => {
       <main data-theme="light" style={{ padding: '20px', fontSize: '16px' }}>
         <form>
           <h3>Light Theme - {value}</h3>
-          <fieldset
-            id="sb_radio"
-            onChange={onChange}
-          >
-            {radioFormOptions.map((option,i) => {
+          <fieldset id="sb_radio" onChange={onChange}>
+            {radioFormOptions.map((option, i) => {
               return (
                 <RadioButton
                   groupValue={value}
