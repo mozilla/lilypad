@@ -16,6 +16,7 @@
   overflow: hidden;
   text-decoration: none;
   cursor: pointer;
+  white-space: nowrap;
 
   &:disabled,
   &[disabled] {
