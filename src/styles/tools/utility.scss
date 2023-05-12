@@ -309,7 +309,7 @@ $unit: 'px';
     }
   }
 
-  // Padding: Top
+  // Padding: bottom
   .pb-#{$size} {
     padding-bottom: #{$size}#{$unit};
     &-dt {
@@ -324,7 +324,7 @@ $unit: 'px';
     }
   }
 
-  // Margin: Right
+  // Padding: Right
   .pr-#{$size} {
     padding-right: #{$size}#{$unit};
     &-dt {
@@ -339,7 +339,7 @@ $unit: 'px';
     }
   }
 
-  // Margin: Left
+  // Padding: Left
   .pl-#{$size} {
     padding-left: #{$size}#{$unit};
     &-dt {
