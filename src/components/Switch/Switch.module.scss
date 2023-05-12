@@ -14,7 +14,7 @@
     }
 
     .track_off {
-      background: #A8A8A8; 
+      background: $color-semantic-neutral-hover; 
     }
   }
 
@@ -43,6 +43,10 @@
   width: 58px;
   border-radius: 14px;
   transition: 500ms background ease-in-out;
+  padding: 0 3px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
 }
 
 .track {
@@ -53,7 +57,7 @@
 
   &_off {
     @include track;
-    background: #B8B8B8; // need to add this to theme.
+    background: $color-semantic-neutral; // need to add this to theme.
   }
 }
 
@@ -61,12 +65,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
   height: 24px;
   width: 24px;
   border-radius: 40px;
-  top: 3px;
-  left: 7px;
   background: #ffffff;
   transition: 500ms transform ease-in-out;
 }
