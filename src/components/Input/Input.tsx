@@ -52,6 +52,8 @@ type InputProps = {
   icon?: IconT;
   iconColor?: InputIconColorE;
   id?: string;
+  readOnly?: boolean;
+  showLabel?: boolean;
 };
 
 const Input = forwardRef(
@@ -78,6 +80,8 @@ const Input = forwardRef(
       icon,
       iconColor = InputIconColorE.DEFAULT,
       id,
+      readOnly,
+      showLabel = true,
     }: InputProps,
     ref
   ) => {
@@ -170,18 +174,22 @@ const Input = forwardRef(
           showError ? styles.input_error : null
         } ${classProp}`}
       >
-        <label className={styles.label}>
-          {label}
-          <span> {required ? '*' : ''}</span>
-          {toolTip && (
-            <ToolTip description={toolTip} classProp={styles.tool_tip}>
-              <Icon name="info" />
-            </ToolTip>
-          )}
-        </label>
+        {showLabel && (
+          <label className={styles.label}>
+            {label}
+            <span> {required ? '*' : ''}</span>
+            {toolTip && (
+              <ToolTip description={toolTip} classProp={styles.tool_tip}>
+                <Icon name="info" />
+              </ToolTip>
+            )}
+          </label>
+        )}
 
         <input
+          readOnly={readOnly}
           ref={inputRef}
+          aria-label={label}
           id={id}
           type={type}
           name={name}

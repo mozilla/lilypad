@@ -28,7 +28,7 @@ export {
 export { default as ProgressBar } from './ProgressBar';
 export { default as RadioButton } from './RadioButton';
 export { default as Select, type OptionT, type SelectInterfaceT } from './Select';
-export { default as Switch } from './Switch';
+export { default as Switch, type switchT } from './Switch';
 export {
   default as TextArea,
   type TextAreaInterfaceT,
