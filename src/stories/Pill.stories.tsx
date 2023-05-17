@@ -30,6 +30,6 @@ const Template: ComponentStory<typeof Pill> = (args) => (
 
 export const Main = Template.bind({});
 Main.args = {
-  name: 'Pill',
+  title: 'Pill',
   category: 'primary',
 };
