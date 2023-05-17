@@ -1,0 +1,44 @@
+@use '../../styles/core/boilerplate.scss'as *;
+
+@mixin pill_base {
+  @include primary-font(500);
+  @include font-size(14);
+  line-height: 18px;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  padding: 5px 12px;
+  border-radius: 56px;
+  height: 28px;
+}
+
+.pill {
+  &_primary {
+    @include pill_base;
+    background-color: $color-text-main;
+    color: $color-text-reverse;
+  }
+
+  &_secondary {
+    @include pill_base;
+    background-color: $color-text-reverse;
+    color: $color-text-main;
+  }
+
+  &_rainbow {
+    @include pill_base;
+    background: $gradient-rainbow;
+    color: $color-text-reverse;
+  }
+
+  &_warm {
+    @include pill_base;
+    background: $gradient-warm;
+    color: $color-text-main;
+  }
+
+  &_cool {
+    @include pill_base;
+    background: $gradient-cool;
+    color: $color-text-main;
+  }
+}
