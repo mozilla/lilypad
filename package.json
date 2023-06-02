@@ -1,6 +1,6 @@
 {
   "name": "@mozilla/lilypad-ui",
-  "version": "1.8.4",
+  "version": "1.8.6",
   "description": "React Component UI Libray",
   "scripts": {
     "sb": "start-storybook -p 6006",
@@ -39,6 +39,7 @@
     "@storybook/storybook-deployer": "^2.8.12",
     "@storybook/testing-library": "^0.0.13",
     "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.2.4",
     "babel-loader": "^8.2.5",
     "html-webpack-plugin": "^5.5.0",
     "node-sass": "^7.0.3",
@@ -67,5 +68,5 @@
   "resolutions": {
     "postcss": "8"
   },
-  "author": "Nick Grato & Kate Taylor (Design)"
+  "author": "Nick Grato & Nikki Sharpley & Kate Taylor (Design)"
 }

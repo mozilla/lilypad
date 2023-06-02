@@ -26,6 +26,7 @@ export {
   type InputT,
   InputIconColorE,
 } from './Input';
+export { default as Modal } from './Modal'
 export { default as ProgressBar } from './ProgressBar';
 export { default as RadioButton } from './RadioButton';
 export { default as Select, type OptionT, type SelectInterfaceT } from './Select';
