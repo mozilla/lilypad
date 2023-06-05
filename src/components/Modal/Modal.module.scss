@@ -14,6 +14,8 @@
   }
 
   &_container {
+    display: flex;
+    align-items: flex-start;
     margin-top: 10vh;
 
     @include tablet-down {
@@ -21,7 +23,7 @@
     }
 
     @include mobile-down {
-      margin: 10px;
+      margin: 0px;
     }
   }
 }
@@ -35,11 +37,17 @@
     background-color: $color-background-neutral-0;
     box-shadow: 0px 0px 8px rgba(97, 97, 97, 0.35);
     border-radius: 20px;
+    box-sizing: border-box;
+
+    @include tablet-down {
+      width: 500px;
+      min-width: 500px;
+    }
 
     @include mobile-down {
-      width: 100%;
-      max-width: 100%;
-      min-width: 300px;
+      width: 100vw;
+      min-width: initial;
+      border-radius: 0px;
     }
   }
 }

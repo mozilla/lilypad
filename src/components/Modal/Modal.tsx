@@ -13,10 +13,11 @@ type ModalPropsT = {
   children: ReactNode;
   isVisible: Boolean;
   // "hasContainer" gives you the flexibility to put all the children in a pre-formatted modal card, This will be a majority of the time.
-  // If you want a custome modal display, set this to false and add whatever you want to the "children"
+  // If you want a custom modal display, set this to false and add whatever you want to the "children"
   hasContainer?: Boolean;
-  onClose: MouseEventHandler<HTMLDivElement>;
   zIndex?: number;
+  isBackdropClickDisabled?: boolean;
+  onClose: MouseEventHandler<HTMLDivElement>;
   classProp?: string;
 };
 
@@ -24,8 +25,9 @@ const Modal = ({
   children,
   isVisible,
   hasContainer = true,
-  onClose,
   zIndex = 10,
+  isBackdropClickDisabled = false,
+  onClose,
   classProp = '',
 }: ModalPropsT) => {
   const ref = useRef<Element | null>(null);
@@ -50,6 +52,8 @@ const Modal = ({
    * @param e MouseEvent
    */
   const handleBackdropClick = (e: MouseEvent<HTMLDivElement>) => {
+    if (isBackdropClickDisabled) return;
+
     const { id } = e.target as Element;
     if (id === 'backdropContainer' || id === 'backdropWrapper') {
       onClose && onClose(e);

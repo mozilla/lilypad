@@ -8,7 +8,14 @@ export default {
   title: 'Example/Modal',
   component: Modal,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-  argTypes: {},
+  argTypes: {
+    isBackdropClickDisabled: {
+      control: {
+        type: 'boolean',
+        options: [false, true],
+      },
+    },
+  },
 } as ComponentMeta<typeof Modal>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
@@ -19,6 +26,13 @@ const Template: ComponentStory<typeof Modal> = (args) => {
     <>
       <h1 className="mb-12">Modal Title</h1>
       <p>Modal Paragraph</p>
+      <div className="flex-justify-end">
+        <Button
+          text="close"
+          label="close"
+          onClick={() => setShowModal(false)}
+        />
+      </div>
     </>
   );
 
@@ -52,7 +66,11 @@ const Template: ComponentStory<typeof Modal> = (args) => {
           label="show modal"
           onClick={() => setShowModal(true)}
         />
-        <Modal isVisible={showModal} onClose={() => setShowModal(false)}>
+        <Modal
+          {...args}
+          isVisible={showModal}
+          onClose={() => setShowModal(false)}
+        >
           <ModalContent />
         </Modal>
       </main>
@@ -62,4 +80,6 @@ const Template: ComponentStory<typeof Modal> = (args) => {
 
 // PRIMARY BUTTON
 export const Main = Template.bind({});
-Main.args = {};
+Main.args = {
+  isBackdropClickDisabled: false,
+};
