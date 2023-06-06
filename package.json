@@ -1,6 +1,6 @@
 {
   "name": "@mozilla/lilypad-ui",
-  "version": "1.8.2",
+  "version": "1.8.6",
   "description": "React Component UI Libray",
   "scripts": {
     "sb": "start-storybook -p 6006",
@@ -26,9 +26,9 @@
   "devDependencies": {
     "@babel/core": "^7.18.6",
     "@mdx-js/react": "^1.6.22",
-    "@rollup/plugin-commonjs": "^22.0.1",
-    "@rollup/plugin-node-resolve": "^13.3.0",
-    "@rollup/plugin-typescript": "^8.3.3",
+    "@rollup/plugin-commonjs": "22.0.1",
+    "@rollup/plugin-node-resolve": "13.3.0",
+    "@rollup/plugin-typescript": "8.3.3",
     "@storybook/addon-actions": "^6.5.9",
     "@storybook/addon-essentials": "^6.5.9",
     "@storybook/addon-interactions": "^6.5.9",
@@ -39,6 +39,7 @@
     "@storybook/storybook-deployer": "^2.8.12",
     "@storybook/testing-library": "^0.0.13",
     "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.2.4",
     "babel-loader": "^8.2.5",
     "html-webpack-plugin": "^5.5.0",
     "node-sass": "^7.0.3",
@@ -46,9 +47,9 @@
     "postcss-loader": "^4.1.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "rollup": "^2.77.0",
-    "rollup-plugin-dts": "^4.2.2",
-    "rollup-plugin-postcss": "^4.0.2",
+    "rollup": "2.77.0",
+    "rollup-plugin-dts": "4.2.2",
+    "rollup-plugin-postcss": "4.0.2",
     "sass": "^1.53.0",
     "sass-loader": "^12.6.0",
     "tslib": "^2.4.0",
@@ -67,5 +68,5 @@
   "resolutions": {
     "postcss": "8"
   },
-  "author": "Nick Grato & Kate Taylor (Design)"
+  "author": "Nick Grato & Nikki Sharpley & Kate Taylor (Design)"
 }

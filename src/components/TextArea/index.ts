@@ -1,1 +1,1 @@
-export { default, TextAreaInterfaceT, TextAreaIconColorE } from './TextArea';
+export { default, type TextAreaInterfaceT, TextAreaIconColorE } from './TextArea';

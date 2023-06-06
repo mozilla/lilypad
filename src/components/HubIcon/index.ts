@@ -1,1 +1,1 @@
-export { default, HubIconT } from './HubIcon';
+export { default,type HubIconT } from './HubIcon';

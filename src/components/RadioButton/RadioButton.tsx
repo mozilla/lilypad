@@ -1,16 +1,17 @@
-import React from 'react';
-import styles from './RadioButton.module.scss'
+import React, { ReactNode } from 'react';
+import styles from './RadioButton.module.scss';
 
 type RadioButtonPropsT = {
-  value: number | string,
-  groupValue: number | string,
-  checked?: boolean,
-  isDisabled?: boolean,
-  id: string,
-  label: string,
-  groupName: string,
-  classProp?: string
-}
+  value: number | string;
+  groupValue: number | string;
+  checked?: boolean;
+  isDisabled?: boolean;
+  id: string;
+  label?: string;
+  icon?: ReactNode;
+  groupName: string;
+  classProp?: string;
+};
 
 const RadioButton = ({
   label,
@@ -18,10 +19,10 @@ const RadioButton = ({
   groupValue,
   isDisabled = false,
   id,
+  icon,
   groupName,
   classProp = '',
 }: RadioButtonPropsT) => {
-
   return (
     <div className={`${styles.button_wrapper} ${classProp}`}>
       <input
@@ -33,10 +34,13 @@ const RadioButton = ({
         disabled={isDisabled}
         checked={groupValue === value}
       />
-      <label htmlFor={id}>{label}</label>
 
+      {icon}
+
+      {/* Users might want a custom wrapping label  */}
+      {label && <label htmlFor={id}>{label}</label>}
     </div>
-  )
-}
+  );
+};
 
-export default RadioButton
+export default RadioButton;

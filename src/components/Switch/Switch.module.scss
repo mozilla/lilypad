@@ -8,6 +8,14 @@
     .handle_shadow {
       background: rgba(0, 0, 0, 0.1);
     }
+
+    .track_on {
+      background: $color-semantic-success-hover; 
+    }
+
+    .track_off {
+      background: $color-semantic-neutral-hover; 
+    }
   }
 
   button {
@@ -30,37 +38,49 @@
   }
 }
 
+@mixin track {
+  height: 28px;
+  width: 58px;
+  border-radius: 14px;
+  transition: 500ms background ease-in-out;
+  padding: 0 3px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
 .track {
-  height: 16px;
-  width: 40px;
-  background: #e0e0e0; // need to add this to theme.
-  border-radius: 8px;
+  &_on {
+    @include track;
+    background: $color-semantic-success; 
+  }
+
+  &_off {
+    @include track;
+    background: $color-semantic-neutral; // need to add this to theme.
+  }
 }
 
 @mixin handle {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
   height: 24px;
   width: 24px;
   border-radius: 40px;
-  top: -3px;
-  left: -4px;
-  transition: 500ms background ease-in-out, 500ms transform ease-in-out;
+  background: #ffffff;
+  transition: 500ms transform ease-in-out;
 }
 
 .handle {
   &_on {
     @include handle;
-    transform: translateX(130%);
-    background: $color-interaction-primary;
+    transform: translateX(120%);
   }
 
   &_off {
     @include handle;
     transform: translateX(-5%);
-    background: #676767; // need to add this to theme.
   }
 
   &_shadow {
@@ -76,5 +96,13 @@
 }
 
 .icon {
-  stroke: #ffffff;
+  &_on {
+    stroke: $color-semantic-success;
+    transition: 500ms stroke ease-in-out;
+  }
+
+  &_off {
+    stroke: #686868;
+    transition: 500ms stroke ease-in-out;
+  }
 }
