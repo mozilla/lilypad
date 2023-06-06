@@ -10,6 +10,7 @@ export {
 } from './Button';
 export { default as Checkbox } from './Checkbox';
 export { default as CopyButton } from './CopyButton';
+export { default as FadeIn } from './FadeIn';
 export {
   default as Notification,
   type NotificationInterfaceT,

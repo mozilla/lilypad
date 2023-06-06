@@ -8,6 +8,7 @@ import React, {
 } from 'react';
 import ReactDOM from 'react-dom';
 import styles from './Modal.module.scss';
+import FadeIn from '../FadeIn';
 
 type ModalPropsT = {
   children: ReactNode;
@@ -32,6 +33,24 @@ const Modal = ({
 }: ModalPropsT) => {
   const ref = useRef<Element | null>(null);
   const [mounted, setMounted] = useState(false);
+  const [animateIn, setAnimateIn] = useState(false);
+  const [isModalVisible, setisModalVisible] = useState(isVisible);
+
+  const animateInModal = () => {
+    document.body.style.overflow = 'hidden';
+    setisModalVisible(isVisible);
+    setTimeout(() => {
+      setAnimateIn(true);
+    }, 50);
+  };
+
+  const animateOutModal = () => {
+    document.body.style.overflow = 'initial';
+    setAnimateIn(false);
+    setTimeout(() => {
+      setisModalVisible(isVisible);
+    }, 500);
+  };
 
   useEffect(() => {
     ref.current = document.getElementById('LP_modal_portal') as Element;
@@ -39,8 +58,11 @@ const Modal = ({
   }, []);
 
   useEffect(() => {
-    const overflow = isVisible ? 'hidden' : 'initial';
-    document.body.style.overflow = overflow;
+    if (isVisible) {
+      animateInModal();
+    } else {
+      animateOutModal();
+    }
 
     return () => {
       document.body.style.overflow = 'initial';
@@ -60,12 +82,14 @@ const Modal = ({
     }
   };
 
-  return mounted && ref.current && isVisible ? (
+  return mounted && ref.current && isModalVisible ? (
     <>
       {ReactDOM.createPortal(
         <div
           id="backdropWrapper"
-          className={styles.backdrop_wrapper}
+          className={`${styles.backdrop_wrapper} ${
+            animateIn ? styles.animate_in : styles.animate_out
+          }`}
           onClick={handleBackdropClick}
           style={{ zIndex }}
         >
@@ -73,7 +97,7 @@ const Modal = ({
             <div
               className={`${classProp} ${
                 hasContainer && styles.modal_container
-              }`}
+              } `}
             >
               {children}
             </div>

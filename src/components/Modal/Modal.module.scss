@@ -51,3 +51,15 @@
     }
   }
 }
+
+.animate {
+  &_in {
+    opacity: 1;
+    transition: 200ms opacity ease-in;
+  }
+
+  &_out {
+    opacity: 0;
+    transition: 200ms opacity ease-out;
+  }
+}

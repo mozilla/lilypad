@@ -1,6 +1,6 @@
 import React, { useState, ReactNode, useCallback } from 'react';
 import styles from './ToolTip.module.scss';
-import FadeIn from '../util/FadeIn';
+import FadeIn from '../FadeIn';
 
 export enum ToolTipCategoriesE {
   PRIMARY = 'primary',
@@ -31,20 +31,14 @@ const ToolTip = ({
   classProp = '',
 }: ToolTipPropsT) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
 
   const handleOpen = () => {
-    setIsVisible(true);
     setIsOpen(true);
   };
 
   const handleClose = () => {
     setIsOpen(false);
   };
-
-  const handleOnComplete = useCallback(() => {
-    if (!isOpen) setIsVisible(false);
-  }, [isOpen]);
 
   return (
     <section className={styles.wrapper}>
@@ -55,12 +49,12 @@ const ToolTip = ({
 
       {/* Tool Tip  */}
       <div className={`${styles.container} ${styles[location]}`}>
-        <FadeIn isVisible={isOpen} onComplete={handleOnComplete}>
-          {isVisible && (
-            <p className={`${classProp} ${styles.description} ${styles[category]}`}>
-              {description}
-            </p>
-          )}
+        <FadeIn visible={isOpen}>
+          <p
+            className={`${classProp} ${styles.description} ${styles[category]}`}
+          >
+            {description}
+          </p>
         </FadeIn>
       </div>
     </section>
