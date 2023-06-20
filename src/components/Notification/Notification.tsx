@@ -1,7 +1,7 @@
 import React, { useState, forwardRef, useImperativeHandle } from 'react';
-import { NotificationTypesE, NotificationLocationE } from './types';
+import { NotificationTypesT, NotificationLocationT } from './types';
 import styles from './Notification.module.scss';
-import NotificationMessage, { CategoryE } from './NotificationMessage';
+import NotificationMessage, { CategoryT } from './NotificationMessage';
 import { IconT } from '../Icon/Icon';
 
 export type NotificationPropsT = {
@@ -19,12 +19,12 @@ export type NewNotificationT = {
   autoClose?: boolean;
   hasIcon?: boolean;
   icon?: IconT;
-  type?: NotificationTypesE;
+  type?: NotificationTypesT;
   callback?: Function;
   callbackCta?: string;
-  location?: NotificationLocationE;
+  location?: NotificationLocationT;
   pauseOnHover?: boolean;
-  category: CategoryE;
+  category: CategoryT;
 };
 
 export interface NotificationI extends NewNotificationT {
@@ -93,27 +93,27 @@ const Notification = forwardRef(
      * Locations
      */
     const topCenterNotifications = notifications.filter(
-      ({ location }) => location === NotificationLocationE.TOP_CENTER
+      ({ location }) => location === 'top_center'
     );
 
     const topRightNotifications = notifications.filter(
-      ({ location }) => location === NotificationLocationE.TOP_RIGHT
+      ({ location }) => location === 'top_right'
     );
 
     const topLeftNotifications = notifications.filter(
-      ({ location }) => location === NotificationLocationE.TOP_LEFT
+      ({ location }) => location === 'top_left'
     );
 
     const bottomCenterNotifications = notifications.filter(
-      ({ location }) => location === NotificationLocationE.BOTTOM_CENTER
+      ({ location }) => location === 'bottom_center'
     );
 
     const bottomRightNotifications = notifications.filter(
-      ({ location }) => location === NotificationLocationE.BOTTOM_RIGHT
+      ({ location }) => location === 'bottom_right'
     );
 
     const bottomLeftNotifications = notifications.filter(
-      ({ location }) => location === NotificationLocationE.BOTTOM_LEFT
+      ({ location }) => location === 'bottom_left'
     );
 
     return (

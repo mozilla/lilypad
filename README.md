@@ -24,15 +24,11 @@ Here is an example of a basic app using Lilypad's `Button` component:
 
 ```jsx
 import * as React from 'react';
-import { Button, ButtonCategoriesE } from '@mozilla/lilypad-ui';
+import { Button } from '@mozilla/lilypad-ui';
 
 function App() {
   return (
-    <Button
-      category={ButtonCategoriesE.PRIMARY_SOLID}
-      icon="alert-circle"
-      text="click me!!"
-    />
+    <Button category="primary_solid" icon="alert-circle" text="click me!!" />
   );
 }
 ```

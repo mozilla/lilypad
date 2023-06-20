@@ -22,11 +22,7 @@ export type TextAreaInterfaceT = {
   isDirty: Function;
 };
 
-export enum TextAreaIconColorE {
-  SUCCESS = 'success',
-  ERROR = 'error',
-  DEFAULT = 'default',
-}
+export type TextAreaIconColorT = 'success' | 'error' | 'default';
 
 type TextAreaPropsT = {
   label: string;
@@ -47,7 +43,7 @@ type TextAreaPropsT = {
   minLength?: number;
   value: string | number | readonly string[] | undefined;
   icon?: IconT;
-  iconColor?: TextAreaIconColorE;
+  iconColor?: TextAreaIconColorT;
   id?: string;
 };
 
@@ -72,7 +68,7 @@ const TextArea = forwardRef(
       minLength,
       value,
       icon,
-      iconColor = TextAreaIconColorE.DEFAULT,
+      iconColor = 'default',
       id,
     }: TextAreaPropsT,
     ref

@@ -5,32 +5,27 @@ import Icon, { IconT } from '../Icon/Icon';
 export type ButtonT = 'button' | 'submit' | 'reset';
 
 /**
- * Enums are formatted in snake_case so that we can use the mapped
+ * type is formatted in snake_case so that we can use the mapped
  * value as a SCSS value.
  */
-export enum ButtonCategoriesE {
-  PRIMARY_SOLID = 'primary_solid',
-  PRIMARY_OUTLINE = 'primary_outline',
-  PRIMARY_CLEAR = 'primary_clear',
-  SECONDARY_SOLID = 'secondary_solid',
-  SECONDARY_OUTLINE = 'secondary_outline',
-  SECONDARY_CLEAR = 'secondary_clear',
-}
+export type ButtonCategoriesT =
+  | 'primary_solid'
+  | 'primary_outline'
+  | 'primary_clear'
+  | 'secondary_solid'
+  | 'secondary_outline'
+  | 'secondary_clear';
 
-export enum ButtonSizesE {
-  SMALL = 'small',
-  MEDIUM = 'medium',
-  LARGE = 'large',
-}
+export type ButtonSizesT = 'small' | 'medium' | 'large';
 
 export type ButtonPropsT = {
   active?: boolean;
   id?: string;
   text?: string;
-  label: string;
+  label?: string;
   type?: ButtonT;
-  category?: ButtonCategoriesE;
-  size?: ButtonSizesE;
+  category?: ButtonCategoriesT;
+  size?: ButtonSizesT;
   disabled?: boolean;
   icon?: IconT;
   iconPlacedRight?: boolean;
@@ -40,14 +35,40 @@ export type ButtonPropsT = {
   classProp?: string;
 };
 
+type ButtonIconT = {
+  icon: IconT | undefined;
+  hasText: boolean;
+  position: 'left' | 'right';
+};
+
+const ButtonIcon = ({ icon, hasText, position = 'left' }: ButtonIconT) => {
+  if (!icon) {
+    return <></>;
+  }
+
+  const styles = {
+    left: 'mr-10',
+    right: 'ml-10',
+  };
+
+  return (
+    <Icon
+      name={icon}
+      color="currentColor"
+      size={22}
+      classProp={hasText ? styles[position] : ''}
+    />
+  );
+};
+
 const Button = ({
   active,
   id,
   text,
   label,
   type = 'button',
-  category = ButtonCategoriesE.PRIMARY_SOLID,
-  size = ButtonSizesE.MEDIUM,
+  category = 'primary_solid',
+  size = 'medium',
   disabled,
   icon,
   onClick,
@@ -58,29 +79,23 @@ const Button = ({
 }: ButtonPropsT) => {
   const content = (
     <>
-      {/* Left Icon  */}
-      {icon && !iconPlacedRight ? (
-        <Icon
-          name={icon}
-          color="currentColor"
-          size={22}
-          classProp={text ? 'mr-10' : ''}
+      {!iconPlacedRight && (
+        <ButtonIcon
+          icon={icon}
+          hasText={Boolean(text?.length)}
+          position="left"
         />
-      ) : (
-        ''
       )}
+
       {/* Button Text  */}
       {text}
-      {/* Right Icon  */}
-      {icon && iconPlacedRight ? (
-        <Icon
-          name={icon}
-          color="currentColor"
-          size={22}
-          classProp={text ? 'ml-10' : ''}
+
+      {iconPlacedRight && (
+        <ButtonIcon
+          icon={icon}
+          hasText={Boolean(text?.length)}
+          position="right"
         />
-      ) : (
-        ''
       )}
     </>
   );
@@ -112,7 +127,7 @@ const Button = ({
     <button
       className={className}
       id={id}
-      aria-label={label}
+      aria-label={label ? label : text}
       type={type}
       disabled={disabled}
       onClick={onClick}

@@ -5,10 +5,10 @@ import {
   Notification,
   NotificationInterfaceT,
   NewNotificationT,
-  NotificationTypesE,
-  NotificationLocationE,
+  NotificationTypesT,
+  NotificationLocationT,
   IconT,
-  CategoryE,
+  CategoryT,
 } from '../components';
 import '../styles/theme.scss';
 
@@ -48,25 +48,19 @@ export default {
     type: {
       control: {
         type: 'select',
-        options: [
-          NotificationTypesE.SUCCESS,
-          NotificationTypesE.WARNING,
-          NotificationTypesE.ERROR,
-          NotificationTypesE.INFO,
-          NotificationTypesE.NEUTRAL,
-        ],
+        options: [, 'neutral', 'success', 'error', 'info', 'warning'],
       },
     },
     location: {
       control: {
         type: 'select',
         options: [
-          NotificationLocationE.TOP_CENTER,
-          NotificationLocationE.TOP_LEFT,
-          NotificationLocationE.TOP_RIGHT,
-          NotificationLocationE.BOTTOM_CENTER,
-          NotificationLocationE.BOTTOM_LEFT,
-          NotificationLocationE.BOTTOM_RIGHT,
+          'top_center',
+          'top_right',
+          'top_left',
+          'bottom_center',
+          'bottom_right',
+          'bottom_left',
         ],
       },
     },
@@ -99,17 +93,17 @@ export type NotifcationStoryPropsT = {
   title: string;
   description: string;
   id: string;
-  selfDestruct?: (id: string, location: NotificationLocationE) => void;
+  selfDestruct?: (id: string, location: NotificationLocationT) => void;
   callback?: Function;
   callbackCta?: string;
   duration?: number;
   autoClose?: boolean;
   hasIcon?: boolean;
   icon?: IconT;
-  type?: NotificationTypesE;
-  location?: NotificationLocationE;
+  type?: NotificationTypesT;
+  location?: NotificationLocationT;
   pauseOnHover?: boolean;
-  category: CategoryE;
+  category: CategoryT;
   classProp?: string;
 };
 
@@ -124,8 +118,8 @@ const NotifcationStory = ({
   autoClose = true,
   hasIcon = false,
   icon,
-  type = NotificationTypesE.SUCCESS,
-  location = NotificationLocationE.TOP_RIGHT,
+  type = 'success',
+  location = 'top_right',
   pauseOnHover = true,
   category,
   classProp = '',
@@ -199,12 +193,12 @@ Main.args = {
   description:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',
   duration: 3000,
-  type: NotificationTypesE.SUCCESS,
-  location: NotificationLocationE.TOP_RIGHT,
+  type: 'success',
+  location: 'top_right',
   pauseOnHover: true,
   autoClose: true,
   callbackCta: undefined,
   icon: undefined,
   hasIcon: false,
-  category: CategoryE.TOAST,
+  category: 'toast',
 };
