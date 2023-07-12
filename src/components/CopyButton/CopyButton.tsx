@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import styles from './CopyButton.module.scss';
-import Button, { ButtonCategoriesE, ButtonSizesE } from '../Button';
+import Button from '../Button';
 
 export type CopyButtonPropsT = {
   onClick?: Function;
@@ -43,8 +43,8 @@ const CopyButton = ({
           classProp={classProp}
           onClick={handleClick}
           icon="copy"
-          size={ButtonSizesE.SMALL}
-          category={ButtonCategoriesE.PRIMARY_CLEAR}
+          size="small"
+          category="primary_clear"
         />
       )}
     </>

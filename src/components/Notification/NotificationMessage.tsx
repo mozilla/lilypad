@@ -1,15 +1,12 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import styles from './ToastMessage.module.scss';
-import FadeIn from '../util/FadeIn';
-import { NotificationTypesE, NotificationLocationE } from './types';
+import FadeIn from '../FadeIn';
+import { NotificationTypesT, NotificationLocationT } from './types';
 import { IconT } from '../Icon';
 import ToastMessage from './ToastMessage';
 import CrumbMessage from './CrumbMessage';
 
-export enum CategoryE {
-  TOAST = 'toast',
-  CRUMB = 'crumb',
-}
+export type CategoryT = 'toast' | 'crumb';
 
 export type NotificationMessagePropsT = {
   title: string;
@@ -20,11 +17,11 @@ export type NotificationMessagePropsT = {
   callbackCta?: string;
   duration?: number;
   autoClose?: boolean;
-  type?: NotificationTypesE;
-  location?: NotificationLocationE;
+  type?: NotificationTypesT;
+  location?: NotificationLocationT;
   pauseOnHover?: boolean;
   hasIcon?: boolean;
-  category: CategoryE;
+  category: CategoryT;
   icon?: IconT;
   classProp?: string;
 };
@@ -38,15 +35,14 @@ const NotificationMessage = ({
   callbackCta = 'Confirm',
   duration = 2000,
   autoClose = true,
-  type = NotificationTypesE.SUCCESS,
-  location = NotificationLocationE.TOP_RIGHT,
+  type = 'success',
+  location = 'top_right',
   pauseOnHover = true,
   hasIcon = false,
   category,
   icon,
 }: NotificationMessagePropsT) => {
   const [isOpen, setIsOpen] = useState(true);
-  const [isVisible, setIsVisible] = useState(true);
   const intervalId = useRef<number>();
   const notificationRef = useRef<HTMLDivElement>(null);
   const progressBar = useRef<HTMLDivElement>(null);
@@ -58,7 +54,6 @@ const NotificationMessage = ({
    * Init Component
    */
   useEffect(() => {
-    setIsVisible(true);
     setIsOpen(true);
     initSwipe();
 
@@ -186,7 +181,6 @@ const NotificationMessage = ({
    */
   const handleOnComplete = useCallback(() => {
     if (!isOpen) {
-      setIsVisible(false);
       // dispatch parent to delete me
       typeof removeSelf === 'function' && removeSelf(id);
     }
@@ -195,10 +189,7 @@ const NotificationMessage = ({
   const fadeAnimation = () => {
     // Fade to the right
     let animation = 'translateX(100px)';
-    if (
-      location === NotificationLocationE.BOTTOM_LEFT ||
-      location === NotificationLocationE.TOP_LEFT
-    ) {
+    if (location === 'bottom_left' || location === 'top_left') {
       // Fade to the left
       animation = 'translateX(-100px)';
     }
@@ -212,9 +203,9 @@ const NotificationMessage = ({
     ></div>
   );
 
-  const renderMessage = (param: CategoryE) => {
+  const renderMessage = (param: CategoryT) => {
     switch (param) {
-      case CategoryE.CRUMB:
+      case 'crumb':
         return (
           <CrumbMessage
             description={description}
@@ -227,7 +218,7 @@ const NotificationMessage = ({
             close={handleClose}
           />
         );
-      case CategoryE.TOAST:
+      case 'toast':
         return (
           <ToastMessage
             title={title}
@@ -247,11 +238,11 @@ const NotificationMessage = ({
 
   return (
     <FadeIn
-      isVisible={isOpen}
+      visible={isOpen}
       onComplete={handleOnComplete}
       animation={fadeAnimation()}
     >
-      {isVisible && renderMessage(category)}
+      {renderMessage(category)}
     </FadeIn>
   );
 };

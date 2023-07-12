@@ -9,7 +9,7 @@ import {
   forwardRef,
 } from 'react';
 import styles from './Dropdown.module.scss';
-import FadeIn from '../util/FadeIn';
+import FadeIn from '../FadeIn';
 
 export type dropdownT = {
   closeDropdown: Function;
@@ -30,7 +30,6 @@ const Dropdown = forwardRef(
     ref
   ) => {
     const [isOpen, setIsOpen] = useState(false);
-    const [isVisible, setIsVisible] = useState(false);
     const containerRef = useRef<HTMLDivElement>(null);
 
     /**
@@ -70,18 +69,9 @@ const Dropdown = forwardRef(
         document.removeEventListener('mousedown', checkIfClickedOutside);
     }, [isOpen]);
 
-    const handleOpen = useCallback(() => {
-      setIsVisible((state) => !state);
+    const onToggleClick = useCallback(() => {
       setIsOpen((state) => !state);
     }, []);
-
-    const handleClose = useCallback(() => {
-      setIsOpen((state) => !state);
-    }, []);
-
-    const handleOnComplete = useCallback(() => {
-      if (!isOpen) setIsVisible(false);
-    }, [isOpen]);
 
     return (
       <div
@@ -89,20 +79,18 @@ const Dropdown = forwardRef(
         className={`${classProp} ${styles.dropdown_wrapper}`}
       >
         {/* CTA */}
-        <div onClick={isVisible ? handleClose : handleOpen}>{cta}</div>
+        <div onClick={onToggleClick}>{cta}</div>
 
         {/* Dropdown Custom Content */}
-        <FadeIn isVisible={isOpen} onComplete={handleOnComplete}>
-          {isVisible && (
-            <div
-              style={{ width: `${width}px` }}
-              className={`${styles.content_wrapper} ${
-                alignment === 'right' ? styles.right : styles.left
-              }`}
-            >
-              {content}
-            </div>
-          )}
+        <FadeIn visible={isOpen}>
+          <div
+            style={{ width: `${width}px` }}
+            className={`${styles.content_wrapper} ${
+              alignment === 'right' ? styles.right : styles.left
+            }`}
+          >
+            {content}
+          </div>
         </FadeIn>
       </div>
     );

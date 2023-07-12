@@ -1,6 +1,6 @@
 import React, { useCallback, forwardRef, ForwardedRef, ReactNode } from 'react';
 import styles from './ToastMessage.module.scss';
-import Button, { ButtonCategoriesE, ButtonSizesE } from '../Button';
+import Button from '../Button';
 import { NotificationTypesE } from './types';
 import NotificationIcon from './NotificationIcon';
 
@@ -52,7 +52,7 @@ const ToastMessage = forwardRef(
           icon="x"
           classProp={styles.close}
           label="close"
-          category={ButtonCategoriesE.PRIMARY_CLEAR}
+          category="primary_clear"
         />
         <div className="flex">
           <div className={styles.icons}>
@@ -67,8 +67,8 @@ const ToastMessage = forwardRef(
                   onClick={handleAction}
                   text={callbackCta}
                   label={callbackCta}
-                  size={ButtonSizesE.SMALL}
-                  category={ButtonCategoriesE.PRIMARY_OUTLINE}
+                  size="small"
+                  category="primary_outline"
                   icon="arrow-right"
                   iconPlacedRight={true}
                 />

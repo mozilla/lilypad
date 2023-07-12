@@ -1,9 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import ToolTip, {
-  ToolTipCategoriesE,
-  ToolTipLocationE,
-} from '../components/ToolTip/ToolTip';
+import ToolTip from '../components/ToolTip/ToolTip';
 import { Button } from '../components';
 
 export default {
@@ -19,22 +16,13 @@ export default {
     category: {
       control: {
         type: 'select',
-        options: [
-          ToolTipCategoriesE.PRIMARY,
-          ToolTipCategoriesE.SECONDARY,
-          ToolTipCategoriesE.TERTIARY,
-        ],
+        options: ['primary', 'secondary', 'tertiary'],
       },
     },
     location: {
       control: {
         type: 'select',
-        options: [
-          ToolTipLocationE.TOP,
-          ToolTipLocationE.RIGHT,
-          ToolTipLocationE.BOTTOM,
-          ToolTipLocationE.LEFT,
-        ],
+        options: ['top', 'bottom', 'right', 'left'],
       },
     },
   },
@@ -78,8 +66,8 @@ const Template: ComponentStory<typeof ToolTip> = (args) => {
 
 export const Main = Template.bind({});
 Main.args = {
-  location: ToolTipLocationE.TOP,
-  category: ToolTipCategoriesE.PRIMARY,
+  location: 'top',
+  category: 'primary',
   description:
     'Why did the duck go to the chiropractor? To get his back quacked.',
 };

@@ -1,9 +1,6 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Button, {
-  ButtonCategoriesE,
-  ButtonSizesE,
-} from '../components/Button/Button';
+import Button from '../components/Button/Button';
 import '../styles/theme.scss';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
@@ -16,19 +13,19 @@ export default {
       control: {
         type: 'select',
         options: [
-          ButtonCategoriesE.PRIMARY_SOLID,
-          ButtonCategoriesE.PRIMARY_CLEAR,
-          ButtonCategoriesE.PRIMARY_OUTLINE,
-          ButtonCategoriesE.SECONDARY_SOLID,
-          ButtonCategoriesE.SECONDARY_CLEAR,
-          ButtonCategoriesE.SECONDARY_OUTLINE,
+          'primary_solid',
+          'primary_outline',
+          'primary_clear',
+          'secondary_solid',
+          'secondary_outline',
+          'secondary_clear',
         ],
       },
     },
     size: {
       control: {
         type: 'select',
-        options: [ButtonSizesE.SMALL, ButtonSizesE.MEDIUM, ButtonSizesE.LARGE],
+        options: ['small', 'medium', 'large'],
       },
     },
     icon: {
@@ -83,5 +80,5 @@ const Template: ComponentStory<typeof Button> = (args) => (
 export const Main = Template.bind({});
 Main.args = {
   text: 'Main Button',
-  category: ButtonCategoriesE.PRIMARY_SOLID,
+  category: 'primary_solid',
 };

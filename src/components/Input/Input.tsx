@@ -24,11 +24,7 @@ export type InputInterfaceT = {
 
 export type InputT = 'text' | 'password' | 'email' | 'number' | 'tel' | 'time';
 
-export enum InputIconColorE {
-  SUCCESS = 'success',
-  ERROR = 'error',
-  DEFAULT = 'default',
-}
+export type InputIconColorT = 'success' | 'error' | 'default';
 
 type InputProps = {
   label: string;
@@ -50,7 +46,7 @@ type InputProps = {
   minLength?: number;
   value: string | number | readonly string[] | undefined;
   icon?: IconT;
-  iconColor?: InputIconColorE;
+  iconColor?: InputIconColorT;
   id?: string;
   readOnly?: boolean;
   showLabel?: boolean;
@@ -78,7 +74,7 @@ const Input = forwardRef(
       minLength,
       value,
       icon,
-      iconColor = InputIconColorE.DEFAULT,
+      iconColor = 'default',
       id,
       readOnly,
       showLabel = true,
