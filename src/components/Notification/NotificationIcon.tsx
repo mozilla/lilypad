@@ -1,21 +1,21 @@
 import React from 'react';
-import { NotificationTypesE } from './types';
+import { NotificationTypesT } from './types';
 import { InfoIcon, SuccessIcon, WarningIcon, ErrorIcon } from './icons';
 
 type NotificationIconPropsT = {
-  type: NotificationTypesE;
+  type: NotificationTypesT;
   classProp?: string;
 };
 
 const NotificationIcon = ({ type, classProp }: NotificationIconPropsT) => {
   switch (type) {
-    case NotificationTypesE.INFO:
+    case 'info':
       return <InfoIcon classProp={classProp} />;
-    case NotificationTypesE.SUCCESS:
+    case 'success':
       return <SuccessIcon classProp={classProp} />;
-    case NotificationTypesE.WARNING:
+    case 'warning':
       return <WarningIcon classProp={classProp} />;
-    case NotificationTypesE.ERROR:
+    case 'error':
       return <ErrorIcon classProp={classProp} />;
     default:
       return <InfoIcon classProp={classProp} />;

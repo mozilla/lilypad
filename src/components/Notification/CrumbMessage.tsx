@@ -1,13 +1,13 @@
 import React, { ForwardedRef, useCallback, forwardRef } from 'react';
 import styles from './CrumbMessage.module.scss';
-import { NotificationTypesE } from './types';
+import { NotificationTypesT } from './types';
 import Icon, { IconT } from '../Icon';
 import { CustomIcon } from './icons';
 import NotificationIcon from './NotificationIcon';
 
 export type CrumbPropsT = {
   description: string;
-  type?: NotificationTypesE;
+  type?: NotificationTypesT;
   hasIcon?: boolean;
   icon?: IconT;
   mouseEnter: () => void;
@@ -20,7 +20,7 @@ const CrumbMessage = forwardRef(
   (
     {
       description,
-      type = NotificationTypesE.SUCCESS,
+      type = 'success',
       hasIcon = false,
       icon,
       mouseEnter,

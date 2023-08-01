@@ -1,7 +1,7 @@
 import React, { useCallback, forwardRef, ForwardedRef, ReactNode } from 'react';
 import styles from './ToastMessage.module.scss';
 import Button from '../Button';
-import { NotificationTypesE } from './types';
+import { NotificationTypesT } from './types';
 import NotificationIcon from './NotificationIcon';
 
 export type ToastPropsT = {
@@ -9,7 +9,7 @@ export type ToastPropsT = {
   description: string;
   callback?: Function;
   callbackCta?: string;
-  type?: NotificationTypesE;
+  type?: NotificationTypesT;
   mouseEnter: () => void;
   mouseLeave: () => void;
   close: () => void;
@@ -24,7 +24,7 @@ const ToastMessage = forwardRef(
       description,
       callback,
       callbackCta = 'Confirm',
-      type = NotificationTypesE.SUCCESS,
+      type = 'success',
       mouseEnter,
       mouseLeave,
       close,
