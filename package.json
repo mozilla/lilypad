@@ -42,7 +42,7 @@
     "@types/react-dom": "^18.2.4",
     "babel-loader": "^8.2.5",
     "html-webpack-plugin": "^5.5.0",
-    "node-sass": "^7.0.3",
+    "node-sass": "^9.0.0",
     "postcss": "^8.1.9",
     "postcss-loader": "^4.1.0",
     "react": "^18.1.0",
