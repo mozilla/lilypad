@@ -22,7 +22,14 @@ export type InputInterfaceT = {
   isDirty: Function;
 };
 
-export type InputT = 'text' | 'password' | 'email' | 'number' | 'tel' | 'time';
+export type InputT =
+  | 'text'
+  | 'password'
+  | 'email'
+  | 'number'
+  | 'tel'
+  | 'time'
+  | 'date';
 
 export type InputIconColorT = 'success' | 'error' | 'default';
 
