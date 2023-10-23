@@ -29,7 +29,10 @@ export type InputT =
   | 'number'
   | 'tel'
   | 'time'
-  | 'date';
+  | 'date'
+  | 'search'
+  | 'url'
+  | 'datetime-local';
 
 export type InputIconColorT = 'success' | 'error' | 'default';
 
