@@ -1,12 +1,13 @@
 {
   "name": "@mozilla/lilypad-ui",
-  "version": "2.0.0",
+  "version": "2.0.2",
   "description": "React Component UI Libray",
   "scripts": {
     "sb": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "ru": "rollup -c",
-    "deploy-storybook": "storybook-to-ghpages --source-branch=main --ci"
+    "deploy-storybook": "storybook-to-ghpages --source-branch=main --ci",
+    "publish": "if [ $(git rev-parse --abbrev-ref HEAD) = 'main' ]; then npm publish; else echo 'You are not on the main branch!'; fi"
   },
   "repository": {
     "type": "git",

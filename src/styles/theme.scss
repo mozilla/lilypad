@@ -1,6 +1,14 @@
 @use './tools/utility.scss' as *;
 @use './tools/flex.scss' as *;
 
+:root {
+  /**
+  BUTTON LAYOUT
+  **/
+  --button-border-radius: 20px;
+  --button-border-stroke: 2px;
+}
+
 main[data-theme='light'],
 :root {
   /**

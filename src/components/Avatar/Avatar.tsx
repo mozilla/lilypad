@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Avatar.module.scss';
 
 export type AvatarPropsT = {
@@ -9,12 +9,25 @@ export type AvatarPropsT = {
 };
 
 const Avatar = ({ src, alt, size = 50, classProp = '' }: AvatarPropsT) => {
+  const [imageDidError, setImageDidError] = useState(false);
   return (
     <div
       className={`${styles.avatar} ${classProp}`}
-      style={{ height:`${size}px`, width:`${size}px`}}
+      style={{ height: `${size}px`, width: `${size}px` }}
     >
-      <img src={src} alt={alt} />
+      {imageDidError ? (
+        <span className="body-md" style={{ fontSize: `${size / 2}px` }}>
+          {alt}
+        </span>
+      ) : (
+        <img
+          src={src}
+          alt={alt}
+          onError={() => {
+            setImageDidError(true);
+          }}
+        />
+      )}
     </div>
   );
 };
