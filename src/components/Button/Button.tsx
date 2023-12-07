@@ -46,11 +46,6 @@ const ButtonIcon = ({ icon, hasText, position = 'left' }: ButtonIconT) => {
     return <></>;
   }
 
-  const styles = {
-    left: 'mr-10',
-    right: 'ml-10',
-  };
-
   return (
     <Icon
       name={icon}

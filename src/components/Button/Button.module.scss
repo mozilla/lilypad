@@ -5,7 +5,7 @@
   @include font-size(14);
 
   line-height: 24px;
-  border-radius: 20px;
+  border-radius: $button-border-radius;
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.05);
   text-transform: capitalize;
   display: inline-flex;
@@ -36,24 +36,24 @@
 .button_primary_solid {
   @include rect_button_base();
   background-color: $color-interaction-primary;
-  border: solid 2px $color-interaction-primary;
+  border: solid $button-border-stroke $color-interaction-primary;
   color: $color-text-reverse;
 
   &:hover {
     background-color: $color-interaction-primary-hover;
-    border: solid 2px $color-interaction-primary-hover;
+    border: solid $button-border-stroke $color-interaction-primary-hover;
   }
 
   &_active,
   &:focus {
-    border: solid 2px $color-interaction-primary-active;
+    border: solid $button-border-stroke $color-interaction-primary-active;
     background-color: $color-interaction-primary-active;
   }
 
   &:disabled,
   &[disabled] {
     background-color: $color-interaction-primary-disabled;
-    border: solid 2px $color-interaction-primary-disabled;
+    border: solid $button-border-stroke $color-interaction-primary-disabled;
     color: $color-text-disabled;
   }
 }
@@ -64,24 +64,24 @@
 .button_primary_outline {
   @include rect_button_base();
   background-color: transparent;
-  border: solid 2px $color-interaction-primary;
+  border: solid $button-border-stroke $color-interaction-primary;
   color: $color-interaction-primary;
 
   &:hover {
-    border: solid 2px $color-interaction-primary-hover;
+    border: solid $button-border-stroke $color-interaction-primary-hover;
     color: $color-interaction-primary-hover;
   }
 
   &_active,
   &:focus {
-    border: solid 2px $color-interaction-primary-active;
+    border: solid $button-border-stroke $color-interaction-primary-active;
     color: $color-interaction-primary-active;
   }
 
   &:disabled,
   &[disabled] {
     background-color: transparent;
-    border: solid 2px $color-interaction-primary-alt-disabled;
+    border: solid $button-border-stroke $color-interaction-primary-alt-disabled;
     color: $color-text-disabled;
   }
 }
@@ -92,7 +92,7 @@
 .button_primary_clear {
   @include rect_button_base();
   background-color: transparent;
-  border: solid 2px transparent;
+  border: solid $button-border-stroke transparent;
   color: $color-interaction-primary;
   box-shadow: none;
 
@@ -121,24 +121,24 @@
 .button_secondary_solid {
   @include rect_button_base();
   background-color: $color-interaction-secondary;
-  border: solid 2px $color-interaction-secondary;
+  border: solid $button-border-stroke $color-interaction-secondary;
   color: $color-interaction-primary;
 
   &:hover {
     background-color: $color-interaction-secondary-hover;
-    border: solid 2px $color-interaction-secondary-hover;
+    border: solid $button-border-stroke $color-interaction-secondary-hover;
   }
 
   &_active,
   &:focus {
-    border: solid 2px $color-interaction-secondary-active;
+    border: solid $button-border-stroke $color-interaction-secondary-active;
     background-color: $color-interaction-secondary-active;
   }
 
   &:disabled,
   &[disabled] {
     background-color: $color-interaction-secondary-disabled;
-    border: solid 2px $color-interaction-secondary-disabled;
+    border: solid $button-border-stroke $color-interaction-secondary-disabled;
     color: $color-text-disabled;
   }
 }
@@ -149,24 +149,24 @@
 .button_secondary_outline {
   @include rect_button_base();
   background-color: transparent;
-  border: solid 2px $color-interaction-secondary;
+  border: solid $button-border-stroke $color-interaction-secondary;
   color: $color-interaction-secondary;
 
   &:hover {
-    border: solid 2px $color-interaction-secondary-hover;
+    border: solid $button-border-stroke $color-interaction-secondary-hover;
     color: $color-interaction-secondary-hover;
   }
 
   &_active,
   &:focus {
-    border: solid 2px $color-interaction-secondary-active;
+    border: solid $button-border-stroke $color-interaction-secondary-active;
     color: $color-interaction-secondary-hover;
   }
 
   &:disabled,
   &[disabled] {
     background-color: transparent;
-    border: solid 2px $color-interaction-secondary-disabled;
+    border: solid $button-border-stroke $color-interaction-secondary-disabled;
     color: $color-text-disabled;
   }
 }
@@ -177,7 +177,7 @@
 .button_secondary_clear {
   @include rect_button_base();
   background-color: transparent;
-  border: solid 2px transparent;
+  border: solid $button-border-stroke transparent;
   color: $color-interaction-secondary;
   box-shadow: none;
 
@@ -222,4 +222,12 @@
   &_round {
     padding: 12px;
   }
+}
+
+.left {
+  margin-right: 10px;
+}
+
+.right {
+  margin-left: 10px;
 }

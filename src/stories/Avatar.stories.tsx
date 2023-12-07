@@ -22,7 +22,7 @@ const Template: ComponentStory<typeof Avatar> = (args) => (
 
 export const Main = Template.bind({});
 Main.args = {
-  src: 'https://avatars.dicebear.com/api/big-ears/:dr.svg?background=%230000ff',
+  src: 'https://api.dicebear.com/7.x/bottts/png?seed=chat',
   alt: 'JD',
   size: 50,
 };
