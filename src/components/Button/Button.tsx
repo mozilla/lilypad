@@ -28,20 +28,37 @@ export type ButtonPropsT = {
   size?: ButtonSizesT;
   disabled?: boolean;
   icon?: IconT;
+  customIcon?: React.ReactNode;
   iconPlacedRight?: boolean;
   href?: string;
   target?: string;
   onClick?: MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
   classProp?: string;
+  LinkComponent?: React.ComponentType<{
+    href: string;
+    children: React.ReactNode;
+    className?: string;
+    id?: string;
+    onClick?: MouseEventHandler<HTMLAnchorElement>;
+    target?: string;
+  }>;
 };
 
 type ButtonIconT = {
-  icon: IconT | undefined;
+  icon?: IconT | undefined;
+  customIcon?: React.ReactNode;
   hasText: boolean;
   position: 'left' | 'right';
 };
 
-const ButtonIcon = ({ icon, hasText, position = 'left' }: ButtonIconT) => {
+const ButtonIcon = ({
+  icon,
+  hasText,
+  position = 'left',
+  customIcon,
+}: ButtonIconT) => {
+  if (customIcon) return <>{customIcon}</>;
+
   if (!icon) {
     return <></>;
   }
@@ -70,12 +87,15 @@ const Button = ({
   iconPlacedRight = false,
   href,
   target = '_self',
+  customIcon,
   classProp = '',
+  LinkComponent,
 }: ButtonPropsT) => {
   const content = (
     <>
       {!iconPlacedRight && (
         <ButtonIcon
+          customIcon={customIcon}
           icon={icon}
           hasText={Boolean(text?.length)}
           position="left"
@@ -106,19 +126,36 @@ const Button = ({
     ${active && styles['button_' + category + '_active']}
   `;
 
-  return href ? (
-    // ANCHOR LINK
-    <a
-      className={className}
-      id={id}
-      target={target}
-      href={href}
-      onClick={onClick}
-    >
-      {content}
-    </a>
-  ) : (
-    // BUTTON
+  if (href && LinkComponent) {
+    // To support NextJs Link
+    return (
+      <LinkComponent
+        className={className}
+        href={href}
+        onClick={onClick}
+        target={target}
+      >
+        {content}
+      </LinkComponent>
+    );
+  }
+
+  if (href) {
+    // Fall back to a standard <a> tag if LinkComponent is not provided
+    return (
+      <a
+        className={className}
+        id={id}
+        target={target}
+        href={href}
+        onClick={onClick}
+      >
+        {content}
+      </a>
+    );
+  }
+  // Button logic remains unchanged
+  return (
     <button
       className={className}
       id={id}

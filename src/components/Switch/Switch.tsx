@@ -51,10 +51,6 @@ const Switch = forwardRef(
     });
 
     useEffect(() => {
-      typeof onChange === 'function' && onChange(isOn);
-    }, [isOn]);
-
-    useEffect(() => {
       // If "on" find out if we put iconOn up or not
       if (isOn) {
         if (icon && iconOn) {
@@ -71,7 +67,11 @@ const Switch = forwardRef(
 
     const handleSwitchClick = () => {
       if (disabled) return;
-      setIsOn((state) => !state);
+      setIsOn((state) => {
+        onChange(!state);
+
+        return !state;
+      });
     };
 
     return (
@@ -81,7 +81,7 @@ const Switch = forwardRef(
           role="switch"
           type="button"
           onClick={handleSwitchClick}
-          className={disabled && styles.disabled}
+          className={disabled ? styles.disabled : ''}
         >
           <div className={isOn ? styles.track_on : styles.track_off}>
             <div className={isOn ? styles.handle_on : styles.handle_off}>

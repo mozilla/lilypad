@@ -26,14 +26,11 @@ export type TextAreaIconColorT = 'success' | 'error' | 'default';
 
 type TextAreaPropsT = {
   label: string;
+  showLabel?: boolean;
   placeholder: string;
   toolTip?: string;
   name: string;
   info?: string;
-  classProp?: string;
-  onBlur?: Function;
-  onFocus?: Function;
-  onChange?: Function;
   disabled?: boolean;
   validator?: Function;
   required?: boolean;
@@ -44,13 +41,19 @@ type TextAreaPropsT = {
   value: string | number | readonly string[] | undefined;
   icon?: IconT;
   iconColor?: TextAreaIconColorT;
+  readOnly?: boolean;
   id?: string;
+  onBlur?: Function;
+  onFocus?: Function;
+  onChange?: Function;
+  classProp?: string;
 };
 
 const TextArea = forwardRef(
   (
     {
       label,
+      showLabel = true,
       placeholder,
       toolTip,
       name,
@@ -66,6 +69,7 @@ const TextArea = forwardRef(
       customErrorMessage,
       maxLength,
       minLength,
+      readOnly,
       value,
       icon,
       iconColor = 'default',
@@ -162,37 +166,42 @@ const TextArea = forwardRef(
           showError ? styles.text_area_error : null
         } ${classProp}`}
       >
-        <label className={styles.label}>
-          {label}
-          <span> {required ? '*' : ''}</span>
-          {toolTip && (
-            <ToolTip description={toolTip} classProp={styles.tool_tip}>
-              <Icon name="info" />
-            </ToolTip>
-          )}
-        </label>
+        {showLabel && (
+          <label className={styles.label}>
+            {label}
+            <span> {required ? '*' : ''}</span>
+            {toolTip && (
+              <ToolTip description={toolTip} classProp={styles.tool_tip}>
+                <Icon name="info" />
+              </ToolTip>
+            )}
+          </label>
+        )}
 
-        <textarea
-          ref={textAreaRef}
-          id={id}
-          name={name}
-          value={value}
-          required={required}
-          placeholder={placeholder ? placeholder : label}
-          onChange={handleOnChange}
-          onBlur={handleOnBlur}
-          onFocus={handleOnFocus}
-          disabled={disabled}
-          maxLength={maxLength}
-          minLength={minLength}
-          className={`${icon && styles.has_icon} ${
-            showError && styles.has_error
-          }`}
-        ></textarea>
+        <div className={styles.text_area_container}>
+          <textarea
+            readOnly={readOnly}
+            ref={textAreaRef}
+            id={id}
+            name={name}
+            value={value}
+            required={required}
+            placeholder={placeholder ? placeholder : label}
+            onChange={handleOnChange}
+            onBlur={handleOnBlur}
+            onFocus={handleOnFocus}
+            disabled={disabled}
+            maxLength={maxLength}
+            minLength={minLength}
+            className={`${icon && styles.has_icon} ${
+              showError && styles.has_error
+            }`}
+          ></textarea>
 
-        {icon ? (
-          <Icon name={icon} classProp={styles['icon_' + iconColor]} />
-        ) : null}
+          {icon ? (
+            <Icon name={icon} classProp={styles['icon_' + iconColor]} />
+          ) : null}
+        </div>
 
         {/* Error Message */}
         {showError ? (

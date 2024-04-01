@@ -1,12 +1,15 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import styles from './ToastMessage.module.scss';
 import FadeIn from '../FadeIn';
-import { NotificationTypesT, NotificationLocationT } from './types';
+import {
+  NotificationTypesT,
+  NotificationLocationT,
+  CategoryT,
+  DEFAULT_NOTIFICATION,
+} from './types';
 import { IconT } from '../Icon';
 import ToastMessage from './ToastMessage';
 import CrumbMessage from './CrumbMessage';
-
-export type CategoryT = 'toast' | 'crumb';
 
 export type NotificationMessagePropsT = {
   title: string;
@@ -21,7 +24,7 @@ export type NotificationMessagePropsT = {
   location?: NotificationLocationT;
   pauseOnHover?: boolean;
   hasIcon?: boolean;
-  category: CategoryT;
+  category?: CategoryT;
   icon?: IconT;
   classProp?: string;
 };
@@ -35,11 +38,11 @@ const NotificationMessage = ({
   callbackCta = 'Confirm',
   duration = 2000,
   autoClose = true,
-  type = 'success',
-  location = 'top_right',
+  type = DEFAULT_NOTIFICATION.type,
+  location = DEFAULT_NOTIFICATION.location,
   pauseOnHover = true,
   hasIcon = false,
-  category,
+  category = DEFAULT_NOTIFICATION.category,
   icon,
 }: NotificationMessagePropsT) => {
   const [isOpen, setIsOpen] = useState(true);
@@ -203,7 +206,22 @@ const NotificationMessage = ({
     ></div>
   );
 
-  const renderMessage = (param: CategoryT) => {
+  const renderMessage = (param: CategoryT | undefined) => {
+    const Toast = (
+      <ToastMessage
+        title={title}
+        description={description}
+        ref={notificationRef}
+        callback={callback}
+        callbackCta={callbackCta}
+        type={type}
+        mouseEnter={handleMouseEnter}
+        mouseLeave={handleMouseLeave}
+        close={handleClose}
+        progressBar={ProgressBar}
+      />
+    );
+
     switch (param) {
       case 'crumb':
         return (
@@ -219,20 +237,9 @@ const NotificationMessage = ({
           />
         );
       case 'toast':
-        return (
-          <ToastMessage
-            title={title}
-            description={description}
-            ref={notificationRef}
-            callback={callback}
-            callbackCta={callbackCta}
-            type={type}
-            mouseEnter={handleMouseEnter}
-            mouseLeave={handleMouseLeave}
-            close={handleClose}
-            progressBar={ProgressBar}
-          />
-        );
+        return Toast;
+      default:
+        return Toast;
     }
   };
 

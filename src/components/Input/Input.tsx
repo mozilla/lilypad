@@ -43,10 +43,6 @@ type InputProps = {
   name: string;
   type?: InputT;
   info?: string;
-  classProp?: string;
-  onBlur?: Function;
-  onFocus?: Function;
-  onChange?: Function;
   validator?: Function;
   required?: boolean;
   isError?: boolean;
@@ -60,6 +56,11 @@ type InputProps = {
   id?: string;
   readOnly?: boolean;
   showLabel?: boolean;
+  onBlur?: Function;
+  onFocus?: Function;
+  onChange?: Function;
+  mask?: RegExp;
+  classProp?: string;
 };
 
 const Input = forwardRef(
@@ -71,9 +72,7 @@ const Input = forwardRef(
       type = 'text',
       name,
       info = '',
-      classProp = '',
       onChange,
-      onBlur,
       onFocus,
       validator = () => true,
       required = false,
@@ -88,6 +87,9 @@ const Input = forwardRef(
       id,
       readOnly,
       showLabel = true,
+      onBlur,
+      mask,
+      classProp = '',
     }: InputProps,
     ref
   ) => {
@@ -140,8 +142,8 @@ const Input = forwardRef(
     }, [isDirty, isValid, isError]);
 
     useEffect(() => {
-      setShowInfo(Boolean(info.length) && !showError);
-    }, [info, showError]);
+      setShowInfo(Boolean(info.length));
+    }, [info]);
 
     /**
      * Handle Input Change
@@ -151,11 +153,13 @@ const Input = forwardRef(
       event: ChangeEvent<HTMLInputElement>
     ): ChangeEvent<HTMLInputElement> => {
       const newValue = event.target.value;
-      typeof onChange === 'function' && onChange(event);
 
+      if (mask && !mask.test(newValue)) return event;
+      typeof onChange === 'function' && onChange(event);
       // If initial value was empty any change makes form dirty
       const isDirty = initialValue === '' ? true : initialValue !== newValue;
       setIsDirty(isDirty);
+
       return event;
     };
 
@@ -192,30 +196,32 @@ const Input = forwardRef(
           </label>
         )}
 
-        <input
-          readOnly={readOnly}
-          ref={inputRef}
-          aria-label={label}
-          id={id}
-          type={type}
-          name={name}
-          value={value}
-          required={required}
-          placeholder={placeholder ? placeholder : label}
-          onChange={handleOnChange}
-          onBlur={handleOnBlur}
-          onFocus={handleOnFocus}
-          maxLength={maxLength}
-          minLength={minLength}
-          pattern={pattern}
-          className={`${icon && styles.has_icon} ${
-            showError && styles.has_error
-          }`}
-        />
+        <div className={styles.input_container}>
+          <input
+            readOnly={readOnly}
+            ref={inputRef}
+            aria-label={label}
+            id={id}
+            type={type}
+            name={name}
+            value={value}
+            required={required}
+            placeholder={placeholder ? placeholder : label}
+            onChange={handleOnChange}
+            onFocus={handleOnFocus}
+            maxLength={maxLength}
+            minLength={minLength}
+            onBlur={handleOnBlur}
+            pattern={pattern}
+            className={`${icon && styles.has_icon} ${
+              showError && styles.has_error
+            }`}
+          />
 
-        {icon ? (
-          <Icon name={icon} classProp={styles['icon_' + iconColor]} />
-        ) : null}
+          {icon ? (
+            <Icon name={icon} classProp={styles['icon_' + iconColor]} />
+          ) : null}
+        </div>
 
         {/* Error Message */}
         {showError ? (

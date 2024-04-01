@@ -1,8 +1,7 @@
 import React, { useState, forwardRef, useImperativeHandle } from 'react';
-import { NotificationTypesT, NotificationLocationT } from './types';
+import { NewNotificationT, DEFAULT_NOTIFICATION } from './types';
 import styles from './Notification.module.scss';
-import NotificationMessage, { CategoryT } from './NotificationMessage';
-import { IconT } from '../Icon/Icon';
+import NotificationMessage from './NotificationMessage';
 
 export type NotificationPropsT = {
   classProp?: string;
@@ -10,21 +9,6 @@ export type NotificationPropsT = {
 
 export type NotificationInterfaceT = {
   dispatchNotification: Function;
-};
-
-export type NewNotificationT = {
-  title: string;
-  description: string;
-  duration?: number;
-  autoClose?: boolean;
-  hasIcon?: boolean;
-  icon?: IconT;
-  type?: NotificationTypesT;
-  callback?: Function;
-  callbackCta?: string;
-  location?: NotificationLocationT;
-  pauseOnHover?: boolean;
-  category: CategoryT;
 };
 
 export interface NotificationI extends NewNotificationT {
@@ -45,11 +29,17 @@ const Notification = forwardRef(
     });
 
     /**
+     * Defult options
+     * Note: other options that are optional are defaulted in child components
+     */
+
+    /**
      * Dispatch Notification
      * @param newNotifcation
      */
     const dispatchNotification = (newNotifcation: NewNotificationT) => {
       const notification = {
+        ...DEFAULT_NOTIFICATION,
         ...newNotifcation,
         id: String(Date.now()),
       };
