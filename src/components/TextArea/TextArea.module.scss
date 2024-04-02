@@ -7,7 +7,6 @@
     position: relative;
     flex-direction: column;
     width: 100%;
-    padding-bottom: 10px;
 
     label {
       @include font-size(16);
@@ -20,6 +19,12 @@
         color: $color-semantic-critical;
       }
     }
+  }
+
+  &_container {
+    display: flex;
+    position: relative;
+    flex-direction: column;
 
     textarea {
       @include font-size(16);
@@ -74,7 +79,7 @@
 
 @mixin icon() {
   position: absolute;
-  top: 42px;
+  top: 14px;
   right: 12px;
 }
 

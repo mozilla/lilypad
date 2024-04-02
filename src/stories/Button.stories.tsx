@@ -41,6 +41,13 @@ export default {
         ],
       },
     },
+    // Note: adding a react node as an option does not work in Story book
+    customIcon: {
+      control: {
+        type: 'select',
+        options: [],
+      },
+    },
     iconPlacedRight: {
       control: {
         type: 'boolean',

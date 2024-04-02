@@ -1,7 +1,5 @@
 export {
   default,
   type NotificationInterfaceT,
-  type NewNotificationT,
 } from './Notification';
-export { CategoryT } from './NotificationMessage';
-export { NotificationTypesT, NotificationLocationT } from './types';
+export { type NotificationTypesT, type NotificationLocationT , type CategoryT, type NewNotificationT} from './types';

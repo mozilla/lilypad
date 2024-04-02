@@ -1,22 +1,15 @@
 import React from 'react';
 import styles from './Badge.module.scss';
 
-export enum BadgeCategoriesE {
-  PRIMARY = 'primary',
-  SECONDARY = 'secondary',
-}
+export type BadgeCategoriesT = 'primary' | 'secondary';
 
 export type BadgePropsT = {
   name: string;
-  category: BadgeCategoriesE;
+  category: BadgeCategoriesT;
   classProp?: string;
 };
 
-const Badge = ({
-  name,
-  category = BadgeCategoriesE.PRIMARY,
-  classProp = '',
-}: BadgePropsT) => {
+const Badge = ({ name, category = 'primary', classProp = '' }: BadgePropsT) => {
   return (
     <span
       className={`

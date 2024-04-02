@@ -33,6 +33,7 @@ type SelectPropsT = {
   onChange?: Function;
   validator?: Function;
   required?: boolean;
+  showLabel?: boolean;
   isError?: boolean;
   customErrorMessage?: string;
   value: string | number | readonly string[] | undefined;
@@ -52,6 +53,7 @@ const Select = forwardRef(
       onFocus,
       validator = () => true,
       required = false,
+      showLabel = true,
       isError,
       customErrorMessage,
       value,
@@ -148,10 +150,12 @@ const Select = forwardRef(
           showError ? styles.select_error : null
         } ${classProp}`}
       >
-        <label htmlFor={id}>
-          {label}
-          <span> {required ? '*' : ''}</span>
-        </label>
+        {showLabel && (
+          <label htmlFor={id}>
+            {label}
+            <span> {required ? '*' : ''}</span>
+          </label>
+        )}
 
         <div className={styles.select_container}>
           <select

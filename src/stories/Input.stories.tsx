@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Input from '../components/Input/Input';
 
 const initialValues = {
-  firstName: 'Dr.Duck',
+  firstName: '',
 };
 
 export default {

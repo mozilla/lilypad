@@ -1,6 +1,6 @@
-import React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
-import Badge, { BadgeCategoriesE }from '../components/Badge/Badge'
+import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+import Badge, { BadgeCategoriesT } from '../components/Badge/Badge';
 
 export default {
   title: 'Example/Badge',
@@ -8,15 +8,12 @@ export default {
   argTypes: {
     category: {
       control: {
-        type: 'select', 
-        options: [
-          BadgeCategoriesE.PRIMARY,
-          BadgeCategoriesE.SECONDARY
-        ]
-      }
-    }
+        type: 'select',
+        options: ['primary', 'secondary'],
+      },
+    },
   },
-} as ComponentMeta<typeof Badge>
+} as ComponentMeta<typeof Badge>;
 
 const Template: ComponentStory<typeof Badge> = (args) => (
   <>
@@ -31,8 +28,8 @@ const Template: ComponentStory<typeof Badge> = (args) => (
   </>
 );
 
-export const Main = Template.bind({})
+export const Main = Template.bind({});
 Main.args = {
   name: 'Badge',
-  category: BadgeCategoriesE.PRIMARY
-}
+  category: 'primary',
+};

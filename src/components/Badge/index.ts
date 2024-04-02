@@ -1,1 +1,1 @@
-export { default, BadgeCategoriesE } from './Badge';
+export { default, type BadgeCategoriesT } from './Badge';

@@ -30,6 +30,7 @@ $tip-width: 250px;
 .right {
   right: 0px;
   transform: translate(100%);
+  padding-left: 12px;
   p {
     margin-top: 0px;
     margin-left: 10px;
@@ -39,6 +40,8 @@ $tip-width: 250px;
 .left {
   left: 0px;
   transform: translate(-100%);
+  padding-right: 12px;
+
   p {
     margin-top: 0px;
     margin-right: 10px;
@@ -49,12 +52,14 @@ $tip-width: 250px;
   left: 0px;
   top: 0px;
   transform: translate(0, -100%);
+  padding-bottom: 12px;
 }
 
 .bottom {
   left: 0px;
   bottom: 0px;
   transform: translate(0, 100%);
+  padding-top: 12px;
 }
 
 /*-------------------------------
