@@ -41,7 +41,7 @@ export default {
         ],
       },
     },
-    // Note: adding a react node as an optoin does not work in Story book
+    // Note: adding a react node as an option does not work in Story book
     customIcon: {
       control: {
         type: 'select',

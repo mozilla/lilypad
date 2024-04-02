@@ -33,7 +33,11 @@ const ToolTip = ({
   return (
     <section className={styles.wrapper}>
       {/* Contents that trigger tool top */}
-      <div onMouseEnter={handleOpen} onMouseLeave={handleClose}>
+      <div
+        onMouseEnter={handleOpen}
+        onMouseLeave={handleClose}
+        className={styles.target}
+      >
         {children}
       </div>
 

@@ -27,8 +27,7 @@ export type ButtonPropsT = {
   category?: ButtonCategoriesT;
   size?: ButtonSizesT;
   disabled?: boolean;
-  icon?: IconT;
-  customIcon?: React.ReactNode;
+  icon?: IconT | React.ReactNode;
   iconPlacedRight?: boolean;
   href?: string;
   target?: string;
@@ -45,27 +44,17 @@ export type ButtonPropsT = {
 };
 
 type ButtonIconT = {
-  icon?: IconT | undefined;
-  customIcon?: React.ReactNode;
+  icon: IconT | React.ReactNode;
   hasText: boolean;
   position: 'left' | 'right';
 };
 
-const ButtonIcon = ({
-  icon,
-  hasText,
-  position = 'left',
-  customIcon,
-}: ButtonIconT) => {
-  if (customIcon) return <>{customIcon}</>;
-
-  if (!icon) {
-    return <></>;
-  }
+const ButtonIcon = ({ icon, hasText, position = 'left' }: ButtonIconT) => {
+  if (typeof icon !== 'string') return <>{icon}</>;
 
   return (
     <Icon
-      name={icon}
+      name={icon as IconT}
       color="currentColor"
       size={22}
       classProp={hasText ? styles[position] : ''}
@@ -87,15 +76,13 @@ const Button = ({
   iconPlacedRight = false,
   href,
   target = '_self',
-  customIcon,
   classProp = '',
   LinkComponent,
 }: ButtonPropsT) => {
   const content = (
     <>
-      {!iconPlacedRight && (
+      {!iconPlacedRight && icon && (
         <ButtonIcon
-          customIcon={customIcon}
           icon={icon}
           hasText={Boolean(text?.length)}
           position="left"
@@ -105,7 +92,7 @@ const Button = ({
       {/* Button Text  */}
       {text}
 
-      {iconPlacedRight && (
+      {iconPlacedRight && icon && (
         <ButtonIcon
           icon={icon}
           hasText={Boolean(text?.length)}
