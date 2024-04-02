@@ -7,6 +7,7 @@ export {
   type ButtonT,
   type ButtonCategoriesT,
   type ButtonSizesT,
+  type LinkComponentT,
 } from './Button';
 export { default as Checkbox } from './Checkbox';
 export { default as CopyButton } from './CopyButton';

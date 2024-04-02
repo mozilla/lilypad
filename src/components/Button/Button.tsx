@@ -18,6 +18,15 @@ export type ButtonCategoriesT =
 
 export type ButtonSizesT = 'small' | 'medium' | 'large';
 
+export type LinkComponentT = React.ComponentType<{
+  href: string;
+  children: React.ReactNode;
+  className?: string;
+  id?: string;
+  onClick?: MouseEventHandler<HTMLAnchorElement>;
+  target?: string;
+}>;
+
 export type ButtonPropsT = {
   active?: boolean;
   id?: string;
@@ -33,14 +42,7 @@ export type ButtonPropsT = {
   target?: string;
   onClick?: MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
   classProp?: string;
-  LinkComponent?: React.ComponentType<{
-    href: string;
-    children: React.ReactNode;
-    className?: string;
-    id?: string;
-    onClick?: MouseEventHandler<HTMLAnchorElement>;
-    target?: string;
-  }>;
+  LinkComponent?: LinkComponentT;
 };
 
 type ButtonIconT = {
