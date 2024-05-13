@@ -47,8 +47,9 @@
     }
 
     label {
-      @include primary-font(500);
-      @include font-size(16);
+      font-family: var(--font-primary);
+      font-size: var(--radio-label-font-size);
+      font-weight: var(--radio-label-font-weight);
       color: $color-text-main;
       margin-left: 16px;
     }

@@ -13,7 +13,7 @@ export type CrumbPropsT = {
   mouseEnter: () => void;
   mouseLeave: () => void;
   close: () => void;
-  classProp?: string;
+  className?: string;
 };
 
 const CrumbMessage = forwardRef(
@@ -26,13 +26,13 @@ const CrumbMessage = forwardRef(
       mouseEnter,
       mouseLeave,
       close,
-      classProp = '',
+      className = '',
     }: CrumbPropsT,
     ref: ForwardedRef<HTMLDivElement>
   ) => {
     return (
       <div
-        className={`${classProp} ${styles.container} ${styles[type]}`}
+        className={`${className} ${styles.container} ${styles[type]}`}
         ref={ref}
         onMouseEnter={mouseEnter}
         onMouseLeave={mouseLeave}
@@ -41,7 +41,7 @@ const CrumbMessage = forwardRef(
           (icon ? (
             <CustomIcon type={type} icon={icon} />
           ) : (
-            <NotificationIcon type={type} classProp="pl-12" />
+            <NotificationIcon type={type} className="pl-12px" />
           ))}
 
         {/* CRUMB DISPLAYS MAX 30 CHARACTERS - USE TOAST IF YOU NEED MORE  */}

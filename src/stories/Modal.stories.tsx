@@ -24,7 +24,7 @@ const Template: ComponentStory<typeof Modal> = (args) => {
 
   const ModalContent = () => (
     <>
-      <h1 className="mb-12">Modal Title</h1>
+      <h1 className="mb-12px">Modal Title</h1>
       <p>Modal Paragraph</p>
       <div className="flex-justify-end">
         <Button

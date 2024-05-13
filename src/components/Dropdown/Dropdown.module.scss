@@ -6,10 +6,11 @@
 }
 
 .content_wrapper {
-  border-radius: 4px;
+  border-radius: var(--dropdown-border-radius);
   z-index: 1;
-  background-color: $color-background-neutral-0;
-  box-shadow: $drop-shadow;
+  background-color: var(--color-background-neutral-0);
+  box-shadow: var(--drop-shadow);
+  margin-top: var(--dropdown-margin-top);
 }
 
 .left {

@@ -10,7 +10,7 @@ type RadioButtonPropsT = {
   label?: string;
   icon?: ReactNode;
   groupName: string;
-  classProp?: string;
+  className?: string;
 };
 
 const RadioButton = ({
@@ -21,10 +21,10 @@ const RadioButton = ({
   id,
   icon,
   groupName,
-  classProp = '',
+  className = '',
 }: RadioButtonPropsT) => {
   return (
-    <div className={`${styles.button_wrapper} ${classProp}`}>
+    <div className={`${styles.button_wrapper} ${className}`}>
       <input
         readOnly={true}
         id={id}

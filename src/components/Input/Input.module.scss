@@ -2,21 +2,21 @@
 
 .input {
   &_wrapper {
-    @include primary-font();
+    font-family: var(--font-primary);
     display: flex;
     position: relative;
     flex-direction: column;
     width: 100%;
 
     label {
-      @include font-size(16);
-      color: $color-text-main;
+      font-size: var(--input-label-font-size);
+      color: var(--color-text-main);
       line-height: 24px;
       margin-bottom: 6px;
-      font-weight: 600;
+      font-weight: var(--input-label-font-weight);
 
       span {
-        color: $color-semantic-critical;
+        color: var(--color-semantic-critical);
       }
     }
   }
@@ -27,15 +27,16 @@
     flex-direction: column;
 
     input {
-      @include font-size(16);
-      color: $color-text-main;
-      border: $color-border-1 solid 2px;
-      border-radius: 12px;
-      padding: 12px;
+      font-size: var(--input-font-size);
+      color: var(--color-text-main);
+      border: var(--color-border-1) solid 2px;
+      border-radius: var(--input-border-radius);
+      padding: var(--input-padding);
       font-family: inherit;
+      background-color: var(--color-background-neutral-0);
 
       &.has_error {
-        border: $color-semantic-critical solid 2px;
+        border: var(--color-semantic-critical) solid 2px;
       }
 
       &.has_icon {
@@ -46,7 +47,7 @@
 
   &_error {
     input {
-      border: $color-semantic-critical solid 1px;
+      border: var(--color-semantic-critical) solid 1px;
     }
   }
 }
@@ -54,7 +55,7 @@
 .tool_tip {
   margin-left: 10px;
   svg {
-    stroke: $color-interactions-menu;
+    stroke: var(--color-interactions-menu);
   }
 }
 
@@ -63,16 +64,16 @@
 }
 
 .error_message {
-  @include font-size(16);
-  color: $color-semantic-critical;
+  font-size: var(--input-info-font-size);
+  color: var(--color-semantic-critical);
   margin-top: 6px;
   line-height: 24px;
 }
 
 .info {
-  @include font-size(16);
+  font-size: var(--input-info-font-size);
   margin-top: 6px;
-  color: $color-text-subtle;
+  color: var(--color-text-subtle);
   line-height: 24px;
 }
 
@@ -84,15 +85,15 @@
 
 .icon_success {
   @include icon();
-  stroke: $color-semantic-success;
+  stroke: var(--color-semantic-success);
 }
 
 .icon_error {
   @include icon();
-  stroke: $color-semantic-critical;
+  stroke: var(--color-semantic-critical);
 }
 
 .icon_default {
   @include icon();
-  stroke: $color-text-info;
+  stroke: var(--color-text-info);
 }

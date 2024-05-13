@@ -15,7 +15,7 @@ export type SwitchPropsT = {
   icon?: IconT;
   iconOn?: IconT; // Note: to use "iconOn", "icon" needs to have a value.
   hasIcon?: boolean;
-  classProp?: string;
+  className?: string;
 };
 
 export type switchT = {
@@ -32,7 +32,7 @@ const Switch = forwardRef(
       iconOn = 'check',
       hasIcon = true,
       onChange,
-      classProp = '',
+      className = '',
     }: SwitchPropsT,
     ref
   ) => {
@@ -75,7 +75,7 @@ const Switch = forwardRef(
     };
 
     return (
-      <div className={`${classProp} ${styles.wrapper}`}>
+      <div className={`${className} ${styles.wrapper}`}>
         <button
           aria-label={label}
           role="switch"
@@ -88,7 +88,7 @@ const Switch = forwardRef(
               <div className={styles.handle_shadow}></div>
               {currentIcon && hasIcon && (
                 <Icon
-                  classProp={isOn ? styles.icon_on : styles.icon_off}
+                  className={isOn ? styles.icon_on : styles.icon_off}
                   size={16}
                   name={currentIcon}
                 />

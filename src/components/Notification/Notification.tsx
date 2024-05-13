@@ -4,7 +4,7 @@ import styles from './Notification.module.scss';
 import NotificationMessage from './NotificationMessage';
 
 export type NotificationPropsT = {
-  classProp?: string;
+  className?: string;
 };
 
 export type NotificationInterfaceT = {
@@ -16,7 +16,7 @@ export interface NotificationI extends NewNotificationT {
 }
 
 const Notification = forwardRef(
-  ({ classProp = '' }: NotificationPropsT, ref) => {
+  ({ className = '' }: NotificationPropsT, ref) => {
     const [notifications, setNotifications] = useState<NotificationI[]>([]);
 
     /**
@@ -107,7 +107,7 @@ const Notification = forwardRef(
     );
 
     return (
-      <div id="lily_notification" className={classProp}>
+      <div id="lily_notification" className={className}>
         {/* TOP CENTER  */}
         {Boolean(topCenterNotifications.length) && (
           <div className={styles.top_center}>

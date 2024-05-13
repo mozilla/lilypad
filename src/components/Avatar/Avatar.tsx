@@ -5,14 +5,14 @@ export type AvatarPropsT = {
   src: string;
   alt: string;
   size: number;
-  classProp?: string;
+  className?: string;
 };
 
-const Avatar = ({ src, alt, size = 50, classProp = '' }: AvatarPropsT) => {
+const Avatar = ({ src, alt, size = 50, className = '' }: AvatarPropsT) => {
   const [imageDidError, setImageDidError] = useState(false);
   return (
     <div
-      className={`${styles.avatar} ${classProp}`}
+      className={`${styles.avatar} ${className}`}
       style={{ height: `${size}px`, width: `${size}px` }}
     >
       {imageDidError ? (

@@ -6,14 +6,14 @@ export type CopyButtonPropsT = {
   onClick?: Function;
   successMessage?: string;
   value: string | number;
-  classProp?: string;
+  className?: string;
 };
 
 const CopyButton = ({
   onClick,
   successMessage = 'Copied!',
   value,
-  classProp = '',
+  className = '',
 }: CopyButtonPropsT) => {
   const [success, setSuccess] = useState<boolean>(false);
 
@@ -40,7 +40,7 @@ const CopyButton = ({
       ) : (
         <Button
           label="copy"
-          classProp={classProp}
+          className={className}
           onClick={handleClick}
           icon="copy"
           size="small"

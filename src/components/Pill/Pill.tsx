@@ -4,15 +4,15 @@ import styles from './Pill.module.scss';
 export type PillPropsT = {
   title: string;
   category: 'primary' | 'secondary' | 'rainbow' | 'warm' | 'cool';
-  classProp?: string;
+  className?: string;
 };
 
-const Pill = ({ title, category = 'primary', classProp = '' }: PillPropsT) => {
+const Pill = ({ title, category = 'primary', className = '' }: PillPropsT) => {
   return (
     <span
       className={`
        ${styles['pill_' + category]} 
-       ${classProp}`}
+       ${className}`}
     >
       {title}
     </span>

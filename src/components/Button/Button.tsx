@@ -36,30 +36,41 @@ export type ButtonPropsT = {
   category?: ButtonCategoriesT;
   size?: ButtonSizesT;
   disabled?: boolean;
-  icon?: IconT | React.ReactNode;
+  icon?: IconT;
+  customIcon?: React.ReactNode;
   iconPlacedRight?: boolean;
   href?: string;
   target?: string;
   onClick?: MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
-  classProp?: string;
+  className?: string;
   LinkComponent?: LinkComponentT;
 };
 
 type ButtonIconT = {
-  icon: IconT | React.ReactNode;
+  icon?: IconT;
+  customIcon?: React.ReactNode;
   hasText: boolean;
   position: 'left' | 'right';
 };
 
-const ButtonIcon = ({ icon, hasText, position = 'left' }: ButtonIconT) => {
-  if (typeof icon !== 'string') return <>{icon}</>;
+const ButtonIcon = ({
+  icon,
+  customIcon,
+  hasText,
+  position = 'left',
+}: ButtonIconT) => {
+  if (customIcon) return <>{customIcon}</>;
+
+  if (!icon) {
+    return <></>;
+  }
 
   return (
     <Icon
-      name={icon as IconT}
+      name={icon}
       color="currentColor"
       size={22}
-      classProp={hasText ? styles[position] : ''}
+      className={hasText ? styles[position] : ''}
     />
   );
 };
@@ -74,17 +85,19 @@ const Button = ({
   size = 'medium',
   disabled,
   icon,
+  customIcon,
   onClick,
   iconPlacedRight = false,
   href,
   target = '_self',
-  classProp = '',
+  className = '',
   LinkComponent,
 }: ButtonPropsT) => {
   const content = (
     <>
-      {!iconPlacedRight && icon && (
+      {!iconPlacedRight && (
         <ButtonIcon
+          customIcon={customIcon}
           icon={icon}
           hasText={Boolean(text?.length)}
           position="left"
@@ -94,8 +107,9 @@ const Button = ({
       {/* Button Text  */}
       {text}
 
-      {iconPlacedRight && icon && (
+      {iconPlacedRight && (
         <ButtonIcon
+          customIcon={customIcon}
           icon={icon}
           hasText={Boolean(text?.length)}
           position="right"
@@ -107,11 +121,11 @@ const Button = ({
   /**
    * Configure CSS Class
    */
-  const className = `
+  const buttonStyle = `
     ${styles['button_' + category]} 
     ${styles[size]} 
     ${!text && styles[size + '_round']} 
-    ${classProp} 
+    ${className} 
     ${active && styles['button_' + category + '_active']}
   `;
 
@@ -119,7 +133,7 @@ const Button = ({
     // To support NextJs Link
     return (
       <LinkComponent
-        className={className}
+        className={buttonStyle}
         href={href}
         onClick={onClick}
         target={target}
@@ -133,7 +147,7 @@ const Button = ({
     // Fall back to a standard <a> tag if LinkComponent is not provided
     return (
       <a
-        className={className}
+        className={buttonStyle}
         id={id}
         target={target}
         href={href}
@@ -146,7 +160,7 @@ const Button = ({
   // Button logic remains unchanged
   return (
     <button
-      className={className}
+      className={buttonStyle}
       id={id}
       aria-label={label ? label : text}
       type={type}

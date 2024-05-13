@@ -104,7 +104,7 @@ export type NotifcationStoryPropsT = {
   location?: NotificationLocationT;
   pauseOnHover?: boolean;
   category: CategoryT;
-  classProp?: string;
+  className?: string;
 };
 
 const NotifcationStory = ({
@@ -122,7 +122,7 @@ const NotifcationStory = ({
   location = 'top_right',
   pauseOnHover = true,
   category,
-  classProp = '',
+  className = '',
 }: NotifcationStoryPropsT) => {
   return <></>;
 };
@@ -188,7 +188,7 @@ const Template: ComponentStory<typeof NotifcationStory> = (args) => {
 // PRIMARY BUTTON
 export const Main = Template.bind({});
 Main.args = {
-  classProp: '',
+  className: '',
   title: 'Lorem ipsum dolor sit amet',
   description:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.',

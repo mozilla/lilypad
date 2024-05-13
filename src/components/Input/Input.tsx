@@ -45,6 +45,7 @@ type InputProps = {
   info?: string;
   validator?: Function;
   required?: boolean;
+  showRequired?: boolean;
   isError?: boolean;
   customErrorMessage?: string;
   pattern?: string;
@@ -60,7 +61,7 @@ type InputProps = {
   onFocus?: Function;
   onChange?: Function;
   mask?: RegExp;
-  classProp?: string;
+  className?: string;
 };
 
 const Input = forwardRef(
@@ -76,6 +77,7 @@ const Input = forwardRef(
       onFocus,
       validator = () => true,
       required = false,
+      showRequired = true,
       isError,
       customErrorMessage,
       pattern,
@@ -89,7 +91,7 @@ const Input = forwardRef(
       showLabel = true,
       onBlur,
       mask,
-      classProp = '',
+      className = '',
     }: InputProps,
     ref
   ) => {
@@ -182,14 +184,14 @@ const Input = forwardRef(
       <div
         className={`${styles.input_wrapper}  ${
           showError ? styles.input_error : null
-        } ${classProp}`}
+        } ${className}`}
       >
         {showLabel && (
           <label className={styles.label}>
             {label}
-            <span> {required ? '*' : ''}</span>
+            <span> {required && showRequired ? '*' : ''}</span>
             {toolTip && (
-              <ToolTip description={toolTip} classProp={styles.tool_tip}>
+              <ToolTip description={toolTip} className={styles.tool_tip}>
                 <Icon name="info" />
               </ToolTip>
             )}
@@ -219,7 +221,7 @@ const Input = forwardRef(
           />
 
           {icon ? (
-            <Icon name={icon} classProp={styles['icon_' + iconColor]} />
+            <Icon name={icon} className={styles['icon_' + iconColor]} />
           ) : null}
         </div>
 

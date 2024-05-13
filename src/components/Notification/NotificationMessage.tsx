@@ -26,7 +26,7 @@ export type NotificationMessagePropsT = {
   hasIcon?: boolean;
   category?: CategoryT;
   icon?: IconT;
-  classProp?: string;
+  className?: string;
 };
 
 const NotificationMessage = ({

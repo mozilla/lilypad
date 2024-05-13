@@ -5,6 +5,8 @@ $font-size-base: 16; // base size in px
 $primary-font: var(--font-primary);
 $secondary-font: var(--font-seondary);
 $backup-font: var(--font-backup);
+$font-primary-weight: var(--font-primary-weight);
+$font-secondary-weight: var(--font-secondary-weight);
 
 // ---------------------------------
 //  Colors
@@ -153,3 +155,19 @@ $container-max-width: 1440px;
 $drop-shadow: 0 3px 8px rgba(#000, 0.3);
 $drop-shadow-right: 3px 3px 8px rgba(#000, 0.3);
 $drop-shadow-light: 0 3px 8px rgba(#000, 0.05);
+
+/**
+Inputs
+**/
+$input-label-font-size: var(--input-label-font-size);
+$input-label-font-weight: var(--input-label-font-weight);
+$input-font-size: var(--input-font-size);
+$input-info-font-size: var(--input-info-font-size);
+$input-border-radius: var(--input-border-radius);
+$input-padding: var(--input-padding);
+
+/**
+Dropdown
+**/
+$dropdown-margin-top: var(--dropdown-margin-top);
+$dropdown-border-radius: var(--dropdown-border-radius);

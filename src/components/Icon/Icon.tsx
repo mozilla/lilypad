@@ -297,18 +297,18 @@ type IconProps = {
   name: IconT;
   color?: string;
   size?: number;
-  classProp?: string;
+  className?: string;
 };
 
 const Icon = ({
   name,
   color = '#000000',
   size = 20,
-  classProp = '',
+  className = '',
 }: IconProps) => {
   return (
     <svg
-      className={classProp}
+      className={className}
       width={size}
       height={size}
       fill="none"

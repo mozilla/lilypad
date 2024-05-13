@@ -14,7 +14,7 @@ export type ToastPropsT = {
   mouseLeave: () => void;
   close: () => void;
   progressBar?: ReactNode;
-  classProp?: string;
+  className?: string;
 };
 
 const ToastMessage = forwardRef(
@@ -29,7 +29,7 @@ const ToastMessage = forwardRef(
       mouseLeave,
       close,
       progressBar,
-      classProp = '',
+      className = '',
     }: ToastPropsT,
     ref: ForwardedRef<HTMLDivElement>
   ) => {
@@ -42,7 +42,7 @@ const ToastMessage = forwardRef(
 
     return (
       <div
-        className={`${classProp} ${styles.container} ${styles[type]}`}
+        className={`${className} ${styles.container} ${styles[type]}`}
         ref={ref}
         onMouseEnter={mouseEnter}
         onMouseLeave={mouseLeave}
@@ -50,17 +50,17 @@ const ToastMessage = forwardRef(
         <Button
           onClick={close}
           icon="x"
-          classProp={styles.close}
+          className={styles.close}
           label="close"
           category="primary_clear"
         />
         <div className="flex">
           <div className={styles.icons}>
-            <NotificationIcon type={type} classProp="mr-20" />
+            <NotificationIcon type={type} className="mr-20px" />
           </div>
-          <div className="mr-20">
+          <div className="mr-20px">
             <div className="heading-xs">{title}</div>
-            <p className="body-md my-16-dt my-14-mb">{description}</p>
+            <p className="body-md my-16px-dt my-14px-mb">{description}</p>
             {callback && (
               <div className={styles.callback_wrapper}>
                 <Button

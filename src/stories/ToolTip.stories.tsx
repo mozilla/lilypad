@@ -43,6 +43,7 @@ const Template: ComponentStory<typeof ToolTip> = (args) => {
           location={args.location}
           category={args.category}
           description={args.description}
+          width={args.width}
         >
           <Button label="tip button" text="Button With Tip" />
         </ToolTip>
@@ -56,6 +57,7 @@ const Template: ComponentStory<typeof ToolTip> = (args) => {
           location={args.location}
           category={args.category}
           description={args.description}
+          width={args.width}
         >
           <Button label="tip button" text="Button With Tip" />
         </ToolTip>

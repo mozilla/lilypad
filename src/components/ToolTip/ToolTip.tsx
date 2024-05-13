@@ -10,7 +10,8 @@ type ToolTipPropsT = {
   description: string;
   location?: ToolTipLocationT;
   category?: ToolTipCategoriesT;
-  classProp?: string;
+  width?: string;
+  className?: string;
 };
 
 const ToolTip = ({
@@ -18,7 +19,8 @@ const ToolTip = ({
   description,
   location = 'top',
   category = 'primary',
-  classProp = '',
+  width = '250px',
+  className = '',
 }: ToolTipPropsT) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -43,9 +45,18 @@ const ToolTip = ({
 
       {/* Tool Tip  */}
       <div className={`${styles.container} ${styles[location]}`}>
+        <style>
+          {`
+          .localOverride {
+            --tooltip-width: ${width}; !important;
+          }
+        `}
+        </style>
         <FadeIn visible={isOpen}>
           <p
-            className={`${classProp} ${styles.description} ${styles[category]}`}
+            className={`${className} ${styles.description} ${
+              styles[category]
+            } ${width && 'localOverride'}`}
           >
             {description}
           </p>

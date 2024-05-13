@@ -7,10 +7,7 @@
   align-items: center;
   position: relative;
   cursor: pointer;
-  &,
-  & * {
-    box-sizing: border-box;
-  }
+  box-sizing: content-box;
 
   /* Hide the browser's default checkbox */
   input {
@@ -42,8 +39,9 @@
 }
 
 .label {
-  @include font-size(16);
-  @include primary-font();
+  font-family: var(--font-primary);
+  font-size: var(--checkbox-label-font-size);
+  font-weight: var(--checkbox-label-font-weight);
   color: $color-text-main;
   padding-left: 16px;
 }
@@ -69,8 +67,8 @@
     content: '';
     position: absolute;
     display: none;
-    left: 6px;
-    top: 1px;
+    left: 7px;
+    top: 2px;
     width: 5px;
     height: 11px;
     border: solid $color-text-reverse;

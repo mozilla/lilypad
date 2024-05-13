@@ -6,15 +6,15 @@ export type BadgeCategoriesT = 'primary' | 'secondary';
 export type BadgePropsT = {
   name: string;
   category: BadgeCategoriesT;
-  classProp?: string;
+  className?: string;
 };
 
-const Badge = ({ name, category = 'primary', classProp = '' }: BadgePropsT) => {
+const Badge = ({ name, category = 'primary', className = '' }: BadgePropsT) => {
   return (
     <span
       className={`
        ${styles['badge_' + category]} 
-       ${classProp}`}
+       ${className}`}
     >
       {name}
     </span>

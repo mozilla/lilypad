@@ -13,18 +13,18 @@ type HubIconPropsT = {
   name: HubIconT;
   color?: string;
   size?: number;
-  classProp?: string;
+  className?: string;
 };
 
 const HubIcon = ({
   name,
   color = '#000000',
   size = 20,
-  classProp = '',
+  className = '',
 }: HubIconPropsT) => {
   return (
     <svg
-      className={classProp}
+      className={className}
       width={size}
       height={size}
       fill="none"

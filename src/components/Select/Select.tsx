@@ -27,12 +27,13 @@ type SelectPropsT = {
   options: OptionT[];
   name: string;
   info?: string;
-  classProp?: string;
+  className?: string;
   onBlur?: Function;
   onFocus?: Function;
   onChange?: Function;
   validator?: Function;
   required?: boolean;
+  showRequired?: boolean;
   showLabel?: boolean;
   isError?: boolean;
   customErrorMessage?: string;
@@ -47,12 +48,13 @@ const Select = forwardRef(
       name,
       options,
       info = '',
-      classProp = '',
+      className = '',
       onChange,
       onBlur,
       onFocus,
       validator = () => true,
       required = false,
+      showRequired = true,
       showLabel = true,
       isError,
       customErrorMessage,
@@ -148,12 +150,12 @@ const Select = forwardRef(
       <div
         className={`${styles.select_wrapper}  ${
           showError ? styles.select_error : null
-        } ${classProp}`}
+        } ${className}`}
       >
         {showLabel && (
           <label htmlFor={id}>
             {label}
-            <span> {required ? '*' : ''}</span>
+            <span> {required && showRequired ? '*' : ''}</span>
           </label>
         )}
 
@@ -176,7 +178,7 @@ const Select = forwardRef(
               );
             })}
           </select>
-          <Icon classProp={styles.arrow} name="chevron-down" />
+          <Icon className={styles.arrow} name="chevron-down" />
         </div>
 
         {/* Error Message */}
