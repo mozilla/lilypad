@@ -56,11 +56,11 @@ const ToastMessage = forwardRef(
         />
         <div className="flex">
           <div className={styles.icons}>
-            <NotificationIcon type={type} className="mr-20" />
+            <NotificationIcon type={type} className="mr-20px" />
           </div>
-          <div className="mr-20">
+          <div className="mr-20px">
             <div className="heading-xs">{title}</div>
-            <p className="body-md my-16-dt my-14-mb">{description}</p>
+            <p className="body-md my-16px-dt my-14px-mb">{description}</p>
             {callback && (
               <div className={styles.callback_wrapper}>
                 <Button

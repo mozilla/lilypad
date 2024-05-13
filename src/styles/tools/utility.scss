@@ -244,7 +244,7 @@ $unit: 'px';
   **/
 
   // Padding: General
-  .p-#{$size} {
+  .p-#{$size}#{$unit} {
     padding: #{$size}#{$unit};
     &-dt {
       @include mobile-up {
@@ -259,7 +259,7 @@ $unit: 'px';
   }
 
   // Padding: Horizontal
-  .px-#{$size} {
+  .px-#{$size}#{$unit} {
     padding-left: #{$size}#{$unit};
     padding-right: #{$size}#{$unit};
     &-dt {
@@ -277,7 +277,7 @@ $unit: 'px';
   }
 
   // Padding: Vertical
-  .py-#{$size} {
+  .py-#{$size}#{$unit} {
     padding-top: #{$size}#{$unit};
     padding-bottom: #{$size}#{$unit};
     &-dt {
@@ -295,7 +295,7 @@ $unit: 'px';
   }
 
   // Padding: Top
-  .pt-#{$size} {
+  .pt-#{$size}#{$unit} {
     padding-top: #{$size}#{$unit};
     &-dt {
       @include mobile-up {
@@ -310,7 +310,7 @@ $unit: 'px';
   }
 
   // Padding: bottom
-  .pb-#{$size} {
+  .pb-#{$size}#{$unit} {
     padding-bottom: #{$size}#{$unit};
     &-dt {
       @include mobile-up {
@@ -325,7 +325,7 @@ $unit: 'px';
   }
 
   // Padding: Right
-  .pr-#{$size} {
+  .pr-#{$size}#{$unit} {
     padding-right: #{$size}#{$unit};
     &-dt {
       @include mobile-up {
@@ -340,7 +340,7 @@ $unit: 'px';
   }
 
   // Padding: Left
-  .pl-#{$size} {
+  .pl-#{$size}#{$unit} {
     padding-left: #{$size}#{$unit};
     &-dt {
       @include mobile-up {
@@ -359,7 +359,7 @@ $unit: 'px';
   **/
 
   // Margin: General
-  .m-#{$size} {
+  .m-#{$size}#{$unit} {
     margin: #{$size}#{$unit};
     &-dt {
       @include mobile-up {
@@ -374,7 +374,7 @@ $unit: 'px';
   }
 
   // Margin: Horizontal
-  .mx-#{$size} {
+  .mx-#{$size}#{$unit} {
     margin-left: #{$size}#{$unit};
     margin-right: #{$size}#{$unit};
     &-dt {
@@ -392,7 +392,7 @@ $unit: 'px';
   }
 
   // Margin: Vertical
-  .my-#{$size} {
+  .my-#{$size}#{$unit} {
     margin-top: #{$size}#{$unit};
     margin-bottom: #{$size}#{$unit};
     &-dt {
@@ -410,7 +410,7 @@ $unit: 'px';
   }
 
   // Margin: Top
-  .mt-#{$size} {
+  .mt-#{$size}#{$unit} {
     margin-top: #{$size}#{$unit};
     &-dt {
       @include mobile-up {
@@ -425,7 +425,7 @@ $unit: 'px';
   }
 
   // Margin: Top
-  .mb-#{$size} {
+  .mb-#{$size}#{$unit} {
     margin-bottom: #{$size}#{$unit};
     &-dt {
       @include mobile-up {
@@ -440,7 +440,7 @@ $unit: 'px';
   }
 
   // Margin: Right
-  .mr-#{$size} {
+  .mr-#{$size}#{$unit} {
     margin-right: #{$size}#{$unit};
     &-dt {
       @include mobile-up {
@@ -455,7 +455,7 @@ $unit: 'px';
   }
 
   // Margin: Left
-  .ml-#{$size} {
+  .ml-#{$size}#{$unit} {
     margin-left: #{$size}#{$unit};
     &-dt {
       @include mobile-up {

@@ -41,7 +41,7 @@ const CrumbMessage = forwardRef(
           (icon ? (
             <CustomIcon type={type} icon={icon} />
           ) : (
-            <NotificationIcon type={type} className="pl-12" />
+            <NotificationIcon type={type} className="pl-12px" />
           ))}
 
         {/* CRUMB DISPLAYS MAX 30 CHARACTERS - USE TOAST IF YOU NEED MORE  */}
