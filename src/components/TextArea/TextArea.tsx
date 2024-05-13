@@ -34,6 +34,7 @@ type TextAreaPropsT = {
   disabled?: boolean;
   validator?: Function;
   required?: boolean;
+  showRequired?: boolean;
   isError?: boolean;
   customErrorMessage?: string;
   maxLength?: number;
@@ -65,6 +66,7 @@ const TextArea = forwardRef(
       onFocus,
       validator = () => true,
       required = false,
+      showRequired = true,
       isError,
       customErrorMessage,
       maxLength,
@@ -169,7 +171,7 @@ const TextArea = forwardRef(
         {showLabel && (
           <label className={styles.label}>
             {label}
-            <span> {required ? '*' : ''}</span>
+            <span> {required && showRequired ? '*' : ''}</span>
             {toolTip && (
               <ToolTip description={toolTip} classProp={styles.tool_tip}>
                 <Icon name="info" />

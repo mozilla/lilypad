@@ -22,11 +22,19 @@ type DropdownProps = {
   classProp?: string;
   alignment?: AlignmentT;
   width?: number;
+  selfClose?: boolean;
 };
 
 const Dropdown = forwardRef(
   (
-    { cta, content, width = 320, alignment, classProp = '' }: DropdownProps,
+    {
+      cta,
+      content,
+      width = 320,
+      alignment,
+      selfClose = true,
+      classProp = '',
+    }: DropdownProps,
     ref
   ) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -88,6 +96,9 @@ const Dropdown = forwardRef(
             className={`${styles.content_wrapper} ${
               alignment === 'right' ? styles.right : styles.left
             }`}
+            onClick={() => {
+              if (selfClose) closeDropdown();
+            }}
           >
             {content}
           </div>

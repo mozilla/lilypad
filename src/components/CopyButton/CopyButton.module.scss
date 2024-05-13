@@ -1,9 +1,10 @@
 @use '../../styles/core/boilerplate.scss'as *;
 
 .success {
-  @include primary-font(500);
-  @include font-size(16);
+  font-family: var(--font-primary);
+  font-size: var(--copy-button-font-size);
+  font-weight: var(--copy-button-font-weight);
   line-height: 24px;
-  color: $color-text-subtle;
+  color: var(--copy-button-text-color);
   padding: 8px;
 }

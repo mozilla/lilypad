@@ -3,23 +3,22 @@
 .badge {
   &_primary,
   &_secondary {
-    @include primary-font(500);
-    @include font-size(14);
-    line-height: 18px;
-    text-transform: capitalize;
+    font-family: var(--font-primary);
+    font-size: var(--badge-font-size);
+    font-weight: var(--badge-font-size);
+    line-height: var(--badge-line-height);
+    padding: var(--badge-padding);
+    border-radius: var(--badge-border-radius);
     letter-spacing: 0.5px;
-    padding: 5px 12px;
-    border-radius: 56px;
-    height: 28px;
   }
 
   &_primary {
-    background-color: $color-text-main;
-    color: $color-text-reverse;
+    background-color: var(--color-badge-primary-bg);
+    color: var(--color-badge-primary-text);
   }
 
   &_secondary {
-    background-color: $color-interaction-secondary;
-    color: $color-text-subtle;
+    background-color: var(--color-badge-secondary-bg);
+    color: var(--color-badge-secondary-text);
   }
 }

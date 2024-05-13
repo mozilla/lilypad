@@ -1,5 +1,4 @@
 @use '../../styles/core/boilerplate.scss'as *;
-$tip-width: 250px;
 
 .wrapper {
   position: relative;
@@ -7,13 +6,17 @@ $tip-width: 250px;
 }
 
 .description {
-  @include body-sm();
+  font-family: var(--font-primary);
+  font-size: var(--tooltip-font-size);
+  font-weight: var(--tooltip-font-weight);
+  letter-spacing: 0;
+  line-height: 25px;
   display: block;
   z-index: 2;
   padding: 10px;
-  min-width: $tip-width;
-  max-width: $tip-width;
-  width: $tip-width;
+  min-width: var(--tooltip-width);
+  max-width: var(--tooltip-width);
+  width: var(--tooltip-width);
   border-radius: 12px;
   padding: 14px;
   box-shadow: $drop-shadow;

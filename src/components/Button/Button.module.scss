@@ -1,9 +1,9 @@
 @use '../../styles/core/boilerplate.scss'as *;
 
 @mixin rect_button_base() {
-  @include primary-font(600);
-  @include font-size(14);
-
+  font-family: var(--font-primary);
+  font-size: var(--button-font-size);
+  font-weight: var(--button-font-weight);
   line-height: 24px;
   border-radius: $button-border-radius;
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.05);
@@ -200,26 +200,26 @@
 -------------------------------*/
 
 .small {
-  padding: 6px 12px;
+  padding: var(--button-padding-small);
 
   &_round {
-    padding: 6px;
+    padding: var(--button-padding-small-round);
   }
 }
 
 .medium {
-  padding: 8px 16px;
+  padding: var(--button-padding-medium);
 
   &_round {
-    padding: 8px;
+    padding: var(--button-padding-medium-round);
   }
 }
 
 .large {
-  padding: 12px 18px;
+  padding: var(--button-padding-large);
 
   &_round {
-    padding: 12px;
+    padding: var(--button-padding-large-round);
   }
 }
 

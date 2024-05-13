@@ -3,21 +3,86 @@
 
 :root {
   /**
-  BUTTON LAYOUT
-  **/
-  --button-border-radius: 20px;
-  --button-border-stroke: 2px;
-}
-
-main[data-theme='light'],
-:root {
-  /**
   FONTS
   **/
   --font-primary: 'Inter';
   --font-secondary: 'Space Grotesk';
   --font-backup: 'Arial';
 
+  --font-primary-weight: 500;
+  --font-secondary-weight: 700;
+
+  /**
+  BUTTON
+  **/
+  --button-font-size: 0.875rem;
+  --button-font-weight: 500;
+  --button-border-radius: 20px;
+  --button-border-stroke: 2px;
+  --button-padding-large: 12px 18px;
+  --button-padding-large-round: 12px;
+  --button-padding-medium: 8px 16px;
+  --button-padding-medium-round: 8px;
+  --button-padding-small: 6px 12px;
+  --button-padding-small-round: 6px;
+
+  /**
+  COPY BUTTON
+  **/
+  --copy-button-font-size: 0.875rem;
+  --copy-button-font-weight: 500;
+
+  /**
+  CHECKBOX
+  **/
+  --checkbox-label-font-size: 0.875rem;
+  --checkbox-label-font-weight: 500;
+
+  /**
+  INPUTS
+  **/
+  --input-label-font-size: 0.875rem;
+  --input-label-font-weight: 600;
+  --input-font-size: 0.875rem;
+  --input-info-font-size: 0.875rem;
+  --input-border-radius: 12px;
+  --input-padding: 12px;
+
+  /**
+  DROPDOWN
+  **/
+  --dropdown-margin-top: 12px;
+  --dropdown-border-radius: 4px;
+
+  /**
+  BADGE
+  **/
+  --badge-font-size: 0.875rem;
+  --badge-font-weight: 500;
+  --badge-padding: 5px 12px;
+  --badge-border-radius: 56px;
+
+  /**
+  RADIO
+  **/
+  --radio-label-font-size: 0.875rem;
+  --radio-label-font-weight: 500;
+
+  /**
+  SWITCH
+  **/
+  --switch-font-weight: 500;
+
+  /**
+  TOOLTIP
+  **/
+  --tooltip-font-size: 0.875rem;
+  --tooltip-font-weight: 500;
+  --tooltip-width: 250px;
+}
+
+main[data-theme='light'],
+:root {
   /**
   PRIMARY INTERACTION
   **/
@@ -118,17 +183,23 @@ main[data-theme='light'],
   --color-interactions-menu: #000000;
   --color-interactions-menu-hover: #2f2f2f;
   --color-interactions-menu-inactive: #757575;
+
+  /**
+  Badge
+  **/
+  --color-badge-primary-bg: #000000;
+  --color-badge-primary-text: #ffffff;
+  --color-badge-secondary-bg: #ffffff;
+  --color-badge-secondary-text: #000000;
+
+  /**
+  BUTTON
+  **/
+  --copy-button-text-color: #757575;
 }
 
 // PLACE HOLDER FOR DARK VALUES
 main[data-theme='dark'] {
-  /**
-  FONTS
-  **/
-  --font-primary: 'Inter';
-  --font-secondary: 'Space Grotesk';
-  --font-backup: 'Arial';
-
   /**
   PRIMARY INTERACTION
   **/
@@ -228,4 +299,17 @@ main[data-theme='dark'] {
   --color-interactions-menu: #ffffff;
   --color-interactions-menu-hover: #2f2f2f;
   --color-interactions-menu-inactive: #757575;
+
+  /**
+  Badge
+  **/
+  --color-badge-primary-bg: #ffffff;
+  --color-badge-primary-text: #000000;
+  --color-badge-secondary-bg: #000000;
+  --color-badge-secondary-text: #ffffff;
+
+  /**
+  BUTTON
+  **/
+  --copy-button-text-color: #ffffff;
 }

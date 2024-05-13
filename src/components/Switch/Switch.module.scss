@@ -10,11 +10,11 @@
     }
 
     .track_on {
-      background: $color-semantic-success-hover; 
+      background: $color-semantic-success-hover;
     }
 
     .track_off {
-      background: $color-semantic-neutral-hover; 
+      background: $color-semantic-neutral-hover;
     }
   }
 
@@ -33,7 +33,7 @@
     @include body-md();
     color: $color-text-main;
     line-height: 24px;
-    font-weight: 600;
+    font-weight: var(--switch-font-weight);
     margin-left: 12px;
   }
 }
@@ -52,7 +52,7 @@
 .track {
   &_on {
     @include track;
-    background: $color-semantic-success; 
+    background: $color-semantic-success;
   }
 
   &_off {

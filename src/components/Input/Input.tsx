@@ -45,6 +45,7 @@ type InputProps = {
   info?: string;
   validator?: Function;
   required?: boolean;
+  showRequired?: boolean;
   isError?: boolean;
   customErrorMessage?: string;
   pattern?: string;
@@ -76,6 +77,7 @@ const Input = forwardRef(
       onFocus,
       validator = () => true,
       required = false,
+      showRequired = true,
       isError,
       customErrorMessage,
       pattern,
@@ -187,7 +189,7 @@ const Input = forwardRef(
         {showLabel && (
           <label className={styles.label}>
             {label}
-            <span> {required ? '*' : ''}</span>
+            <span> {required && showRequired ? '*' : ''}</span>
             {toolTip && (
               <ToolTip description={toolTip} classProp={styles.tool_tip}>
                 <Icon name="info" />
