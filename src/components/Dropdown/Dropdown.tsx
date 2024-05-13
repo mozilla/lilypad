@@ -11,15 +11,15 @@ import {
 import styles from './Dropdown.module.scss';
 import FadeIn from '../FadeIn';
 
-export type dropdownT = {
+export type DropdownT = {
   closeDropdown: Function;
 };
 
 export type AlignmentT = 'left' | 'right';
-type DropdownProps = {
+type DropdownPropsT = {
   cta: ReactNode;
   content: ReactNode;
-  classProp?: string;
+  className?: string;
   alignment?: AlignmentT;
   width?: number;
   selfClose?: boolean;
@@ -33,8 +33,8 @@ const Dropdown = forwardRef(
       width = 320,
       alignment,
       selfClose = true,
-      classProp = '',
-    }: DropdownProps,
+      className = '',
+    }: DropdownPropsT,
     ref
   ) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -84,7 +84,7 @@ const Dropdown = forwardRef(
     return (
       <div
         ref={containerRef}
-        className={`${classProp} ${styles.dropdown_wrapper}`}
+        className={`${className} ${styles.dropdown_wrapper}`}
       >
         {/* CTA */}
         <div onClick={onToggleClick}>{cta}</div>

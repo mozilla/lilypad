@@ -27,7 +27,7 @@ type SelectPropsT = {
   options: OptionT[];
   name: string;
   info?: string;
-  classProp?: string;
+  className?: string;
   onBlur?: Function;
   onFocus?: Function;
   onChange?: Function;
@@ -48,7 +48,7 @@ const Select = forwardRef(
       name,
       options,
       info = '',
-      classProp = '',
+      className = '',
       onChange,
       onBlur,
       onFocus,
@@ -150,7 +150,7 @@ const Select = forwardRef(
       <div
         className={`${styles.select_wrapper}  ${
           showError ? styles.select_error : null
-        } ${classProp}`}
+        } ${className}`}
       >
         {showLabel && (
           <label htmlFor={id}>
@@ -178,7 +178,7 @@ const Select = forwardRef(
               );
             })}
           </select>
-          <Icon classProp={styles.arrow} name="chevron-down" />
+          <Icon className={styles.arrow} name="chevron-down" />
         </div>
 
         {/* Error Message */}

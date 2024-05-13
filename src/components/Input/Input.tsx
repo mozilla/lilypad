@@ -61,7 +61,7 @@ type InputProps = {
   onFocus?: Function;
   onChange?: Function;
   mask?: RegExp;
-  classProp?: string;
+  className?: string;
 };
 
 const Input = forwardRef(
@@ -91,7 +91,7 @@ const Input = forwardRef(
       showLabel = true,
       onBlur,
       mask,
-      classProp = '',
+      className = '',
     }: InputProps,
     ref
   ) => {
@@ -184,14 +184,14 @@ const Input = forwardRef(
       <div
         className={`${styles.input_wrapper}  ${
           showError ? styles.input_error : null
-        } ${classProp}`}
+        } ${className}`}
       >
         {showLabel && (
           <label className={styles.label}>
             {label}
             <span> {required && showRequired ? '*' : ''}</span>
             {toolTip && (
-              <ToolTip description={toolTip} classProp={styles.tool_tip}>
+              <ToolTip description={toolTip} className={styles.tool_tip}>
                 <Icon name="info" />
               </ToolTip>
             )}
@@ -221,7 +221,7 @@ const Input = forwardRef(
           />
 
           {icon ? (
-            <Icon name={icon} classProp={styles['icon_' + iconColor]} />
+            <Icon name={icon} className={styles['icon_' + iconColor]} />
           ) : null}
         </div>
 

@@ -4,21 +4,21 @@ import { InfoIcon, SuccessIcon, WarningIcon, ErrorIcon } from './icons';
 
 type NotificationIconPropsT = {
   type: NotificationTypesT;
-  classProp?: string;
+  className?: string;
 };
 
-const NotificationIcon = ({ type, classProp }: NotificationIconPropsT) => {
+const NotificationIcon = ({ type, className }: NotificationIconPropsT) => {
   switch (type) {
     case 'info':
-      return <InfoIcon classProp={classProp} />;
+      return <InfoIcon className={className} />;
     case 'success':
-      return <SuccessIcon classProp={classProp} />;
+      return <SuccessIcon className={className} />;
     case 'warning':
-      return <WarningIcon classProp={classProp} />;
+      return <WarningIcon className={className} />;
     case 'error':
-      return <ErrorIcon classProp={classProp} />;
+      return <ErrorIcon className={className} />;
     default:
-      return <InfoIcon classProp={classProp} />;
+      return <InfoIcon className={className} />;
   }
 };
 

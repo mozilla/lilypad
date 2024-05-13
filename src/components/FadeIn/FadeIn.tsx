@@ -15,7 +15,7 @@ type FadeInPropsT = {
   animation?: string;
   onComplete?: () => void;
   children: ReactNode;
-  classProp?: string;
+  className?: string;
 };
 
 const FadeIn = ({
@@ -23,7 +23,7 @@ const FadeIn = ({
   onComplete,
   animation,
   children,
-  classProp = '',
+  className = '',
 }: FadeInPropsT) => {
   const [isOpen, setIsOpen] = useState<boolean>(visible);
   const [isVisible, setIsVisible] = useState<boolean>(visible);
@@ -51,7 +51,7 @@ const FadeIn = ({
       isVisible={isOpen}
       onComplete={handleOnComplete}
       animation={animation}
-      classProp={classProp}
+      className={className}
     >
       {Children.map(arrayChildren, (child, i) => {
         return isVisible && <>{child}</>;
@@ -69,7 +69,7 @@ type FadeContentsPropsT = {
   animation?: string;
   onComplete: () => void;
   children: ReactNode;
-  classProp?: string;
+  className?: string;
 };
 
 const FadeContents = ({
@@ -77,7 +77,7 @@ const FadeContents = ({
   onComplete,
   children,
   animation = 'translateY(20px)',
-  classProp = '',
+  className = '',
 }: PropsWithChildren<FadeContentsPropsT>) => {
   const [maxIsVisible, setMaxIsVisible] = useState(0);
   const arrayChildren = Children.toArray(children);
@@ -111,7 +111,7 @@ const FadeContents = ({
   }, [maxIsVisible, isVisible, onComplete, arrayChildren]);
 
   return (
-    <div className={`${classProp}`}>
+    <div className={`${className}`}>
       {Children.map(arrayChildren, (child, i) => {
         return (
           <div

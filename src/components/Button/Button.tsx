@@ -42,7 +42,7 @@ export type ButtonPropsT = {
   href?: string;
   target?: string;
   onClick?: MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
-  classProp?: string;
+  className?: string;
   LinkComponent?: LinkComponentT;
 };
 
@@ -70,7 +70,7 @@ const ButtonIcon = ({
       name={icon}
       color="currentColor"
       size={22}
-      classProp={hasText ? styles[position] : ''}
+      className={hasText ? styles[position] : ''}
     />
   );
 };
@@ -90,7 +90,7 @@ const Button = ({
   iconPlacedRight = false,
   href,
   target = '_self',
-  classProp = '',
+  className = '',
   LinkComponent,
 }: ButtonPropsT) => {
   const content = (
@@ -121,11 +121,11 @@ const Button = ({
   /**
    * Configure CSS Class
    */
-  const className = `
+  const buttonStyle = `
     ${styles['button_' + category]} 
     ${styles[size]} 
     ${!text && styles[size + '_round']} 
-    ${classProp} 
+    ${className} 
     ${active && styles['button_' + category + '_active']}
   `;
 
@@ -133,7 +133,7 @@ const Button = ({
     // To support NextJs Link
     return (
       <LinkComponent
-        className={className}
+        className={buttonStyle}
         href={href}
         onClick={onClick}
         target={target}
@@ -147,7 +147,7 @@ const Button = ({
     // Fall back to a standard <a> tag if LinkComponent is not provided
     return (
       <a
-        className={className}
+        className={buttonStyle}
         id={id}
         target={target}
         href={href}
@@ -160,7 +160,7 @@ const Button = ({
   // Button logic remains unchanged
   return (
     <button
-      className={className}
+      className={buttonStyle}
       id={id}
       aria-label={label ? label : text}
       type={type}

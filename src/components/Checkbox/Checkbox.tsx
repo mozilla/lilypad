@@ -11,19 +11,19 @@ type CheckboxPropsT = {
   label?: string | ReactNode;
   checked?: boolean;
   disabled?: boolean;
-  classProp?: string;
-  labelClassProp?: string;
+  className?: string;
+  labelclassName?: string;
   onChange: (value: boolean) => void;
 };
 
 const Checkbox = forwardRef(
   (
     {
-      classProp = '',
+      className = '',
       label,
       disabled,
       checked,
-      labelClassProp = '',
+      labelclassName = '',
       onChange,
     }: CheckboxPropsT,
     ref
@@ -42,7 +42,7 @@ const Checkbox = forwardRef(
     };
 
     return (
-      <label className={`${classProp} ${styles.container}`}>
+      <label className={`${className} ${styles.container}`}>
         <input
           onChange={handleOnChange}
           type="checkbox"
@@ -59,7 +59,7 @@ const Checkbox = forwardRef(
         />
 
         {label ? (
-          <div className={`${styles.label} ${labelClassProp}`}>{label}</div>
+          <div className={`${styles.label} ${labelclassName}`}>{label}</div>
         ) : null}
       </label>
     );

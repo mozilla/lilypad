@@ -6,7 +6,7 @@ import styles from './icon.module.scss';
 type InfoIconPropsT = {
   icon: IconT;
   type: NotificationTypesT;
-  classProp?: string;
+  className?: string;
 };
 
 const CustomIcon = ({ icon, type }: InfoIconPropsT) => {

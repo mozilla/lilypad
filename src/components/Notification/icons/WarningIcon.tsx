@@ -2,13 +2,13 @@ import React from 'react';
 import styles from './icon.module.scss';
 
 type InfoIconPropsT = {
-  classProp?: string;
+  className?: string;
 };
 
-const WarningIcon = ({ classProp }: InfoIconPropsT) => {
+const WarningIcon = ({ className }: InfoIconPropsT) => {
   return (
     <svg
-      className={classProp}
+      className={className}
       width="30"
       height="30"
       viewBox="0 0 30 30"

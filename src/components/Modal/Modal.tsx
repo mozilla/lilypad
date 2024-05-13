@@ -19,7 +19,7 @@ type ModalPropsT = {
   zIndex?: number;
   isBackdropClickDisabled?: boolean;
   onClose: MouseEventHandler<HTMLDivElement>;
-  classProp?: string;
+  className?: string;
 };
 
 const Modal = ({
@@ -29,7 +29,7 @@ const Modal = ({
   zIndex = 10,
   isBackdropClickDisabled = false,
   onClose,
-  classProp = '',
+  className = '',
 }: ModalPropsT) => {
   const ref = useRef<Element | null>(null);
   const [mounted, setMounted] = useState(false);
@@ -95,7 +95,7 @@ const Modal = ({
         >
           <div id="backdropContainer" className={styles.backdrop_container}>
             <div
-              className={`${classProp} ${
+              className={`${className} ${
                 hasContainer && styles.modal_container
               } `}
             >

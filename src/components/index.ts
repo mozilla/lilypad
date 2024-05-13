@@ -1,7 +1,7 @@
 export { default as Avatar } from './Avatar';
 export { default as Badge, type BadgeCategoriesT } from './Badge';
 export { default as Pill } from './Pill';
-export { default as Dropdown, type AlignmentT, type dropdownT } from './Dropdown';
+export { default as Dropdown, type AlignmentT, type DropdownT } from './Dropdown';
 export {
   default as Button,
   type ButtonT,

@@ -47,7 +47,7 @@ type TextAreaPropsT = {
   onBlur?: Function;
   onFocus?: Function;
   onChange?: Function;
-  classProp?: string;
+  className?: string;
 };
 
 const TextArea = forwardRef(
@@ -59,7 +59,7 @@ const TextArea = forwardRef(
       toolTip,
       name,
       info = '',
-      classProp = '',
+      className = '',
       onChange,
       disabled,
       onBlur,
@@ -166,14 +166,14 @@ const TextArea = forwardRef(
       <div
         className={`${styles.text_area_wrapper}  ${
           showError ? styles.text_area_error : null
-        } ${classProp}`}
+        } ${className}`}
       >
         {showLabel && (
           <label className={styles.label}>
             {label}
             <span> {required && showRequired ? '*' : ''}</span>
             {toolTip && (
-              <ToolTip description={toolTip} classProp={styles.tool_tip}>
+              <ToolTip description={toolTip} className={styles.tool_tip}>
                 <Icon name="info" />
               </ToolTip>
             )}
@@ -201,7 +201,7 @@ const TextArea = forwardRef(
           ></textarea>
 
           {icon ? (
-            <Icon name={icon} classProp={styles['icon_' + iconColor]} />
+            <Icon name={icon} className={styles['icon_' + iconColor]} />
           ) : null}
         </div>
 

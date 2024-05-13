@@ -3,15 +3,22 @@ import styles from './ProgressBar.module.scss';
 
 export type ProgressBarPropsT = {
   value: number;
-  classProp?: string;
+  className?: string;
   classValueProp?: string;
 };
 
-const ProgressBar = ({ value = 40, classProp = '', classValueProp = ''}: ProgressBarPropsT) => {
+const ProgressBar = ({
+  value = 40,
+  className = '',
+  classValueProp = '',
+}: ProgressBarPropsT) => {
   return (
-    <div className={`${styles.wrapper} ${classProp}`}>
+    <div className={`${styles.wrapper} ${className}`}>
       <div className={styles.container}></div>
-      <div className={`${styles.value} ${classValueProp}`} style={{ width: value + '%' }}></div>
+      <div
+        className={`${styles.value} ${classValueProp}`}
+        style={{ width: value + '%' }}
+      ></div>
     </div>
   );
 };
