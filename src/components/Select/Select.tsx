@@ -33,6 +33,7 @@ type SelectPropsT = {
   onChange?: Function;
   validator?: Function;
   required?: boolean;
+  showRequired?: boolean;
   showLabel?: boolean;
   isError?: boolean;
   customErrorMessage?: string;
@@ -53,6 +54,7 @@ const Select = forwardRef(
       onFocus,
       validator = () => true,
       required = false,
+      showRequired = true,
       showLabel = true,
       isError,
       customErrorMessage,
@@ -153,7 +155,7 @@ const Select = forwardRef(
         {showLabel && (
           <label htmlFor={id}>
             {label}
-            <span> {required ? '*' : ''}</span>
+            <span> {required && showRequired ? '*' : ''}</span>
           </label>
         )}
 
