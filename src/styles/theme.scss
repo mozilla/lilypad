@@ -1,13 +1,12 @@
-@use './tools/utility.scss' as *;
-@use './tools/flex.scss' as *;
+@use './tools/external-util.scss' as *;
 
 :root {
   /**
   FONTS
   **/
-  --font-primary: 'Inter';
-  --font-secondary: 'Space Grotesk';
-  --font-backup: 'Arial';
+  --font-primary: inherit;
+  --font-secondary: inherit;
+  --font-backup: inherit;
 
   --font-primary-weight: 500;
   --font-secondary-weight: 700;
@@ -61,6 +60,8 @@
   --badge-font-weight: 500;
   --badge-padding: 5px 12px;
   --badge-border-radius: 56px;
+  --badge-line-height: 26px;
+  --badge-line-height: 26px;
 
   /**
   RADIO
@@ -106,6 +107,18 @@ main[data-theme='light'],
   --color-interaction-secondary-alt-hover: #e8e8e8;
   --color-interaction-secondary-alt-active: #d9d9d9;
   --color-interaction-secondary-alt-disabled: #e7e7e7;
+
+  /**
+  TERTIARY INTERACTION
+  **/
+  --color-interaction-tertiary: #ffffff;
+  --color-interaction-tertiary-hover: #d3d3d3;
+  --color-interaction-tertiary-active: #ccccd1;
+  --color-interaction-tertiary-disabled: rgba(176, 176, 176, 0.5);
+  --color-interaction-tertiary-alt: #ffffff;
+  --color-interaction-tertiary-alt-hover: #e8e8e8;
+  --color-interaction-tertiary-alt-active: #d9d9d9;
+  --color-interaction-tertiary-alt-disabled: #e7e7e7;
 
   /**
   SEMANTIC
@@ -223,6 +236,18 @@ main[data-theme='dark'] {
   --color-interaction-secondary-alt-hover: #e8e8e8;
   --color-interaction-secondary-alt-active: #d9d9d9;
   --color-interaction-secondary-alt-disabled: #e7e7e7;
+
+  /**
+  TERTIARY INTERACTION
+  **/
+  --color-interaction-tertiary: #ffffff;
+  --color-interaction-tertiary-hover: #d3d3d3;
+  --color-interaction-tertiary-active: #ccccd1;
+  --color-interaction-tertiary-disabled: rgba(176, 176, 176, 0.5);
+  --color-interaction-tertiary-alt: #ffffff;
+  --color-interaction-tertiary-alt-hover: #e8e8e8;
+  --color-interaction-tertiary-alt-active: #d9d9d9;
+  --color-interaction-tertiary-alt-disabled: #e7e7e7;
 
   /**
   SEMANTIC

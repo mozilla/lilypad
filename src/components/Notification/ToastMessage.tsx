@@ -3,6 +3,7 @@ import styles from './ToastMessage.module.scss';
 import Button from '../Button';
 import { NotificationTypesT } from './types';
 import NotificationIcon from './NotificationIcon';
+import uStyles from '../../styles/internal-util.module.scss';
 
 export type ToastPropsT = {
   title: string;
@@ -60,7 +61,8 @@ const ToastMessage = forwardRef(
           </div>
           <div className="mr-20px">
             <div className="heading-xs">{title}</div>
-            <p className="body-md my-16px-dt my-14px-mb">{description}</p>
+
+            <p className={styles.description}>{description}</p>
             {callback && (
               <div className={styles.callback_wrapper}>
                 <Button

@@ -1,227 +1,4 @@
 @use './media-queries.scss' as *;
-@use './mixins.scss' as *;
-@use '../core/variables.scss' as *;
-
-// ---------------------------------
-//   Quick Typograpjhy
-// ---------------------------------
-$fontSizes: 12, 14, 16, 18, 20;
-
-@each $fontSize in $fontSizes {
-  .font-#{$fontSize} {
-    @include font-size($fontSize);
-  }
-}
-
-// Body Text
-.body-md {
-  @include body-md();
-}
-
-.body-md-semi-bold {
-  @include body-md-semi-bold();
-}
-
-.body-md-bold {
-  @include body-md-bold();
-}
-
-// Heading
-.heading-xxl {
-  @include heading-xxl();
-}
-
-.heading-xl {
-  @include heading-xl();
-}
-
-.heading-lg {
-  @include heading-lg();
-}
-
-.heading-md {
-  @include heading-md();
-}
-
-.heading-sm {
-  @include heading-sm();
-}
-
-.heading-xs {
-  @include heading-xs();
-}
-
-.heading-xxs {
-  @include heading-xxs();
-}
-
-.capitalize {
-  text-transform: capitalize;
-}
-
-// ---------------------------------
-//   Quick Media-Q
-// ---------------------------------
-.no-mobile {
-  @include mobile-down {
-    display: none !important;
-  }
-}
-
-// ---------------------------------
-//   Colors
-// ---------------------------------
-.color-text-main {
-  color: $color-text-main;
-}
-
-// ---------------------------------
-//   Visibility
-// ---------------------------------
-
-.hidden {
-  display: none !important;
-}
-
-.hidden-mobile-only {
-  @include mobile-only {
-    display: none !important;
-  }
-}
-
-.hidden-tablet-up {
-  @include tablet-up {
-    display: none !important;
-  }
-}
-
-.hidden-tablet-only {
-  @include tablet-only {
-    display: none !important;
-  }
-}
-
-.hidden-desktop-up {
-  @include desktop-up {
-    display: none !important;
-  }
-}
-
-.hidden-desktop-only {
-  @include desktop-only {
-    display: none !important;
-  }
-}
-
-.hidden-hd-up {
-  @include hd-up {
-    display: none !important;
-  }
-}
-
-// ---------------------------------
-//   Misc
-// ---------------------------------
-
-.sr-only {
-  border: 0 !important;
-  clip: rect(1px, 1px, 1px, 1px) !important;
-  -webkit-clip-path: inset(50%) !important;
-  clip-path: inset(50%) !important;
-  height: 1px !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  padding: 0 !important;
-  position: absolute !important;
-  width: 1px !important;
-  white-space: nowrap !important;
-}
-
-.clear-button {
-  cursor: pointer;
-  border: none;
-  background-color: transparent;
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-}
-
-.block {
-  display: block;
-}
-
-.pointer {
-  cursor: pointer;
-}
-
-.no-link {
-  &,
-  &:hover {
-    text-decoration: none;
-    color: inherit;
-  }
-}
-
-.overflow-x-hidden {
-  overflow-x: hidden;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.text-right {
-  text-align: right;
-}
-
-.text-left {
-  text-align: left;
-}
-
-.uppercase {
-  text-transform: uppercase;
-}
-
-.title-case {
-  text-transform: capitalize;
-}
-
-.u-left-absolute {
-  position: absolute;
-  left: 0;
-}
-
-.u-right-absolute {
-  position: absolute;
-  right: 0;
-}
-
-.left-absolute {
-  position: absolute;
-  left: 0;
-}
-
-.right-absolute {
-  position: absolute;
-  right: 0;
-}
-
-.width-100 {
-  width: 100%;
-}
-
-.content-box {
-  &,
-  & * {
-    box-sizing: content-box;
-  }
-}
-
-.button-wrapper {
-  border: 0;
-  background: transparent;
-  padding: 0;
-}
 
 // ---------------------------------
 //  Layout
@@ -468,4 +245,66 @@ $unit: 'px';
       }
     }
   }
+}
+
+/* Container */
+.flex {
+  display: flex;
+}
+
+/* Align Items */
+.items_start {
+  align-items: flex-start;
+}
+.items_end {
+  align-items: flex-end;
+}
+.items_center {
+  align-items: center;
+}
+.items_baseline {
+  align-items: baseline;
+}
+.items_stretch {
+  align-items: stretch;
+}
+
+/* Align Content */
+.content_start {
+  align-content: flex-start;
+}
+.content-end {
+  align-content: flex-end;
+}
+.content_center {
+  align-content: center;
+}
+.content_between {
+  align-content: space-between;
+}
+.content_around {
+  align-content: space-around;
+}
+.content_evenly {
+  align-content: space-evenly;
+}
+
+/* Justify Content */
+.justify_start {
+  justify-content: flex-start;
+}
+.justify_end {
+  justify-content: flex-end;
+}
+.justify_center {
+  justify-content: center;
+}
+.justify_between {
+  justify-content: space-between;
+}
+.justify_around {
+  justify-content: space-around;
+}
+.justify_evenly {
+  justify-content: space-evenly;
 }

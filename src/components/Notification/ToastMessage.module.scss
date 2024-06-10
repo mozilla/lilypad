@@ -87,3 +87,12 @@
 .icon {
   margin-right: 20px;
 }
+
+.description {
+  @include body_md;
+  margin-right: 36px;
+
+  @include mobile-down {
+    margin-right: 14px 0;
+  }
+}

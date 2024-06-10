@@ -101,9 +101,3 @@
     @content;
   }
 }
-
-@mixin max-width-up {
-  @media (min-width: $container-max-width) {
-    @content;
-  }
-}

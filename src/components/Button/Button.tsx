@@ -14,7 +14,10 @@ export type ButtonCategoriesT =
   | 'primary_clear'
   | 'secondary_solid'
   | 'secondary_outline'
-  | 'secondary_clear';
+  | 'secondary_clear'
+  | 'tertiary_solid'
+  | 'tertiary_outline'
+  | 'tertiary_clear';
 
 export type ButtonSizesT = 'small' | 'medium' | 'large';
 

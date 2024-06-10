@@ -195,6 +195,91 @@
   }
 }
 
+/******************************
+      TERTIARY BUTTONS
+******************************/
+
+/*-------------------------------
+  SOLID BUTTON 
+-------------------------------*/
+.button_secondary_solid {
+  @include rect_button_base();
+  background-color: $color-interaction-tertiary;
+  border: solid $button-border-stroke $color-interaction-tertiary;
+  color: $color-interaction-primary;
+
+  &:hover {
+    background-color: $color-interaction-tertiary-hover;
+    border: solid $button-border-stroke $color-interaction-tertiary-hover;
+  }
+
+  &_active,
+  &:focus {
+    border: solid $button-border-stroke $color-interaction-tertiary-active;
+    background-color: $color-interaction-tertiary-active;
+  }
+
+  &:disabled,
+  &[disabled] {
+    background-color: $color-interaction-tertiary-disabled;
+    border: solid $button-border-stroke $color-interaction-tertiary-disabled;
+    color: $color-text-disabled;
+  }
+}
+
+/*-------------------------------
+  OUTLINE BUTTON
+-------------------------------*/
+.button_secondary_outline {
+  @include rect_button_base();
+  background-color: transparent;
+  border: solid $button-border-stroke $color-interaction-tertiary;
+  color: $color-interaction-tertiary;
+
+  &:hover {
+    border: solid $button-border-stroke $color-interaction-tertiary-hover;
+    color: $color-interaction-tertiary-hover;
+  }
+
+  &_active,
+  &:focus {
+    border: solid $button-border-stroke $color-interaction-tertiary-active;
+    color: $color-interaction-tertiary-hover;
+  }
+
+  &:disabled,
+  &[disabled] {
+    background-color: transparent;
+    border: solid $button-border-stroke $color-interaction-tertiary-disabled;
+    color: $color-text-disabled;
+  }
+}
+
+/*-------------------------------
+  CLEAR BUTTON
+-------------------------------*/
+.button_secondary_clear {
+  @include rect_button_base();
+  background-color: transparent;
+  border: solid $button-border-stroke transparent;
+  color: $color-interaction-tertiary;
+  box-shadow: none;
+
+  &:hover {
+    color: $color-interaction-tertiary-hover;
+  }
+
+  &_active,
+  &:focus {
+    color: $color-interaction-tertiary-hover;
+  }
+
+  &:disabled,
+  &[disabled] {
+    color: $color-text-disabled;
+  }
+}
+
 /*-------------------------------
   SIZES
 -------------------------------*/

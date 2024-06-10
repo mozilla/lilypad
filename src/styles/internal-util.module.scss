@@ -1,0 +1,146 @@
+@use './tools/mixins.scss' as *;
+@use './core/variables.scss' as *;
+
+// ---------------------------------
+//   Quick Typograpjhy
+// ---------------------------------
+$fontSizes: 12, 14, 16, 18, 20;
+
+@each $fontSize in $fontSizes {
+  .font-#{$fontSize} {
+    @include font-size($fontSize);
+  }
+}
+
+// Body Text
+.body_md {
+  @include body-md();
+}
+
+.body_md_semi_bold {
+  @include body-md-semi-bold();
+}
+
+.body_md_bold {
+  @include body-md-bold();
+}
+
+// Heading
+.heading_xxl {
+  @include heading-xxl();
+}
+
+.heading_xl {
+  @include heading-xl();
+}
+
+.heading_lg {
+  @include heading-lg();
+}
+
+.heading_md {
+  @include heading-md();
+}
+
+.heading_sm {
+  @include heading-sm();
+}
+
+.heading_xs {
+  @include heading-xs();
+}
+
+.heading_xxs {
+  @include heading-xxs();
+}
+
+// ---------------------------------
+//  Flex Quickies
+// ---------------------------------
+/* Container */
+.flex {
+  display: flex;
+}
+
+/* Align Items */
+.items_start {
+  align-items: flex-start;
+}
+.items_end {
+  align-items: flex-end;
+}
+.items_center {
+  align-items: center;
+}
+.items_baseline {
+  align-items: baseline;
+}
+.items_stretch {
+  align-items: stretch;
+}
+
+/* Align Content */
+.content_start {
+  align-content: flex-start;
+}
+.content-end {
+  align-content: flex-end;
+}
+.content_center {
+  align-content: center;
+}
+.content_between {
+  align-content: space-between;
+}
+.content_around {
+  align-content: space-around;
+}
+.content_evenly {
+  align-content: space-evenly;
+}
+
+/* Justify Content */
+.justify_start {
+  justify-content: flex-start;
+}
+.justify_end {
+  justify-content: flex-end;
+}
+.justify_center {
+  justify-content: center;
+}
+.justify_between {
+  justify-content: space-between;
+}
+.justify_around {
+  justify-content: space-around;
+}
+.justify_evenly {
+  justify-content: space-evenly;
+}
+
+// ---------------------------------
+//   Colors
+// ---------------------------------
+.color_text_main {
+  color: $color-text-main;
+}
+
+// ---------------------------------
+//   Visibility
+// ---------------------------------
+
+.hidden {
+  display: none !important;
+}
+
+// ---------------------------------
+//   Misc
+// ---------------------------------
+.block {
+  display: block;
+}
+
+.pointer {
+  cursor: pointer;
+}

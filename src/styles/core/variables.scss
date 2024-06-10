@@ -3,7 +3,7 @@
 // -----------------
 $font-size-base: 16; // base size in px
 $primary-font: var(--font-primary);
-$secondary-font: var(--font-seondary);
+$secondary-font: var(--font-secondary);
 $backup-font: var(--font-backup);
 $font-primary-weight: var(--font-primary-weight);
 $font-secondary-weight: var(--font-secondary-weight);
@@ -47,6 +47,26 @@ $color-interaction-secondary-alt-active: var(
 );
 $color-interaction-secondary-alt-disabled: var(
   --color-interaction-secondary-alt-disabled
+);
+
+/**
+  TERTIARY INTERACTION
+  **/
+$color-interaction-tertiary: var(--color-interaction-tertiary);
+$color-interaction-tertiary-hover: var(--color-interaction-tertiary-hover);
+$color-interaction-tertiary-active: var(--color-interaction-tertiary-active);
+$color-interaction-tertiary-disabled: var(
+  --color-interaction-tertiary-disabled
+);
+$color-interaction-tertiary-alt: var(--color-interaction-tertiary-alt);
+$color-interaction-tertiary-alt-hover: var(
+  --color-interaction-tertiary-alt-hover
+);
+$color-interaction-tertiary-alt-active: var(
+  --color-interaction-tertiary-alt-active
+);
+$color-interaction-tertiary-alt-disabled: var(
+  --color-interaction-tertiary-alt-disabled
 );
 
 /**
@@ -143,13 +163,13 @@ $gradient-rainbow: linear-gradient(
 $gradient-cool: linear-gradient(90deg, #6ae1d9 0%, #9898ff 100%);
 
 // ---- Break Points ---------------------
+
 $breakpoint-mobile: 580px;
 $breakpoint-tablet: 768px;
 $breakpoint-tablet-large: 992px;
 $breakpoint-desktop: 1024px;
 $breakpoint-desktop-large: 1220px;
 $breakpoint-hd: 1312px;
-$container-max-width: 1440px;
 
 // ---- Misc ---------------------
 $drop-shadow: 0 3px 8px rgba(#000, 0.3);
