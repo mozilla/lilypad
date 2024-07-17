@@ -13,6 +13,7 @@ import FadeIn from '../FadeIn';
 
 export type DropdownT = {
   closeDropdown: Function;
+  openDropdown: Function;
 };
 
 export type AlignmentT = 'left' | 'right';

@@ -1,6 +1,6 @@
 {
   "name": "@mozilla/lilypad-ui",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "React Component UI Libray",
   "scripts": {
     "sb": "start-storybook -p 6006",
@@ -60,6 +60,8 @@
   "peerDependencies": {
     "react": ">=16.13.1"
   },
+
+
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "files": [
