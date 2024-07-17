@@ -61,6 +61,7 @@ type InputProps = {
   onFocus?: Function;
   onChange?: Function;
   mask?: RegExp;
+  autoComplete?: 'on' | 'off';
   className?: string;
 };
 
@@ -91,6 +92,7 @@ const Input = forwardRef(
       showLabel = true,
       onBlur,
       mask,
+      autoComplete = 'on',
       className = '',
     }: InputProps,
     ref
@@ -200,6 +202,7 @@ const Input = forwardRef(
 
         <div className={styles.input_container}>
           <input
+            autoComplete={autoComplete}
             readOnly={readOnly}
             ref={inputRef}
             aria-label={label}
